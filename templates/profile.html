@@ -1,0 +1,10 @@
+<h1>Your Profile</h1>
+<p>Welcome, {{ request.user.username }}!</p>
+<h2>Your Ideas:</h2>
+<ul>
+    {% for idea in user_ideas %}
+        <li>{{ idea.title }} - {{ idea.content }}</li>
+    {% empty %}
+        <li>You haven't submitted any ideas yet.</li>
+    {% endfor %}
+</ul>

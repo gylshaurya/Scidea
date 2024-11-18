@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Ideas</title>
+</head>
+<body>
+    <h1>All Submitted Ideas</h1>
+    <form method="get" action="{% url 'idea_list' %}">
+        <input type="text" name="q" placeholder="Search ideas...">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for idea in ideas %}
+            <li>
+                <strong>{{ idea.title }}</strong> by {{ idea.author.username }} <br>
+                {{ idea.content }}
+                <br><small>Submitted on {{ idea.timestamp }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
