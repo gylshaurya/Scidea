@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-9l018)f5chmo^tz97&#=8v9)8-ld4w+fx4@0z4x9a4_n^xelz7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','https://scidea.onrender.com']
 
 LOGIN_URL = '/login/login/'  # Redirect to this URL if login is required
 LOGIN_REDIRECT_URL = '/'  # Redirect here after successful login
