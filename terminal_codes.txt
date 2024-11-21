@@ -1,0 +1,12 @@
+git add .
+git commit -m "Initial commit"
+git push origin main
+
+venv\Scripts\activate
+
+python manage.py collectstatic
+pip install -r requirements.txt
+git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+git init
+pip freeze > requirements.txt
+
