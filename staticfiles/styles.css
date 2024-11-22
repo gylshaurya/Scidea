@@ -1,0 +1,141 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+    font-family: "Source Serif 4", serif; /* Modern font style */
+    background-color: white;
+}
+
+/* Style for the navigation bar */
+nav {
+    background-color: transparent; /* Transparent background */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 40px; /* More padding for better margins */
+    z-index: 100;
+    border-bottom: none; /* Remove any border */
+}
+
+/* Styling the list in the nav */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px; /* Increased space between items */
+}
+
+/* Links in the navigation */
+nav a {
+    text-decoration: none;
+    color: black; /* Black colored text */
+    font-size: 14px; /* Smaller font size */
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: "Source Serif 4", serif; /* Apply Poppins font */
+    font-weight: 550; /* Slightly thicker font weight */
+}
+
+/* Hover effect for links */
+nav a:hover {
+    color: gray;
+}
+
+/* Styling for the dropdown menu */
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius:7px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Styling the dropdown links */
+nav .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    font-size: 14px;
+}
+
+nav .dropdown-content a:hover {
+    color: gray;
+}
+
+/* V-shaped arrow */
+nav .arrow {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-weight: 600; /* Make arrow weight consistent */
+    transform: rotate(225deg); /* Default V-shape arrow */
+    transform-origin:center;
+    margin-left:5px;
+    padding-bottom: 2px;
+    transition: transform 0.3s ease; /* Rotate on hover */
+}
+
+/* Arrow rotation on hover */
+nav .dropdown:hover .arrow {
+transform: translate(60%, -15%) rotate(405deg);
+}
+
+/* Styling for the login and signup buttons */
+.auth-buttons {
+    display: flex;
+    gap: 2px; /* Increased space between buttons */
+    margin-left: auto; /* Align the auth buttons to the right */
+}
+
+nav .signup-btn, nav .login-btn {
+    text-decoration: none;
+    color: black;
+    padding: 12px 30px; /* Wider padding for login button */
+    border-radius: 25px;
+    font-size: 14px; /* Smaller font size */
+    font-weight: 500; /* Slightly thicker font weight for both buttons */
+    transition: background-color 0.2s ease;
+}
+
+/* Remove border from Sign Up button */
+nav .signup-btn {
+    background-color: transparent;
+}
+
+nav .login-btn {
+    background-color: black; /* Black background for Login button */
+    color: white; /* White text */
+}
+
+nav .signup-btn:hover {
+     /* Light background on hover */
+}
+
+nav .login-btn:hover {
+    color: white;
+    background-color: gray; /* Darker background on hover for Login */
+}
