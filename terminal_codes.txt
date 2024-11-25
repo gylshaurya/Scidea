@@ -1,13 +1,14 @@
 git add .
-git commit -m "Initial commit"
+git commit -m "UI Changes 3"
 git push origin main
 
 venv\Scripts\activate
 
 python manage.py runserver
 
-
 python manage.py collectstatic
+
+
 pip install -r requirements.txt
 git remote add origin https://github.com/<your-username>/<your-repo-name>.git
 git init
