@@ -1,0 +1,207 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    background-color: white;
+}
+
+/* Navigation bar */
+nav {
+    padding: 45px 10px;
+    top: 0;
+    height: 50px;
+    background-color: transparent;
+    border-bottom: none;
+    display: flex;
+    position:relative;
+    align-items: center;
+}
+
+/* Logo */
+nav .logo {
+display: flex;
+align-items: center;
+}
+
+nav .logo img {
+    height: 70px;
+    width: 150px;
+    top: -200px;
+    margin-right: 30px;
+}
+
+/* List */
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+/* Links */
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    padding: 15px 15px;
+    border-radius: 5px;
+    transition: color 0.2s ease;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: gray;
+}
+
+
+/* Dropdown */
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown-content {
+    display: flex;
+    position: absolute;
+    pointer-events: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 10px;
+    margin-top:10px;
+    left: 0;
+    min-width: 180px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 7px;
+    overflow: hidden;
+    gap:0px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+nav .dropdown-content a .material-icons {
+    font-size: 17px;
+    margin-right:8px;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+}
+
+nav .dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: dropdown-bounce 0.4s ease;
+}
+
+
+nav .dropdown-content a {
+    padding: 12px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav .dropdown-content > li:first-child a,
+nav .dropdown-content > li:nth-child(2) a {
+    display: flex;
+    align-items: center;
+    text-align: left ;
+    font-weight: 600;
+    font-size: 14px;
+    color: black;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav .dropdown-content > li a:hover {
+    color: gray;
+}
+
+/* Divider */
+.dropdown-divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 10px 10px;
+}
+
+/* Arrow*/
+nav .arrow {
+    display: inline-block;
+    margin-left: 5px;
+    transform: rotate(90deg);
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+nav .dropdown:hover .arrow {
+transform: rotate(270deg);
+}
+
+
+/* Authentication */
+.auth-buttons {
+    display: flex;
+    padding: 10px 17px;
+    margin-left: auto; /* Align the auth buttons to the right */
+}
+
+nav .login-btn, nav .logout-btn {
+    text-decoration: none;
+    color: black;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 25px;
+    font-size: 13px;
+    transition: background-color 0.2s ease;
+    background-color: black;
+    color: white;
+}
+
+nav .signup-btn{
+    text-decoration: none;
+    color: black;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 25px;
+    font-size: 13px;
+    transition: background-color 0.2s ease;
+    background-color: transparent;
+}
+
+nav .signup-btn:hover {
+     color:gray;
+}
+
+nav .login-btn:hover, nav .logout-btn:hover {
+    color: white;
+    background-color: gray;
+}
+
+/* Bounce effect */
+@keyframes dropdown-bounce {
+    0% {
+        transform: translateY(-5px); /* Slightly above initial position */
+    }
+    50% {
+        transform: translateY(2px); /* Slight bounce below position */
+    }
+    100% {
+        transform: translateY(0px); /* Final position */
+    }
+}
