@@ -32,7 +32,7 @@ urlpatterns = [
     path('profile/', __import__('ideas.views').views.profile, name='profile'),
     path('ideas/', include('ideas.urls')),  # Include the URLs for the ideas app
     path('', __import__('ideas.views').views.home, name='home'),
-    path('signup/', __import__('ideas.views').views.signup_view, name='signup'),
+    path('signup/', __import__('ideas.views').views.signup, name='signup'),
     path('login/', include('django.contrib.auth.urls')),  # Django handles login via this
     path('logout/', custom_logout_view, name='logout'),
 ]

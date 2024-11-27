@@ -12,14 +12,14 @@ body {
 
 /* Navigation bar */
 nav {
-    padding: 45px 10px;
-    top: 0;
-    height: 50px;
-    background-color: transparent;
-    border-bottom: none;
-    display: flex;
-    position:relative;
+    display:flex;
     align-items: center;
+    background-color: transparent;
+    top: 0;
+    height:50px;
+    position:relative;
+    padding: 45px 10px;
+    border-bottom: none;
 }
 
 /* Logo */
@@ -98,7 +98,6 @@ nav .dropdown:hover .dropdown-content {
     animation: dropdown-bounce 0.4s ease;
 }
 
-
 nav .dropdown-content a {
     padding: 12px;
     margin: 0;
@@ -126,10 +125,6 @@ nav .dropdown-content > li:nth-child(2) a {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav .dropdown-content > li a:hover {
-    color: gray;
-}
-
 /* Divider */
 .dropdown-divider {
     border: none;
@@ -137,6 +132,11 @@ nav .dropdown-content > li a:hover {
     background-color: #e0e0e0;
     margin: 10px 10px;
 }
+
+nav .dropdown-content > li a:hover {
+    color: gray;
+}
+
 
 /* Arrow*/
 nav .arrow {
@@ -159,18 +159,18 @@ transform: rotate(270deg);
     margin-left: auto; /* Align the auth buttons to the right */
 }
 
-nav .login-btn, nav .logout-btn {
-    text-decoration: none;
-    color: black;
-    padding: 15px 30px;
-    font-weight: 600;
-    font-family: "Montserrat", sans-serif;
-    border-radius: 25px;
-    font-size: 13px;
-    transition: background-color 0.2s ease;
-    background-color: black;
-    color: white;
-}
+    nav .login-btn, nav .logout-btn {
+        text-decoration: none;
+        color: black;
+        padding: 15px 30px;
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        border-radius: 25px;
+        font-size: 13px;
+        transition: background-color 0.2s ease;
+        background-color: black;
+        color: white;
+    }
 
 nav .signup-btn{
     text-decoration: none;
@@ -188,10 +188,12 @@ nav .signup-btn:hover {
      color:gray;
 }
 
+
 nav .login-btn:hover, nav .logout-btn:hover {
     color: white;
     background-color: gray;
 }
+
 
 /* Bounce effect */
 @keyframes dropdown-bounce {
@@ -203,5 +205,68 @@ nav .login-btn:hover, nav .logout-btn:hover {
     }
     100% {
         transform: translateY(0px); /* Final position */
+    }
+}
+
+
+/* Mobile-responsive Design */
+@media screen and (max-width: 768px) {
+    /* Logo resizing */
+    nav .logo img {
+        height: 40px;
+        width: auto;
+    }
+
+    /* Stack the navigation items */
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+
+    /* Center the auth buttons */
+    .auth-buttons {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    /* Adjust the dropdown layout */
+    nav .dropdown-content {
+        position: absolute;
+        width: 200px;
+        padding: 10px;
+        left: -10px;
+    }
+
+    /* Adjust dropdown links for smaller screens */
+    nav .dropdown-content a {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    /* Adjust hover effect for dropdown on smaller screens */
+    nav .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        animation: dropdown-bounce 0.3s ease;
+    }
+
+    /* Hide dropdown arrow for mobile */
+    nav .arrow {
+        display: none;
+    }
+}
+
+/* Larger screens (tablet and up) */
+@media screen and (min-width: 768px) {
+    nav ul {
+        gap: 20px;
+        flex-direction: row;
+    }
+
+    /* Show dropdown arrow for larger screens */
+    nav .arrow {
+        display: inline-block;
     }
 }

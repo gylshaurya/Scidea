@@ -5,17 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 <body>
+<header>
+    <div class="logo"><a href="/" class="logo"><img src="/static/ScideaLogo.svg"/></a></div>
+</header>
+<main>
     <h1>Sign in to Scidea</h1>
-    <form method="post">
+
+    <button class="google-btn"><img src="{% static 'GoogleLogo.svg' %}" alt="Google Logo">Sign in with Google</button>
+
+    <div class="divider"><span>or sign in with email</span></div>
+
+    <form method="POST" action="{% url 'custom_login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="hidden" name="next" value="{{ request.GET.next }}">
-        <button type="submit">Login</button>
+        <div class="input-group">
+            <label for="email">Username or Email</label>
+            <div class="custom-input">
+                <input type="text" id="email" name="email" required>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <div class="custom-input">
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+
+        <button type="submit" class="login-btn">Sign In</button>
     </form>
+
     <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.</p>
 
+    {% if messages %}
+    <div class="error-box">
+        <ul>
+        {% for message in messages %}
+            <li><i class="error-icon"></i>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+</main>
 </body>
 </html>
