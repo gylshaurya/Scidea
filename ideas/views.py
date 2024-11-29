@@ -56,18 +56,38 @@ def signup(request):
 
     return render(request, 'registration/signup.html', {'form': form})
 
+
 def custom_login(request):
     if request.method == 'POST':
         username = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Authenticate the user
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request, user)  # Log in the user
-            return redirect('home')  # Redirect to a page after successful login (e.g. the homepage)
+            login(request, user)
+            return redirect('/')  # Redirect to home page after successful login
         else:
-            messages.error(request, "We couldn’t find an account matching the username and password you entered. Please check your username and password and try again.")  # Show error message on failed login
+            messages.error(request, "We couldn’t find an account matching the username and password.")
 
     return render(request, 'registration/login.html')
+
+
+def user_profile(request):
+    # Accessing the current logged-in user's data
+    user = request.user
+
+    # If the user is authenticated
+    if user.is_authenticated:
+        # Accessing user data
+        username = user.username
+        email = user.email
+        first_name = user.first_name
+        last_name = user.last_name
+
+        # Render a profile page with user data
+        return render(request, 'profile.html',
+                      {'username': username, 'email': email, 'first_name': first_name, 'last_name': last_name})
+    else:
+        # If not authenticated, redirect to log in
+        return redirect('login')

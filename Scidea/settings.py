@@ -18,8 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -30,17 +28,28 @@ SECRET_KEY = 'django-insecure-9l018)f5chmo^tz97&#=8v9)8-ld4w+fx4@0z4x9a4_n^xelz7
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+LOGIN_URL = 'login/'  # Path to the login page
+LOGIN_REDIRECT_URL = '/'  # Redirect after login
+LOGOUT_REDIRECT_URL = '/'
 
-LOGIN_URL = '/login/login/'  # Redirect to this URL if login is required
-LOGIN_REDIRECT_URL = '/'  # Redirect here after successful login
-LOGOUT_REDIRECT_URL = '/login/'  # Redirect users to the login page after logout
+if os.environ.get("DJANGO_ENV") == "production":
+    SITE_ID = 2  # ID of the production site in the database
+else:
+    SITE_ID = 1  # ID of the local site in the database
 
-
+SOCIALACCOUNT_ADAPTER = 'allauth.socialaccount.adapter.DefaultSocialAccountAdapter'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+SOCIALACCOUNT_LOGIN_ON_GET = True
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,7 +60,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -110,6 +120,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -122,6 +136,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
