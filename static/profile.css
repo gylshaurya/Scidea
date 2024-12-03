@@ -1,0 +1,115 @@
+/* General Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.profile-container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Header Section */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+
+}
+
+.profile-details {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image-container {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-icon {
+    font-size: 80px;
+    color: #aaa;
+}
+
+.profile-info h1 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.idea-count {
+    color: #000000;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Edit Profile Button */
+.edit-profile-btn {
+    border: 1px solid #ccc;
+    background-color: transparent;
+    padding: 10px 15px;
+    font-size: 13px;
+    color: black;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition:, border-color 0.3s;
+    font-weight: 500;
+}
+
+.edit-profile-btn .material-icons {
+    font-size: 17px;
+    margin-right:5px;
+    color:black;
+    vertical-align: middle;
+    display: inline-flex;
+    margin-bottom: 2px;
+}
+
+
+.edit-profile-btn:hover {
+    background-color: #f4f6f7;
+
+}
+
+/* Tabs Section */
+.tabs-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: start;
+}
+
+.tabs-nav a {
+    padding: 10px 20px;
+    border-radius: 20px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Default text color */
+    background-color: transparent; /* Light background */
+    font-family: 'Montserrat', sans-serif; /* Font style */
+    transition: background-color 0.5s, color 0.3s; /* Smooth transitions */
+    font-weight:400;
+    font-size:13px;
+}
+
+.tabs-nav a:hover {
+    background-color: #f4f6f7; /* Slightly darker on hover */
+    color: #000; /* Darker text */
+}
+
+.tabs-nav a.active {
+    background-color: #000; /* Black background for the active tab */
+    color: #fff; /* White text for the active tab */
+}

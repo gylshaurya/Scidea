@@ -1,18 +1,25 @@
+from django.http import Http404
+
 from .forms import IdeaForm, SignUpForm
 from .models import Idea
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from allauth.socialaccount.models import SocialAccount
 
 def home(request):
     return render(request, 'home.html')  # Render a homepage template
 
 @login_required
 def profile(request):
-    user_ideas = Idea.objects.filter(author=request.user)
-    return render(request, 'profile.html', {'user_ideas': user_ideas})
+    return render(request, 'profile.html', {'user': request.user})
+
+@login_required()
+def custom_logout_view(request):
+    if request.method == 'GET':
+        logout(request)  # Logs out the user
+        return redirect('/')  # Redirect to home page or any desired page
 
 @login_required
 def submit_idea(request):
@@ -36,6 +43,13 @@ def idea_list(request):
         ideas = Idea.objects.all()
     return render(request, 'ideas/idea_list.html', {'ideas': ideas})
 
+def get_profile_picture(request):
+    if request.user.is_authenticated:
+        social_account = SocialAccount.objects.filter(user=request.user).first()
+        if social_account:
+            profile_picture = social_account.get_avatar_url()  # Google profile picture URL
+            return profile_picture
+    return None
 
 def signup(request):
     if request.method == 'POST':
@@ -72,22 +86,18 @@ def custom_login(request):
 
     return render(request, 'registration/login.html')
 
+@login_required
+def profile_tab(request):
+    return render(request, 'tabs/profile_tab.html')
 
-def user_profile(request):
-    # Accessing the current logged-in user's data
-    user = request.user
+@login_required
+def activity_tab(request):
+    return render(request, 'tabs/activity_tab.html')
 
-    # If the user is authenticated
-    if user.is_authenticated:
-        # Accessing user data
-        username = user.username
-        email = user.email
-        first_name = user.first_name
-        last_name = user.last_name
+@login_required
+def lists_tab(request):
+    return render(request, 'tabs/lists_tab.html')
 
-        # Render a profile page with user data
-        return render(request, 'profile.html',
-                      {'username': username, 'email': email, 'first_name': first_name, 'last_name': last_name})
-    else:
-        # If not authenticated, redirect to log in
-        return redirect('login')
+@login_required
+def settings_tab(request):
+    return render(request, 'tabs/settings_tab.html')

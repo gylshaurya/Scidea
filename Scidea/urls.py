@@ -14,27 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import views as auth_views
-from django.contrib.auth import logout
-from django.shortcuts import redirect
-
-
-def custom_logout_view(request):
-    if request.method == 'GET':
-        logout(request)  # Logs out the user
-        return redirect('/')  # Redirect to home page or any desired page
-
+from ideas import views as ideas_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('profile/', __import__('ideas.views').views.profile, name='profile'),
     path('ideas/', include('ideas.urls')),  # Include the URLs for the ideas app
-    path('', __import__('ideas.views').views.home, name='home'),
-    path('signup/', __import__('ideas.views').views.signup, name='signup'),
+    path('', ideas_views.home, name='home'),
     path('login/', include('django.contrib.auth.urls')),  # Django handles login via this
-    path('logout/', custom_logout_view, name='logout'),
+    path('logout/', ideas_views.custom_logout_view, name='logout'),
 ]
 
 

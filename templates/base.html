@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Scidea{% endblock %}</title>
+    {% load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <a href="/" class="logo"><img src="/static/ScideaLogo.svg" alt="Logo"/></a>
+    <ul>
+        <li class="topics-dropdown">
+            <a href="#">Categories <span class="arrow">&#10095;</span></a>
+            <ul class="topics-dropdown-content">
+                <li><a href="#"><span class="material-icons">trending_up</span>Popular</a></li>
+                <li><a href="#"><span class="material-icons">hotel_class</span>New and Noteworthy</a></li>
+                <hr class="topics-dropdown-divider"/>
+                <li><a href="#">Observations</a></li>
+                <li><a href="#">Facts & Findings</a></li>
+                <li><a href="#">Thought Experiments</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Hypotheses</a></li>
+                <li><a href="#">Challenges and Problems</a></li>
+                <li><a href="#">Misconceptions</a></li>
+                <li><a href="#">Controversies</a></li>
+                <li><a href="#">Research Papers</a></li>
+            </ul>
+        </li>
+        <li><a href="/ideas/list/">Explore Ideas</a></li>
+        <li><a href="/ideas/submit/">Submit an Idea</a></li>
+    </ul>
+    {% if user.is_authenticated %}
+    <li class="profile-dropdown">
+        {% if user.socialaccount_set.exists %}
+        <img src="{{ user.socialaccount_set.first.get_avatar_url }}" alt="Profile Picture" class="profile-icon">
+        {% else %}
+        <span class="material-icons profile-icon">account_circle</span>
+        {% endif %}
+        <ul class="profile-dropdown-content">
+            <li><a href="{% url 'profile' %}"><span class="material-icons">person</span>Profile</a></li>
+            <li><a href="{% url 'profile' %}"><span class="material-icons">tune</span>Settings</a></li>
+            <hr class="profile-dropdown-divider"/>
+            <li><a href="{% url 'logout' %}"><span class="material-icons">logout</span>Log Out</a></li>
+        </ul>
+    </li>
+    {% else %}
+    <div class="auth-buttons">
+        <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
+        <a href="{% url 'custom_login' %}" class="login-btn">Log In</a>
+    </div>
+    {% endif %}
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

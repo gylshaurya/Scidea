@@ -1,49 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'home.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% extends 'base.html' %}
 
-</head>
-<body>
-<nav>
-    <a href="/" class="logo"><img src="/static/ScideaLogo.svg" /></a>
-    <ul>
-        <li class="dropdown">
-            <a href="#">Topics <span class="arrow">&#10095;</span></a>
-            <ul class="dropdown-content">
-                <li><a href="#"><span class="material-icons">trending_up</span>Popular</a></li>
-                <li><a href="#"><span class="material-icons">hotel_class</span>New and Noteworthy</a></li>
+{% block title %}Home - Scidea{% endblock %}
 
-                <hr class="dropdown-divider" />
+{% block content %}
 
-                <li><a href="#">Research Papers</a></li>
-                <li><a href="#">Observations</a></li>
-                <li><a href="#">Thought Experiments</a></li>
-                <li><a href="#">Discussions</a></li>
-            </ul>
-        </li>
-        <li><a href="/ideas/list/">Explore Ideas</a></li>
-        <li><a href="/ideas/submit/">Submit an Idea</a></li>
-    </ul>
+<div class="home-content">
+    <h1>Welcome to Scidea!</h1>
+    <p>Your source for innovative ideas and research.</p>
+    <!-- Your home page specific content here -->
+</div>
 
-    <div class="auth-buttons">
-            {% if request.user.is_authenticated %}
-             <a href="{% url 'logout' %}" class="logout-btn">Log Out</a>
-
-            {% else %}
-            <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
-            <a href="{% url 'custom_login' %}" class="login-btn">Log In</a>
-
-            {% endif %}
-    </div>
-</nav>
-
-
-</body>
-</html>
+{% endblock %}

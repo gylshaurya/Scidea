@@ -1,7 +1,7 @@
 pip freeze > requirements.txt
 python manage.py collectstatic
 git add .
-"Implementing Email SignIn and Sign Up 1"
+git commit -m "Implementing Email SignIn and Sign Up 1"
 git push origin main
 
 python manage.py runserver
