@@ -1,12 +1,170 @@
-/* home.css */
-
-/* Home Page Content */
-.home-content {
-    padding: 20px;
-    text-align: center;
+/* 🔹 General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-.home-content h1 {
-    font-size: 28px;
+/* 🔹 Main container takes up available space */
+.container {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 🌟 Intro Section */
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 0;
+    gap: 30px;
+}
+
+.intro-text {
+    max-width: 60%;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.cta-button {
+    color: black;
+    text-decoration: none;
+    padding: 14px 27px;
+    border-radius: 25px;
+    font-weight: 600;
+    background-color: #f0f0f1;
+    transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.intro-image {
+    max-width: 40%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* 🔹 Ideas Section */
+.ideas {
+    margin: 40px auto;
+    max-width: 800px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.ideas h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
     margin-bottom: 10px;
+    text-align:center;
+    color: #333;
+}
+
+.no-ideas{
+    text-align:center;
+}
+
+.no-ideas a {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+.no-ideas a:hover {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+
+/* 📌 Idea Cards */
+.idea-card {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.idea-card:hover {
+    background-color: #fafafa;
+}
+
+/* Idea Header */
+.idea-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.author-photo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.author-name:hover {
+    text-decoration: underline;
+}
+
+.idea-date {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* 📌 Idea Footer */
+.idea-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.idea-stats {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.save-button {
+    background: none;
+    border: none;
+    color: #007BFF;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.save-button:hover {
+    color: #0056b3;
 }

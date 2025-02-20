@@ -32,10 +32,7 @@ LOGIN_URL = 'login/'  # Path to the login page
 LOGIN_REDIRECT_URL = '/'  # Redirect after login
 LOGOUT_REDIRECT_URL = '/'
 
-if os.environ.get("DJANGO_ENV") == "production":
-    SITE_ID = 2  # ID of the production site in the database
-else:
-    SITE_ID = 1  # ID of the local site in the database
+SITE_ID = 1  # ID of the local site in the database
 
 SOCIALACCOUNT_ADAPTER = 'allauth.socialaccount.adapter.DefaultSocialAccountAdapter'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
@@ -44,6 +41,7 @@ SOCIALACCOUNT_LOGIN_ON_GET = True
 # Application definition
 
 INSTALLED_APPS = [
+    'ideas',
     'django.contrib.admin',
     'django.contrib.sites',
     'allauth',
@@ -55,8 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ideas',
 ]
+
+AUTH_USER_MODEL = 'ideas.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -138,13 +137,11 @@ USE_TZ = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
+        'APP': {
+            'client_id': '558786680504-b3mev0hn6lf9htdl6k9bkohlb279n910.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
     }
 }
 
@@ -162,7 +159,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

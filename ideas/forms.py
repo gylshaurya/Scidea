@@ -1,5 +1,7 @@
 from django import forms
-from .models import Idea
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import Idea, CustomUser
 from django.contrib.auth.models import User
 
 class IdeaForm(forms.ModelForm):
@@ -8,19 +10,7 @@ class IdeaForm(forms.ModelForm):
         fields = ['title', 'content']
 
 
-class SignUpForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
-    password_confirm = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}))
-
+class CustomSignupForm(UserCreationForm):
     class Meta:
-        model = User
-        fields = ['first_name', 'username', 'email']  # You can customize the fields as needed
-
-    def clean_password_confirm(self):
-        password = self.cleaned_data.get("password")
-        password_confirm = self.cleaned_data.get("password_confirm")
-
-        if password != password_confirm:
-            raise forms.ValidationError("Passwords don't match.")
-        return password_confirm
+        model = CustomUser
+        fields = ['username', 'email', 'name', 'password1', 'password2', 'profile_picture']

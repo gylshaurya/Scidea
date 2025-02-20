@@ -1,15 +1,27 @@
+from django.contrib.auth.hashers import make_password
 from django.http import Http404
 
-from .forms import IdeaForm, SignUpForm
-from .models import Idea
+from .forms import IdeaForm, CustomSignupForm
+from .models import Idea, CustomUser
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from allauth.socialaccount.models import SocialAccount
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 
 def home(request):
-    return render(request, 'home.html')  # Render a homepage template
+    ideas = Idea.objects.all()
+    return render(request, 'home.html', {'ideas': ideas})  # Render a homepage template
+
+def profile_view(request, pk):
+    user = CustomUser.objects.get(pk=pk)
+    return render(request, 'profile.html', {'user': user})
+
+def idea_detail(request, idea_id):
+    idea = get_object_or_404(Idea, id=idea_id)
+    return render(request, 'idea_detail.html', {'idea': idea})
 
 @login_required
 def profile(request):
@@ -34,7 +46,6 @@ def submit_idea(request):
         form = IdeaForm()
     return render(request, 'ideas/submit_idea.html', {'form': form})
 
-
 def idea_list(request):
     query = request.GET.get('q', '')
     if query:
@@ -51,26 +62,36 @@ def get_profile_picture(request):
             return profile_picture
     return None
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
+def signup_view(request):
+    if request.method == "POST":
+        form = CustomSignupForm(request.POST, request.FILES)
         if form.is_valid():
-            user = form.save()  # Save the new user
-            user.set_password(form.cleaned_data['password'])  # Hash the password
-            user.save()
-
-            # Log the user in after successful signup
+            user = form.save()
             login(request, user)
-            messages.success(request, "Signup successful! Welcome to Scidea.")
-            return redirect('home')  # Redirect to homepage after successful signup
-        else:
-            messages.error(request, "There was an error with your signup. Please try again.")
+            return redirect('profile', pk=user.pk)  # Redirect to the profile page
     else:
-        form = SignUpForm()
-
+        form = CustomSignupForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+def custom_signup(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        password = request.POST['password']
 
+        # Check if the email is already registered
+        if CustomUser.objects.filter(email=email).exists():  # Use CustomUser here
+            return render(request, 'registration/signup.html', {'error': 'Email already registered!'})
+
+        # Create and save the user
+        user = CustomUser.objects.create(
+            username=name,
+            email=email,
+            password=make_password(password)
+        )
+        return render(request, 'registration/login.html')  # Redirect to login page after successful signup
+
+    return render(request, 'registration/signup.html')
 def custom_login(request):
     if request.method == 'POST':
         username = request.POST.get('email')

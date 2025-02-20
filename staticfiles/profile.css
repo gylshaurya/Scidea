@@ -113,3 +113,7 @@ body {
     background-color: #000; /* Black background for the active tab */
     color: #fff; /* White text for the active tab */
 }
+
+.tab-content {
+    margin: 20px;
+}

@@ -2,12 +2,74 @@
 
 {% block title %}Home - Scidea{% endblock %}
 
-{% block content %}
-
-<div class="home-content">
-    <h1>Welcome to Scidea!</h1>
-    <p>Your source for innovative ideas and research.</p>
-    <!-- Your home page specific content here -->
-</div>
-
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
 {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% if not user.is_authenticated %}
+    <!-- 🌟 Introduction Section -->
+    <section class="intro">
+        <div class="intro-text">
+            <h1>Discover, Share, Innovate</h1>
+            <p>Scidea is your space to share groundbreaking ideas and connect with a like-minded community.</p>
+            <a href="{% url 'custom_signup' %}" class="cta-button">Get Started</a>
+        </div>
+        <img src="{% static 'innovation.svg' %}" alt="Innovative Thinking" class="intro-image">
+    </section>
+    {% endif %}
+
+    <!-- 🔹 Ideas Section -->
+    <section class="ideas">
+        <h2>Explore Ideas</h2>
+
+        <div class="ideas-list">
+            {% for idea in ideas %}
+            <div class="idea-card">
+                <!-- Idea Header -->
+                <div class="idea-header">
+                    <a href="{% url 'profile' idea.author.id %}" class="author-photo">
+                        <img src="{{ idea.author.profile_picture.url }}" alt="{{ idea.author.get_full_name }}">
+                    </a>
+                    <div class="author-details">
+                        <a href="{% url 'profile' idea.author.id %}" class="author-name">{{ idea.author.get_full_name }}</a>
+                        <span class="idea-date">{{ idea.date|date:"M j" }}</span>
+                    </div>
+                </div>
+
+                <!-- Idea Content -->
+                <div class="idea-content">
+                    <h3 class="idea-title">
+                        <a href="{% url 'idea_detail' idea.id %}">{{ idea.title }}</a>
+                    </h3>
+                    <p class="idea-summary">{{ idea.summary|truncatewords:20 }}</p>
+
+                    <div class="idea-footer">
+                        <div class="idea-stats">
+                            <span class="idea-appreciations"><i class="material-icons">favorite</i> {{ idea.appreciations|default:"0" }} </span>
+                            <span class="idea-replies"><i class="material-icons">chat_bubble_outline</i> {{ idea.replies.count|default:"0" }} </span>
+                        </div>
+                        <button class="save-button">Save</button>
+                    </div>
+                </div>
+
+                <!-- Idea Image -->
+                <div class="idea-image">
+                    <img src="{{ idea.image.url }}" alt="{{ idea.title }}">
+                </div>
+            </div>
+            {% empty %}
+            <div class="no-ideas">
+                <p>No ideas to show yet. <a href="{% url 'custom_signup' %}">Be the first to share one!</a></p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+

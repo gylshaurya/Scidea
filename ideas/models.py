@@ -1,17 +1,19 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.contrib.auth.models import User  # For user accounts
 
-class Idea(models.Model):
-    title = models.CharField(max_length=200)  # Short title of the idea
-    content = models.TextField()  # Detailed content of the idea
-    author = models.ForeignKey(User, on_delete=models.CASCADE)  # User who submitted it
-    timestamp = models.DateTimeField(auto_now_add=True)  # Time of submission
+class CustomUser(AbstractUser):
+    name = models.CharField(max_length=100)
+    profile_picture = models.ImageField(upload_to='profiles/', blank=True, null=True)
+    bio = models.TextField(blank=True)
 
     def __str__(self):
-        return self.title  # What shows up in the admin panel
-    
-class Comment(models.Model):
-    idea = models.ForeignKey(Idea, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+        return self.username
+
+class Idea(models.Model):
+    title = models.CharField(max_length=200)
     content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # Make sure to link to CustomUser here
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

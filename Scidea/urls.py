@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ideas/', include('ideas.urls')),  # Include the URLs for the ideas app
     path('', ideas_views.home, name='home'),
+    path('accounts/', include('allauth.urls')),
     path('login/', include('django.contrib.auth.urls')),  # Django handles login via this
     path('logout/', ideas_views.custom_logout_view, name='logout'),
 ]
