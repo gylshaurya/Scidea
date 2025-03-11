@@ -16,16 +16,17 @@
     <h1>Sign up to Scidea</h1>
 
     <a href="{% provider_login_url 'google' %}" class="google-btn">
-    <img src="{% static 'GoogleLogo.svg' %}" alt="Google Logo"> Sign up with Google </a>
+        <img src="{% static 'GoogleLogo.svg' %}" alt="Google Logo"> Sign up with Google
+    </a>
 
     <div class="divider"><span>or sign up with email</span></div>
 
-    <form method="post" >
+    <form method="post">
         {% csrf_token %}
         <div class="input-group">
-            <label for="name">Full Name</label>
+            <label for="name">Name</label>
             <div class="custom-input">
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <input type="text" id="name" name="first_name" placeholder="Enter your name" required>
             </div>
         </div>
 
@@ -39,14 +40,14 @@
         <div class="input-group">
             <label for="password">Password</label>
             <div class="custom-input">
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" placeholder="Set a password" required>
             </div>
         </div>
 
         <button type="submit" class="signup-btn">Sign Up</button>
     </form>
 
-    <p>Already have an account? <a href="{% url 'login' %}">Sign in here</a>.</p>
+    <p>Already have an account? <a href="{% url 'custom_login' %}" class="sign-in-link">Sign in here</a>.</p>
 
     {% if messages %}
     <div class="error-box">
@@ -56,7 +57,7 @@
         {% endfor %}
         </ul>
     </div>
-{% endif %}
+    {% endif %}
 
 </main>
 </body>

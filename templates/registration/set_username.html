@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Username</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'set_username.css' %}">
+</head>
+<body>
+<header>
+    <div class="logo"><a href="/" class="logo"><img src="/static/ScideaLogo.svg"/></a></div>
+</header>
+
+<main>
+    <h1>Set Your Username</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label for="username">Username</label>
+            <div class="custom-input">
+                <input type="text" id="username" name="username" placeholder="Choose a unique username" required>
+            </div>
+        </div>
+
+        {% if not google_login %}
+        <div class="input-group">
+            <label for="profile_picture">Upload Profile Picture (Optional)</label>
+            <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+        </div>
+        {% else %}
+        <p>Using Google Profile Picture: <img src="{{ user.google_profile_picture }}" class="profile-preview"></p>
+        {% endif %}
+
+        <button type="submit" class="submit-btn">Save</button>
+    </form>
+
+    {% if messages %}
+    <div class="error-box">
+        <ul>
+        {% for message in messages %}
+            <li><i class="error-icon"></i>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</main>
+</body>
+</html>

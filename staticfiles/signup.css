@@ -35,13 +35,12 @@ main h1 {
 
 /* Google button */
 .google-btn {
-    width:100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 15px auto;
     margin-bottom: 15px auto;
-    padding: 16px 30px;
+    padding: 18px 30px;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -49,6 +48,7 @@ main h1 {
     background-color: transparent;
     border: 1px solid #ccc;
     border-radius: 25px;
+    text-decoration:none;
     cursor: pointer;
     transition: border-color 0.2s ease;
     }
@@ -106,8 +106,8 @@ main h1 {
     align-items: center;
     background: transparent;
     border: 2px solid #ccc;
-    border-radius: 15px;
-    padding: 5px;
+    border-radius: 30px;
+    padding: 8px;
     transition: border-color 0.2s ease;
 }
 
@@ -116,7 +116,7 @@ main h1 {
     border: none;
     outline: none;
     flex: 1;
-    padding: 15px;
+    padding: 15px 15px;
     font-size: 14px;
     font-family: "Montserrat", sans-serif;
     background: transparent;
@@ -147,11 +147,12 @@ input:-webkit-autofill::placeholder {
 
 
 /* Login button */
-button.login-btn {
+button.signup-btn {
     width:100%;
     text-decoration: none;
     color: white;
     padding: 20px 30px;
+    margin-top:20px;
     font-weight: 540;
     font-family: "Montserrat", sans-serif;
     border-radius: 25px;
@@ -162,19 +163,19 @@ button.login-btn {
     cursor: pointer;
 }
 
-button.login-btn:hover {
+button.signup-btn:hover {
     color:white;
     background-color: gray;
 }
 
 /* Links */
-a {
+.sign-in-link {
     color: black;
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
-a:hover {
+.sign-in-link:hover {
     color: gray;
 }
 

@@ -20,7 +20,7 @@
                 <ul class="topics-dropdown-content">
                     <li><a href="#"><span class="material-icons">trending_up</span>Popular</a></li>
                     <li><a href="#"><span class="material-icons">hotel_class</span>New and Noteworthy</a></li>
-                    <hr class="divider">
+                    <hr class="topics-dropdown-divider">
                     <li><a href="#">Observations</a></li>
                     <li><a href="#">Facts & Findings</a></li>
                     <li><a href="#">Thought Experiments</a></li>
@@ -33,24 +33,24 @@
                 </ul>
             </li>
             <li><a href="/ideas/list/">Explore Ideas</a></li>
-            <li><a href="/ideas/submit/">Submit an Idea</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'create_post' %}">Submit an Idea</a></li>
+            {% else %}
+            <li><a href="{% url 'custom_signup' %}">Submit an Idea</a></li>
+            {% endif %}
         </ul>
 
         <!-- Authentication -->
         {% if user.is_authenticated %}
         <div class="profile-dropdown">
             <a href="{% url 'profile_tab' %}" class="profile-link">
-                {% if user.socialaccount_set.exists %}
-                    <img src="{{ user.socialaccount_set.first.get_avatar_url }}" alt="Profile" class="profile-icon">
-                {% else %}
-                    <span class="material-icons profile-icon">account_circle</span>
-                {% endif %}
+                <img src="{{ user.get_profile_picture }}"  class="profile-icon">
             </a>
             <ul class="profile-dropdown-content">
                 <li><a href="{% url 'profile_tab' %}"><span class="material-icons">person</span>Profile</a></li>
                 <li><a href="{% url 'settings_tab' %}"><span class="material-icons">tune</span>Settings</a></li>
                 <hr class="profile-dropdown-divider">
-                <li><a href="{% url 'logout' %}"><span class="material-icons">logout</span>Log Out</a></li>
+                <li><a href="{% url 'logout' %} " class="logout-btn"><span class="material-icons">logout</span>Log Out</a></li>
             </ul>
         </div>
         {% else %}
@@ -66,11 +66,5 @@
         {% block content %}{% endblock %}
     </div>
 
-    <!-- Footer -->
-    {% block footer %}
-    <footer class="footer">
-        <p>&copy; 2025 Scidea. All rights reserved.</p>
-    </footer>
-    {% endblock %}
-</body>
+    </body>
 </html>

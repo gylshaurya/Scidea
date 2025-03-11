@@ -1,12 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, Idea
+from users.models import CustomUser
+from .models import Post, Tag
 
-@admin.register(CustomUser)
-class CustomUserAdmin(UserAdmin):
-    model = CustomUser
-    fieldsets = UserAdmin.fieldsets + (
-        ('Custom Fields', {'fields': ('name', 'profile_picture', 'bio')}),
-    )
-
-admin.site.register(Idea)
+admin.site.register(Post)
+admin.site.register(Tag)
+admin.site.register(CustomUser, UserAdmin)

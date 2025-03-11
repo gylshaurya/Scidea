@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="{% static 'create_post.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="title">Create a Post</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Title Input -->
+        <input type="text" name="title" placeholder="Title" class="post-title" maxlength="300" required>
+
+        <!-- Tag Selection -->
+        <div class="tags-container">
+
+        <div class="tags">
+            <span class="tag" data-value="observations">Observations</span>
+            <span class="tag" data-value="facts-findings">Facts & Findings</span>
+            <span class="tag" data-value="thought-experiments">Thought Experiments</span>
+            <span class="tag" data-value="projects">Projects</span>
+            <span class="tag" data-value="hypotheses">Hypotheses</span>
+            <span class="tag" data-value="challenges">Challenges</span>
+            <span class="tag" data-value="misconceptions">Misconceptions</span>
+            <span class="tag" data-value="controversies">Controversies</span>
+            <span class="tag" data-value="research-papers">Research Papers</span>
+            <span class="tag" data-value="physics">Physics</span>
+            <span class="tag" data-value="chemistry">Chemistry</span>
+            <span class="tag" data-value="biology">Biology</span>
+            <span class="tag" data-value="bio-technology">Bio Technology</span>
+        </div>
+        <input type="hidden" name="selected_tags" id="selected_tags">
+        </div>
+
+        <!-- Post Content -->
+        <textarea name="content" placeholder="Write something..." class="post-content" required></textarea>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button type="button" class="save-draft">Save Draft</button>
+            <button type="submit" class="post-submit">Post</button>
+        </div>
+    </form>
+</div>
+
+<script src="{% static 'create_post.js' %}"></script>
+
+</body>
+</html>

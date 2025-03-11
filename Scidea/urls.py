@@ -18,16 +18,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from ideas import views as ideas_views
+from ideas import views  # Import views from the ideas app
+from users.views import set_username
 
 urlpatterns = [
+    path('', views.home, name='home'),  # Add this for the homepage!
     path('admin/', admin.site.urls),
-    path('ideas/', include('ideas.urls')),  # Include the URLs for the ideas app
-    path('', ideas_views.home, name='home'),
+    path('ideas/', include('ideas.urls')),
     path('accounts/', include('allauth.urls')),
-    path('login/', include('django.contrib.auth.urls')),  # Django handles login via this
-    path('logout/', ideas_views.custom_logout_view, name='logout'),
+    path('profile/', include('ideas.profile_urls')),  # Include profile-related URLs
+    path('users/', include('users.urls')),  # Custom user URLs
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

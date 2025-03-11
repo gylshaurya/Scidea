@@ -195,14 +195,18 @@ nav .signup-btn:hover {
 }
 
 
-nav .login-btn:hover, nav .logout-btn:hover {
+nav .login-btn:hover{
     color: white;
     background-color: gray;
 }
 
+nav .logout-btn:hover{
+    color: gray;
+}
+
 nav .profile-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     font-size: 60px;
     color:black;
     border-radius: 50%;
@@ -261,6 +265,7 @@ nav .profile-dropdown-content a .material-icons {
     vertical-align: middle;
     display: inline-flex;
     align-items: center;
+    color: #4d4c4c;
 }
 
 
@@ -276,13 +281,13 @@ nav .profile-dropdown-divider {
 }
 
 /* 🏆 Sticky Footer */
-.footer {
+/*.footer {
     background-color: black;
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: auto; /* Pushes the footer to the bottom */
-}
+    margin-top: auto; *//* Pushes the footer to the bottom *//*
+}*/
 
 
 
