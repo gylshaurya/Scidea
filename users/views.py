@@ -1,7 +1,8 @@
-from allauth.socialaccount.models import SocialAccount
+import cloudinary.uploader
 from django.contrib import messages
 from django.contrib.auth import login, logout, get_user_model, authenticate, get_backends
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 from .models import CustomUser
@@ -15,7 +16,8 @@ def custom_signup(request):
 
         # Check if the email is already registered
         if CustomUser.objects.filter(email=email).exists():
-            messages.error(request, "Email is already taken!")
+            messages.error(request, "You already have an account with this email id")
+
             return redirect("custom_signup")
 
         # Create and save the user
@@ -36,11 +38,12 @@ def custom_signup(request):
 
         messages.error(request, "Authentication failed. Try logging in manually.")
         return redirect("custom_login")
-
+    messages.error(request, "")
     return render(request, "registration/signup.html")
 
 
 def custom_login(request):
+    messages.error(request, "")
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -71,6 +74,8 @@ def custom_logout(request):
     logout(request)
     return redirect('/')
 
+
+
 User = get_user_model()
 
 @login_required
@@ -79,39 +84,47 @@ def set_username(request):
 
     if request.method == "POST":
         username = request.POST.get("username")
-        profile_picture = request.FILES.get("profile_picture")  # Get uploaded file
+        profile_picture = request.FILES.get("profile_picture")
 
-        if not username:
-            messages.error(request, "Username is required.")
-            return redirect("set_username")
+        if username:
+            user.username = username
 
-        if CustomUser.objects.filter(username=username).exclude(id=user.id).exists():
-            messages.error(request, "Username is already taken!")
-            return redirect("set_username")
-
-        user.username = username
-
-        # Save uploaded profile picture if available
         if profile_picture:
-            user.profile_picture = profile_picture
+            #Upload to Cloudinary
+            uploaded_image = cloudinary.uploader.upload(profile_picture)
+            user.profile_picture = uploaded_image["url"]
+
+        #If logged in via Google and name not set, fetch from Google profile
+        if not user.name and hasattr(user, 'socialaccount_set') and user.socialaccount_set.exists():
+            social_data = user.socialaccount_set.first().extra_data
+            user.name = (
+                social_data.get("name") or
+                social_data.get("given_name") or
+                ""
+            )
 
         user.save()
-        return redirect("/")  # Redirect home after setup
 
-    google_login = bool(user.google_profile_picture)  # Check if logged in via Google
+        return redirect("home")
 
-    return render(request, "registration/set_username.html", {"google_login": google_login, "user": user})
+    # For displaying Google profile picture in the form (read-only usage)
+    google_profile_picture = None
+    if hasattr(user, 'socialaccount_set') and user.socialaccount_set.exists():
+        google_profile_picture = user.socialaccount_set.first().extra_data.get("picture")
 
-def google_login_redirect(request):
-    """After Google login, check if the user needs to set a username."""
-    user = request.user
-    if not user.username:
-        # Get Google profile picture
-        social_account = SocialAccount.objects.filter(user=user, provider="google").first()
-        if social_account:
-            google_profile_picture = social_account.extra_data.get("picture", "")
-            user.google_profile_picture = google_profile_picture
-            user.save()
+    return render(request, "registration/set_username.html", {
+        "user": user,
+        "google_profile_picture": google_profile_picture,
+    })
 
-        return redirect("set_username")  # Redirect to username setup
-    return redirect("/")  # Redirect home if username exists
+def check_username(request):
+    username = request.GET.get("username", "").strip()
+
+    # Check if the username is empty
+    if not username:
+        return JsonResponse({"error": "Username cannot be empty"}, status=400)
+
+    # Check if the username already exists
+    is_taken = CustomUser.objects.filter(username__iexact=username).exists()
+
+    return JsonResponse({"available": not is_taken})

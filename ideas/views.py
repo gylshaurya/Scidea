@@ -1,27 +1,50 @@
+import markdown
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 
-from ideas.forms import PostForm
+from .forms import PostForm
+from .models import Post, Tag
 
 
 def home(request):
-    return render(request, 'home.html')
+    query = request.GET.get('q')
+    posts = Post.objects.filter(status='published').order_by('-created_at')
+    if query:
+        posts = posts.filter(tags__name__icontains=query).distinct()
+    tags = Tag.objects.all()
+    return render(request, 'home.html', {'posts': posts, 'tags': tags})
 
 
 @login_required
 def create_post(request):
-    if request.method == "POST":
-        form = PostForm(request.POST, request.FILES)
+    tags = Tag.objects.all()
+    if request.method == 'POST':
+        form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user  # Assign logged-in user as the author
+            post.author = request.user
+            post.status = 'published' if 'publish' in request.POST else 'draft'
             post.save()
-            form.save_m2m()  # Save the many-to-many tags
-            return redirect('home')  # Redirect to homepage after submission
+
+            selected_tag_ids = request.POST.get('selected_tags', '')
+            if selected_tag_ids:
+                tag_id_list = [tag_id for tag_id in selected_tag_ids.split(',') if tag_id.isdigit()]
+                tag_objects = Tag.objects.filter(id__in=tag_id_list)
+                post.tags.set(tag_objects)
+            else:
+                post.tags.clear()  # Just to be safe
+
+            return redirect('home')
     else:
         form = PostForm()
+    return render(request, 'ideas/create_post.html', {'form': form, 'tags': tags})
 
-    return render(request, 'ideas/create_post.html', {'form': form})
+# Post detail view
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    return render(request, 'ideas/post_detail.html', {'post': post})
+
 
 
 

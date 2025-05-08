@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title|truncatewords:8 }} - Scidea{% endblock %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'post_detail.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="post-detail-container">
+
+    <div class="post-header">
+        <img src="{{ post.author.get_profile_picture }}" alt="{{ post.author.name|default:post.author.username }}" class="author-avatar">
+        <div class="author-info">
+            <h3 class="author-name">{{ post.author.name|default:post.author.username }}</h3>
+            <p class="post-date">{{ post.created_at|date:"F j, Y" }}</p>
+        </div>
+    </div>
+
+    <h1 class="post-title">{{ post.title }}</h1>
+
+    <div class="post-tags">
+        {% for tag in post.tags.all %}
+            <span class="tag">{{ tag.name }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="post-body">
+        {{ post.content|linebreaks }}
+    </div>
+
+    <div class="post-actions">
+        <button><i class="bi bi-shift"></i> Upvote</button>
+        <button><i class="bi bi-chat"></i> Comment</button>
+        <button><i class="bi bi-bookmark"></i> Save</button>
+    </div>
+
+</div>
+{% endblock %}

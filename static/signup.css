@@ -22,8 +22,8 @@ header .logo img {
 
 /* Centering the form */
 main {
-    max-width: 450px;
-    margin: 100px auto;
+    max-width: 40%;
+    margin: 30px auto;
     text-align: center;
 }
 

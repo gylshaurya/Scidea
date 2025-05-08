@@ -1,56 +1,43 @@
+{% extends "base.html" %}
+{% block head %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
-    <link rel="stylesheet" href="{% static 'create_post.css' %}">
-</head>
-<body>
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'create_post.css' %}">
+{% endblock %}
 
+{% block content %}
 <div class="container">
-    <h2 class="title">Create a Post</h2>
+    <h1 class="title">Imagine. Innovate. Create.</h1>
 
     <form method="POST">
         {% csrf_token %}
+        <input type="text" name="title" class="post-title"
+               placeholder="Title - e.g. “A new theory of gravity from string tension”"
+               value="{{ form.title.value|default_if_none:'' }}">
+        <textarea name="content" class="post-content"
+                  placeholder="Describe your idea in detail. Add evidence, reasoning, or experiments." required>{{ form.content.value|default_if_none:'' }}</textarea>
 
-        <!-- Title Input -->
-        <input type="text" name="title" placeholder="Title" class="post-title" maxlength="300" required>
+        <!-- Tags Selection -->
 
-        <!-- Tag Selection -->
+        <h3>Select Tags</h3>
+
         <div class="tags-container">
-
-        <div class="tags">
-            <span class="tag" data-value="observations">Observations</span>
-            <span class="tag" data-value="facts-findings">Facts & Findings</span>
-            <span class="tag" data-value="thought-experiments">Thought Experiments</span>
-            <span class="tag" data-value="projects">Projects</span>
-            <span class="tag" data-value="hypotheses">Hypotheses</span>
-            <span class="tag" data-value="challenges">Challenges</span>
-            <span class="tag" data-value="misconceptions">Misconceptions</span>
-            <span class="tag" data-value="controversies">Controversies</span>
-            <span class="tag" data-value="research-papers">Research Papers</span>
-            <span class="tag" data-value="physics">Physics</span>
-            <span class="tag" data-value="chemistry">Chemistry</span>
-            <span class="tag" data-value="biology">Biology</span>
-            <span class="tag" data-value="bio-technology">Bio Technology</span>
+            <div class="tags">
+                {% for tag in tags %}
+                <div class="tag" data-id="{{ tag.id }}">{{ tag.name }}</div>
+                {% endfor %}
+            </div>
         </div>
-        <input type="hidden" name="selected_tags" id="selected_tags">
-        </div>
+        <input type="hidden" id="selectedTags" name="selected_tags">
 
-        <!-- Post Content -->
-        <textarea name="content" placeholder="Write something..." class="post-content" required></textarea>
-
-        <!-- Buttons -->
         <div class="button-container">
-            <button type="button" class="save-draft">Save Draft</button>
-            <button type="submit" class="post-submit">Post</button>
+            <button type="submit" name="save_draft" class="save-draft">Save As Draft</button>
+            <button type="submit" name="publish" class="post-submit">Publish Idea</button>
         </div>
     </form>
 </div>
 
-<script src="{% static 'create_post.js' %}"></script>
+<script src="{% static 'js/create_post.js' %}"></script>
 
-</body>
-</html>
+{% endblock %}
+

@@ -1,113 +1,125 @@
-/* General Styling */
 body {
-    font-family:  sans-serif;
-    color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow-y: auto;
-    margin: 0;
+  font-family: sans-serif;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-y: auto;
+  margin: 0;
 }
 
-/* Main Container */
 .container {
-    width: 60%;
-    padding: 20px;
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+  align-items: center;
 }
 
-/* Title */
 .title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  color: #333;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-/* Title Input */
 .post-title {
-    width: 100%;
-    padding: 12px;
-    font-size: 17px;
-    border: 1px solid #ddd;
-    font-family: monospace;
-    border-radius: 10px;
-    margin-bottom: 10px;
+  width: 100%;
+  padding: 16px;
+  font-size: 17px;
+  border: 1px solid #ddd;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  color: #333;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-/* Tag Selection */
 .tags-container {
-    margin: 20px 0px;
+  margin: 20px 0px;
 }
 
 .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px  ;
 }
 
 .tag {
-    padding: 10px 15px;
-    background-color: #eee;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  background-color: #eee;
+  font-family: 'Inter', sans-serif;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0s ease;
 }
 
 .tag:hover {
-    background-color: #ddd;
+  background-color: #f4f4f5;
 }
 
 .tag.selected {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
-/* Post Content */
 .post-content {
-    width: 100%;
-    min-height: 150px; /* Minimum height */
-    padding: 12px;
-    font-size: 16px;
-    font-family: monospace;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    resize: none;
-    margin-top: 10px;
-    overflow-y: hidden; /* Hide scrollbar */
-}
+     width: 100%;
+     height: auto; /* Auto height */
+     font-family: 'Inter', sans-serif;
+     line-height: 1.5rem;
+     letter-spacing: 0.005em;
+     color: #333;
+     min-height:300px;
+     padding: 16px;
+     font-size: 16px;
+     border: 1px solid #ddd;
+     resize: vertical;
+     border-radius: 15px;
+     overflow-y: auto;
+     margin-top: 10px;
+     margin-bottom: 20px;
+ }
 
-/* Buttons */
 .button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-    transition: margin-top 0.2s ease-in-out; /* Smooth transition */
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  transition: margin-top 0s ease-in-out;
 }
 
-.save-draft, .post-submit {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
+.save-draft,
+.post-submit {
+  padding: 12px 20px;
+  font-size: 15px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0s ease-in-out;
 }
 
 .save-draft {
-    background-color: #ccc;
-    color: #333;
-    margin-right: 10px;
+  background-color: #eee;
+  color: #333;
+  margin-right: 10px;
 }
 
 .post-submit {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .save-draft:hover {
-    background-color: #bbb;
+  background-color: #ddd;
 }
 
 .post-submit:hover {
-    background-color: #222;
+  background-color: #333;
 }

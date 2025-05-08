@@ -3,9 +3,9 @@
 {% block title %}Profile - Scidea{% endblock %}
 
 {% block head %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'base.css' %}">
-    <link rel="stylesheet" href="{% static 'profile.css' %}">
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'profile.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -13,13 +13,11 @@
     <!-- Header Section -->
     <div class="profile-header">
         <div class="profile-details">
-            <div class="profile-image-container">
-                {% if user.socialaccount_set.exists %}
-                    <img src="{{ user.socialaccount_set.first.get_avatar_url }}" alt="Profile Picture" class="profile-image">
+                {% if user.profile_picture %}
+                <img src="{{ user.profile_picture }}" class="profile-pic">
                 {% else %}
-                    <span class="material-icons profile-icon">account_circle</span>
+                <img src="{% static 'default-avatar.svg' %}" class="profile-pic">
                 {% endif %}
-            </div>
             <div class="profile-info">
                 <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                 <p class="idea-count">{{ user.ideas.count }} 10 ideas posted</p>
@@ -30,18 +28,18 @@
 
     <!-- Tabs Section -->
     <div class="tabs-nav">
-    <a href="{% url 'profile_tab' %}" class="{% if request.resolver_match.url_name == 'profile_tab' %}active{% endif %}">
-        Profile
-    </a>
-    <a href="{% url 'activity_tab' %}" class="{% if request.resolver_match.url_name == 'activity_tab' %}active{% endif %}">
-        Activity
-    </a>
-    <a href="{% url 'lists_tab' %}" class="{% if request.resolver_match.url_name == 'lists_tab' %}active{% endif %}">
-        Lists
-    </a>
-    <a href="{% url 'settings_tab' %}" class="{% if request.resolver_match.url_name == 'settings_tab' %}active{% endif %}">
-        Settings
-    </a>
+        <a href="{% url 'profile_tab' %}" class="{% if request.resolver_match.url_name == 'profile_tab' %}active{% endif %}">
+            Profile
+        </a>
+        <a href="{% url 'activity_tab' %}" class="{% if request.resolver_match.url_name == 'activity_tab' %}active{% endif %}">
+            Activity
+        </a>
+        <a href="{% url 'lists_tab' %}" class="{% if request.resolver_match.url_name == 'lists_tab' %}active{% endif %}">
+            Lists
+        </a>
+        <a href="{% url 'settings_tab' %}" class="{% if request.resolver_match.url_name == 'settings_tab' %}active{% endif %}">
+            Settings
+        </a>
     </div>
 
 

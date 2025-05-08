@@ -1,13 +1,16 @@
+/* Body Styles */
 body {
     font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: white;
     color: black;
 }
 
-main {
-    max-width: 450px;
-    margin: 100px auto;
-    text-align: center;
+/* Logo */
+header .logo {
+    display: flex;
+    align-items: center;
 }
 
 header .logo img {
@@ -17,29 +20,185 @@ header .logo img {
     margin-top: 30px;
 }
 
-.custom-input input {
-    padding: 15px;
-    border-radius: 25px;
-    border: 2px solid #ccc;
-    width: 100%;
+h1 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    display: flex;
 }
 
-.profile-preview {
-    width: 80px;
-    height: 80px;
+/* Main Container */
+.container {
+    background: white;
+    padding: 20px;
+    max-width: 35%;
+    align-items:center;
+    margin: 50px auto; /* Moves it below the logo */
+}
+
+/* Profile Picture Container */
+.profile-picture-container {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    margin: 10px auto;
+}
+
+/* Hide Default File Input */
+#profile_picture {
+    display: none;
+}
+
+/* Image Preview (Circular) */
+.image-preview {
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
+    overflow: hidden;
+    position: relative;
 }
 
-.submit-btn {
+.image-preview img {
     width: 100%;
-    padding: 15px;
-    background-color: black;
+    height: 100%;
+    cursor: pointer;
+    object-fit: cover; /* Ensures the image is properly contained */
+}
+
+/* Camera Icon */
+.camera-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #ccc;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera-icon:hover {
+    background: #999;
+}
+
+.camera-icon img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1); /* Makes the icon white */
+
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+/* General input group styling */
+.input-group {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    color: black;
+}
+
+.custom-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    padding: 8px;
+    transition: border-color 0.2s ease;
+}
+
+/* The actual input field */
+.custom-input input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 15px 15px;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    background: transparent;
+    color: black;
+}
+
+.custom-input:hover {
+    border-color: black;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+
+/* Save Button */
+button.save {
+    width:100%;
+    text-decoration: none;
     color: white;
+    padding: 20px 30px;
+    margin-top:20px;
+    font-weight: 540;
+    font-family: "Montserrat", sans-serif;
     border-radius: 25px;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+    background-color: black;
     border: none;
     cursor: pointer;
 }
 
-.submit-btn:hover {
+.username-status {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.remove-image-container{
+  position: relative;
+  text-align:center;
+}
+
+button.remove-image-btn{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border:none;
+    font-weight: 540;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    transition: color 0.2s ease;
+    cursor: pointer;
+    margin: 10px auto;
+ }
+
+button.remove-image-btn:hover {
+    color:gray;
+}
+button.save:hover {
+    color:white;
     background-color: gray;
 }
+
+
+/* Autofill Styles */
+input:-webkit-autofill {
+    background: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: black !important;
+}
+
+input:-webkit-autofill:focus {
+    border-color: black !important;
+    -webkit-text-fill-color: black !important;
+}
+
+input:-webkit-autofill::placeholder {
+    color: gray !important;
+}
+/*-------------------------------------------------------------------------------------------*/

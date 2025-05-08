@@ -6,67 +6,67 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'base.css' %}">
     <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'post_card.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,431;1,431&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container" id="container">
 
-    {% if not user.is_authenticated %}
     <!-- 🌟 Introduction Section -->
     <section class="intro">
-        <div class="intro-text">
-            <h1>Discover, Share, Innovate</h1>
-            <p>Scidea is your space to share groundbreaking ideas and connect with a like-minded community.</p>
-            <a href="{% url 'custom_signup' %}" class="cta-button">Get Started</a>
-        </div>
-        <img src="{% static 'innovation.svg' %}" alt="Innovative Thinking" class="intro-image">
+        <h1>Discover, Share, Innovate</h1>
+        <p>Scidea is your space to share groundbreaking ideas and connect with a like-minded community.</p>
+        <a href="{% url 'custom_signup' %}" class="cta-button">Get Started</a>
     </section>
-    {% endif %}
 
-    <!-- 🔹 Ideas Section -->
-    <section class="ideas">
-        <h2>Explore Ideas</h2>
-
-        <div class="ideas-list">
-            {% for idea in ideas %}
-            <div class="idea-card">
-                <!-- Idea Header -->
-                <div class="idea-header">
-                    <a href="{% url 'profile' idea.author.id %}" class="author-photo">
-                        <img src="{{ idea.author.profile_picture.url }}" alt="{{ idea.author.get_full_name }}">
-                    </a>
-                    <div class="author-details">
-                        <a href="{% url 'profile' idea.author.id %}" class="author-name">{{ idea.author.get_full_name }}</a>
-                        <span class="idea-date">{{ idea.date|date:"M j" }}</span>
-                    </div>
-                </div>
-
-                <!-- Idea Content -->
-                <div class="idea-content">
-                    <h3 class="idea-title">
-                        <a href="{% url 'idea_detail' idea.id %}">{{ idea.title }}</a>
-                    </h3>
-                    <p class="idea-summary">{{ idea.summary|truncatewords:20 }}</p>
-
-                    <div class="idea-footer">
-                        <div class="idea-stats">
-                            <span class="idea-appreciations"><i class="material-icons">favorite</i> {{ idea.appreciations|default:"0" }} </span>
-                            <span class="idea-replies"><i class="material-icons">chat_bubble_outline</i> {{ idea.replies.count|default:"0" }} </span>
-                        </div>
-                        <button class="save-button">Save</button>
-                    </div>
-                </div>
-
-                <!-- Idea Image -->
-                <div class="idea-image">
-                    <img src="{{ idea.image.url }}" alt="{{ idea.title }}">
-                </div>
-            </div>
-            {% empty %}
-            {% endfor %}
-        </div>
-    </section>
+    <div class="landing-image"></div>
 
 </div>
+
+<div class="container2">
+
+{% if not user.is_authenticated %}
+<div id="scrollDown" class="scroll-down">
+  <i class="bi bi-chevron-double-down"></i>
+</div>
+    {% endif %}
+
+    <!--  -------------------------------------------------------------------------------------------------------- -->
+    <!-- Horizontal scrollable tag bar -->
+<div class="tag-scroll-container">
+  <button id="scrollLeft" class="scroll-arrow hidden"><span class="material-symbols-outlined">chevron_left</span></button>
+  <div id="tagScroller" class="tag-list">
+    {% for tag in tags %}
+      <a href="?q={{ tag.name }}" class="tag-box">{{ tag.name }}</a>
+    {% endfor %}
+  </div>
+  <button id="scrollRight" class="scroll-arrow"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+
+
+<div class="post-feed">
+  {% for post in posts %}
+    {% include 'ideas/post_card.html' with post=post %}
+  {% empty %}
+    <p>No posts available.</p>
+  {% endfor %}
+</div>
+
+
+</div>
+<script>
+
+    const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
+
+    if (isAuthenticated) {
+      document.getElementById("container").style.display = "none";
+    } else {
+      document.getElementById("container").style.display = "flex";
+    }
+</script>
+<script src="{% static 'js/home.js' %}"></script>
+
 {% endblock %}
 

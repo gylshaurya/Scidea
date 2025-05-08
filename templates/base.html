@@ -8,49 +8,85 @@
     <link rel="stylesheet" href="{% static 'base.css' %}">
     {% block head %}{% endblock %}
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&family=Inter&family=Open+Sans&family=Roboto&family=Poppins&display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 </head>
 <body>
-    <!-- Main Navigation -->
-    <nav>
-        <a href="/" class="logo"><img src="{% static 'ScideaLogo.svg' %}" alt="Scidea Logo"></a>
-        <ul class="nav-links">
-            <li class="topics-dropdown">
-                <a href="/ideas/list/">Explore <span class="arrow">&#10095;</span></a>
-                <ul class="topics-dropdown-content">
-                    <li><a href="#"><span class="material-icons">trending_up</span>Popular</a></li>
-                    <li><a href="#"><span class="material-icons">hotel_class</span>New and Noteworthy</a></li>
-                    <hr class="topics-dropdown-divider">
-                    <li><a href="#">Observations</a></li>
-                    <li><a href="#">Facts & Findings</a></li>
-                    <li><a href="#">Thought Experiments</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Hypotheses</a></li>
-                    <li><a href="#">Challenges</a></li>
-                    <li><a href="#">Misconceptions</a></li>
-                    <li><a href="#">Controversies</a></li>
-                    <li><a href="#">Research Papers</a></li>
-                </ul>
-            </li>
-            <li><a href="/ideas/list/">Explore Ideas</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'create_post' %}">Submit an Idea</a></li>
-            {% else %}
-            <li><a href="{% url 'custom_signup' %}">Submit an Idea</a></li>
-            {% endif %}
-        </ul>
+<!-- Main Navigation -->
+<nav>
+    <a href="/" class="logo"><img src="{% static 'ScideaLogo.svg' %}" alt="Scidea"></a>
+    <ul class="nav-links">
+        <li class="topics-dropdown">
+            <a href="/ideas/list/" class="topics-text">Explore <span class="arrow">&#10095;</span></a>
+            <ul class="topics-dropdown-content">
+                <li><a href="#"><i class="bi bi-graph-up-arrow"></i>Popular</a></li>
+                <li><a href="#"><i class="bi bi-stars"></i>New and Noteworthy</a></li>
+                <hr class="topics-dropdown-divider">
+                <li><a href="#">Observations</a></li>
+                <li><a href="#">Facts & Findings</a></li>
+                <li><a href="#">Thought Experiments</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Hypotheses</a></li>
+                <li><a href="#">Challenges</a></li>
+                <li><a href="#">Misconceptions</a></li>
+                <li><a href="#">Controversies</a></li>
+                <li><a href="#">Research Papers</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="search-container">
+    <i class="bi bi-search search-icon"></i>
+    <input type="text" placeholder="Search" class="search-input">
+    </div>
+
+
+    <!--        <input type="text" class="search-bar" placeholder="Search posts...">-->
+    {% if user.is_authenticated %}
+
+    <a class="write" href="{% url 'create_post' %}"><i class="bi bi-pencil-square"></i>Write</a>
+
+    {% endif %}
+
+    {% if  not user.is_authenticated %}
+
+    <a class="write" href="{% url 'custom_signup' %}"><i class="bi bi-pencil-square"></i>Write</a>
+
+    {% endif %}
+
+
+    <div class="right-items">
 
         <!-- Authentication -->
         {% if user.is_authenticated %}
+        <!--        <a href="#" class="notifications"><span class="material-symbols-outlined">notifications</span></a>-->
         <div class="profile-dropdown">
+
             <a href="{% url 'profile_tab' %}" class="profile-link">
-                <img src="{{ user.get_profile_picture }}"  class="profile-icon">
+                {% if user.profile_picture %}
+                <img src="{{ user.profile_picture }}" class="profile-pic" alt="Profile">
+                {% else %}
+                <img src="{% static 'default-avatar.svg' %}" class="profile-pic" alt="Profile">
+                {% endif %}
             </a>
             <ul class="profile-dropdown-content">
-                <li><a href="{% url 'profile_tab' %}"><span class="material-icons">person</span>Profile</a></li>
-                <li><a href="{% url 'settings_tab' %}"><span class="material-icons">tune</span>Settings</a></li>
+                <li><a href="{% url 'profile_tab' %}" class="profile-btn"><i class="bi bi-person"></i>Profile</a></li>
+                <li><a href="{% url 'profile_tab' %}"><i class="bi bi-pen"></i>My Ideas</a></li>
+                <li><a href="{% url 'profile_tab' %}"><i class="bi bi-file-earmark-text"></i>Drafts</a></li>
                 <hr class="profile-dropdown-divider">
-                <li><a href="{% url 'logout' %} " class="logout-btn"><span class="material-icons">logout</span>Log Out</a></li>
+                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-gear"></i>Settings</a></li>
+                <hr class="profile-dropdown-divider">
+                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-journal-check"></i>Guidelines</a></li>
+                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-question-circle"></i>Support and feedback</a>
+                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-bug"></i>Report Bugs</a>
+                </li>
+                <hr class="profile-dropdown-divider">
+                <li><a href="{% url 'logout' %} " class="logout-btn"><i class="bi bi-box-arrow-right"></i>Log Out</a>
+                </li>
             </ul>
         </div>
         {% else %}
@@ -59,12 +95,14 @@
             <a href="{% url 'custom_login' %}" class="login-btn">Log In</a>
         </div>
         {% endif %}
-    </nav>
 
-    <!-- Page Content -->
-    <div class="content-wrapper">
-        {% block content %}{% endblock %}
     </div>
+</nav>
 
-    </body>
+<!-- Page Content -->
+<div class="content-wrapper">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
 </html>

@@ -1,7 +1,5 @@
-from django.contrib.auth.models import BaseUserManager
-import random
-import string
-from django.contrib.auth.models import AbstractUser
+import cloudinary.models
+from django.contrib.auth.models import BaseUserManager, AbstractUser
 from django.db import models
 
 
@@ -27,28 +25,27 @@ class CustomUser(AbstractUser):
     name = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=30, unique=True, blank=True, null=True)
-    profile_picture = models.ImageField(upload_to="profile_pics/", blank=True, null=True)
-    google_profile_picture = models.URLField(blank=True, null=True)  # Store Google profile pic
+    profile_picture = cloudinary.models.CloudinaryField('image', blank=True, null=True)
+    bio = models.TextField(blank=True, null=True)
+
+    objects = CustomUserManager()
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
+    def get_profile_picture(self):
+        """Return profile picture URL or default Google picture or default avatar."""
+        if hasattr(self, 'socialaccount_set') and self.socialaccount_set.exists():
+            return self.socialaccount_set.first().extra_data.get("picture")  # ✅ Google image
+        if self.profile_picture:
+            return self.profile_picture.url  # ✅ Cloudinary image
+        return "/static/default-avatar.svg"  # ✅ Default avatar
+
     def __str__(self):
         return self.email
 
-    def get_profile_picture(self):
-        """Return profile picture, fallback to Google pic, or generate initials image."""
-        if self.profile_picture:
-            return self.profile_picture.url
-        elif self.google_profile_picture:
-            return self.google_profile_picture
-        else:
-            return f"/static/initials/{self.generate_initials()}.png"
+    def __str__(self):
+        return self.email
 
-    def generate_initials(self):
-        """Generate initials-based image (e.g., 'AB.png')."""
-        initials = "".join([word[0] for word in (self.name or "User").split() if word][:2]).upper()
-        if not initials:
-            initials = ''.join(random.choices(string.ascii_uppercase, k=2))
-        return initials
+
 

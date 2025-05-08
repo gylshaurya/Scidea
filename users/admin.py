@@ -12,7 +12,12 @@ class CustomUserAdmin(UserAdmin):
     model = CustomUser
 
     def profile_picture_display(self, obj):
-        return format_html('<img src="{}" width="40px" height="40px" style="border-radius: 50%;" />', obj.get_profile_picture())
+        if obj.profile_picture:
+            return format_html(
+                '<img src="{}" width="40px" height="40px" style="border-radius: 50%;" />',
+                obj.profile_picture.url
+            )
+        return "No Picture"
 
     profile_picture_display.short_description = "Profile Picture"
 

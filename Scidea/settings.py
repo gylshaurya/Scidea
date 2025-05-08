@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
+import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,6 +51,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+    'cloudinary_storage',
+    'cloudinary'
 ]
 
 
@@ -74,7 +80,6 @@ SOCIALACCOUNT_SIGNUP_REDIRECT_URL = "/users/set-username/"
 LOGIN_REDIRECT_URL = "/"
 SOCIALACCOUNT_AUTO_SIGNUP = True  # Allow automatic signup via Google
 SOCIALACCOUNT_LOGIN_ON_GET = True
-SOCIALACCOUNT_SIGNUP_ON_GET = True
 
 
 AUTHENTICATION_BACKENDS = [
@@ -124,7 +129,25 @@ CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
 # }
 
 
+#-----------------------------------------------------------------------------------------------------------
 
+
+
+# Cloudinary Configuration
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'drferwkzw',
+    'API_KEY': '611455434812374',
+    'API_SECRET': 'NWCsbvCoqcmwXjieES0lokou6X4',
+}
+
+cloudinary.config(
+    cloud_name=CLOUDINARY_STORAGE["CLOUD_NAME"],
+    api_key=CLOUDINARY_STORAGE["API_KEY"],
+    api_secret=CLOUDINARY_STORAGE["API_SECRET"],
+    secure=True,
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 

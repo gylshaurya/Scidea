@@ -19,7 +19,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from ideas import views  # Import views from the ideas app
-from users.views import set_username
 
 urlpatterns = [
     path('', views.home, name='home'),  # Add this for the homepage!
