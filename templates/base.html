@@ -18,7 +18,7 @@
 <body>
 <!-- Main Navigation -->
 <nav>
-    <a href="/" class="logo"><img src="{% static 'ScideaLogo.svg' %}" alt="Scidea"></a>
+    <a href="/" class="logo"><img src="{% static 'images/ScideaLogo.svg' %}" alt="Scidea"></a>
     <ul class="nav-links">
         <li class="topics-dropdown">
             <a href="/ideas/list/" class="topics-text">Explore <span class="arrow">&#10095;</span></a>
@@ -70,7 +70,7 @@
                 {% if user.profile_picture %}
                 <img src="{{ user.profile_picture }}" class="profile-pic" alt="Profile">
                 {% else %}
-                <img src="{% static 'default-avatar.svg' %}" class="profile-pic" alt="Profile">
+                <img src="{% static 'images/default-avatar.svg' %}" class="profile-pic" alt="Profile">
                 {% endif %}
             </a>
             <ul class="profile-dropdown-content">

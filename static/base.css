@@ -124,8 +124,8 @@ nav .topics-dropdown {
 }
 
 nav .topics-text{
+    font-family: 'Inter', sans-serif;
     color: #444444;
-    font-size: 13px;
     padding: 12px 20px;
     border-radius: 100px;
 }
@@ -181,7 +181,7 @@ nav .topics-dropdown-content > li:first-child a{
     margin-top: 5px;
     font-weight: 600;
     font-size: 14px;
-    color: #52525b;
+    color: #444;
     white-space: nowrap;
     transition: background-color 0s ease, color 0s ease;
 }
@@ -189,14 +189,14 @@ nav .topics-dropdown-content > li:first-child a{
 nav .topics-dropdown-content > li:nth-child(2) a {
     font-weight: 600;
     font-size: 14px;
-    color: #52525b;
+    color: #444;
     white-space: nowrap;
     transition: background-color 0s ease, color 0s ease;
 }
 
 nav .topics-dropdown-content > li a:hover {
     background-color: #f4f4f5;
-    color: #414141;
+    color: #333;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -292,8 +292,6 @@ nav .profile-dropdown-content a i.bi.bi-box-arrow-right {
 
 nav .write {
     margin-left:auto;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
     color: #52525b;
     display: inline-flex;
     align-items: center;
@@ -392,7 +390,7 @@ nav a:hover .bi {
 nav .topics-dropdown-content a .bi {
     font-size: 17px;
     margin-right:8px;
-    color: #52525b;
+    color: #444;
     vertical-align: middle;
     display: inline-flex;
     align-items: center;
