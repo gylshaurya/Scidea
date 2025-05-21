@@ -167,6 +167,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 env = environ.Env()
 DATABASES = {
     "default": dj_database_url.parse(env("DATABASE_URL"), conn_max_age=600, ssl_require=True)
@@ -220,16 +221,12 @@ TEMPLATES = [
 ]
 
 
-ROOT_URLCONF = 'Scidea.urls'
-WSGI_APPLICATION = 'Scidea.wsgi.application'
-
-
-
-
-
 #-------------------------------------------------------------------------------------------------------------
 #Static Media Settings
 
+
+ROOT_URLCONF = 'Scidea.urls'
+WSGI_APPLICATION = 'Scidea.wsgi.application'
 
 
 # Internationalization
