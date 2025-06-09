@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ideas/', include('ideas.urls')),
     path('accounts/', include('allauth.urls')),
-    path('profile/', include('ideas.profile_urls')),  # Include profile-related URLs
     path('users/', include('users.urls')),  # Custom user URLs
 ]
 

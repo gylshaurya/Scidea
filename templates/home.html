@@ -44,8 +44,12 @@
 <div class="tag-scroll-container">
   <button id="scrollLeft" class="scroll-arrow hidden"><span class="material-symbols-outlined">chevron_left</span></button>
   <div id="tagScroller" class="tag-list">
+    <a href="{% url 'home' %}" class="tag-box {% if not selected_tag_id and not request.GET.q %}active{% endif %}">Home</a>
+    <a href="?q=popular" class="tag-box {% if request.GET.q == 'popular' %}active{% endif %}">Popular</a>
     {% for tag in tags %}
-      <a href="?q={{ tag.name }}" class="tag-box">{{ tag.name }}</a>
+      <a href="?tag={{ tag.id }}" class="tag-box {% if selected_tag_id == tag.id|stringformat:'s' %}active{% endif %}">
+        {{ tag.name }}
+      </a>
     {% endfor %}
   </div>
   <button id="scrollRight" class="scroll-arrow"><span class="material-symbols-outlined">chevron_right</span></button>
@@ -56,7 +60,7 @@
   {% for post in posts %}
     {% include 'ideas/post_card.html' with post=post %}
   {% empty %}
-    <p>No posts available.</p>
+    <p>Be the first one to write a post in this category !</p>
   {% endfor %}
 </div>
 

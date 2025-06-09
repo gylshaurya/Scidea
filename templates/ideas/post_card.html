@@ -1,25 +1,27 @@
 {% load static %}
-<div class="post-card" data-url="{% url 'post_detail' post.pk %}">
-    <img src="{{ post.author.get_profile_picture }}" class="author-photo"
-         alt="{{ post.author.name|default:post.author.username }}">
+<div class="post-card">
 
     <div class="post-content">
         <div class="post-meta">
-            <span class="author">{{ post.author.name|default:'Mark' }}</span>
-            <span class="date">{{ post.created_at|date:"M d" }}</span>
+            <img src="{{ post.author.get_profile_picture }}" class="author-photo" alt="{{ post.author.name|default:post.author.username }}">
+
+            <div class="post-meta-2 prevent-click">
+                <a href="{% url 'profile_tab' username=post.author.username %}" class="author">{{ post.author.name|default:'User' }}</a>
+                <span class="date">{{ post.created_at|date:"M d, Y" }}</span>
+            </div>
+
 
             <div class="post-buttons prevent-click">
-                <button class="save-button" onclick="event.preventDefault();"><i class="bi bi-bookmark"></i>
+                <button class="save-button" onclick="event.preventDefault();" ><i class="bi bi-bookmark"></i>
                 </button>
                 <button class="more-options" onclick="event.preventDefault();"><i class="bi bi-three-dots"></i>
                 </button>
             </div>
         </div>
 
-        {% if post.title %}
-        <div class="post-title">{{ post.title}}</div>
-        {% endif %}
-        <p class="post-excerpt">{{ post.content|striptags}}</p>
+        <a href="{% url 'post_detail' post.pk %}" class="post-title">{{ post.title }}</a>
+        <a href="{% url 'post_detail' post.pk %}" class="post-excerpt">{{ post.content|striptags }}</a>
+
 
         {% if post.tags.all %}
         <div class="post-tags">
@@ -38,7 +40,7 @@
                 {% endif %}
             </button>
 
-            <button onclick="event.preventDefault();"><i class="bi bi-filter-right"></i> 250</button>
+            <button class="comment-btn" onclick="window.location.href='{% url 'post_detail' post.id %}#post-tags'"><i class="bi bi-filter-right"></i>{{ post.comments.count }}</button>
         </div>
     </div>
 </div>

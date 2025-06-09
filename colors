@@ -1,0 +1,9 @@
+button_bg_gray : #f4f4f4
+button_bg_gray_hover : #eee
+gray_100: #FBFBFB
+gray_200: #f9fafb
+gray_300: #d0d5dd
+
+text-gray : #525252
+text-gray-hovered : #414141
+logout-red : #f44336

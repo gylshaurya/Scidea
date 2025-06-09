@@ -1,114 +1,276 @@
-/* General Styling */
-body {
-     font-family:  sans-serif;
-     color: #000;
-     display: flex;
-     justify-content: center;
-     min-height: 100vh;
-     overflow-y: auto;
-     margin: 0;
+/* Base Layout */
+.profile-main {
+    display:flex;
+    flex-direction:column;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    font-family: 'Inter', sans-serif;
+    align-items: center;
+    justify-content: center;
+    color: #121212;
 }
 
-.profile-container {
-    width: 95%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
-/* Header Section */
+/* ─────────────────────────── */
+/* 🔹 Profile Header Section */
 .profile-header {
     display: flex;
-    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    flex-direction: row;
     align-items: center;
-    padding-bottom: 20px;
+    margin-left: auto;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    max-width: 800px;
 }
 
-.profile-details {
-    display: flex;
-    align-items: center;
-}
-
-.profile-pic {
+.profile-picture {
     width: 100px;
     height: 100px;
-    color:gray;
     border-radius: 50%;
     object-fit: cover;
-
 }
 
-.profile-info {
-    font-size: 16px;
-    margin-left: 20px;
-}
-
-.idea-count {
-    color: #000000;
-    font-size: 13px;
-    margin-top: 5px;
-}
-
-/* Edit Profile Button */
-.edit-profile-btn {
-    border: 1px solid #ccc;
-    background-color: transparent;
-    padding: 10px 15px;
-    font-size: 13px;
-    color: black;
-    border-radius: 30px;
-    cursor: pointer;
-    text-decoration: none;
-    transition:, border-color 0.3s;
-    font-weight: 500;
-}
-
-.edit-profile-btn .material-icons {
-    font-size: 17px;
-    margin-right:5px;
-    color:black;
-    vertical-align: middle;
-    display: inline-flex;
-    margin-bottom: 2px;
-}
-
-
-.edit-profile-btn:hover {
-    background-color: #f4f6f7;
-
-}
-
-/* Tabs Section */
-.tabs-nav {
+.profile-text {
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: start;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+    gap: 0.2rem;
 }
 
-.tabs-nav a {
-    padding: 10px 20px;
-    border-radius: 20px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
-    color: #333; /* Default text color */
-    background-color: transparent; /* Light background */
-    font-family: 'Montserrat', sans-serif; /* Font style */
-    transition: background-color 0.5s, color 0.3s; /* Smooth transitions */
-    font-weight:400;
-    font-size:13px;
+.profile-header h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+    color: #1a1a1a;
 }
 
-.tabs-nav a:hover {
-    background-color: #f4f6f7; /* Slightly darker on hover */
-    color: #000; /* Darker text */
+.profile-header h4 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #888;
+    margin: 0 0 0.4rem;
 }
 
-.tabs-nav a.active {
-    background-color: #000; /* Black background for the active tab */
-    color: #fff; /* White text for the active tab */
+.profile-joined {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0.2rem 0 1rem;
 }
 
-.tab-content {
-    margin: 20px;
+.profile-stats {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.profile-stats span {
+    padding: 0.5rem 0.9rem;
+    background-color: #fbfbfb;
+    border-radius: 20px;
+}
+
+
+.profile-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  color: #444;
+}
+
+.icon-btn:hover {
+  background-color: #fbfbfb;
+  border-color: #ccc;
+}
+
+
+.edit-btn {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+    background-color: #fbfbfb;
+    border-color: #bbb;
+}
+
+
+/* ─────────────────────────── */
+/* 🔹 Tabs */
+.profile-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 2rem 0 1rem;
+    flex-wrap: wrap;
+}
+
+.profile-tabs a {
+    font-family: 'Inter', sans-serif;
+    padding: 0.8rem 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.profile-tabs a:hover {
+    color: #121212;
+    background-color: #f8f8f8;
+}
+
+.profile-tabs a.active {
+    color: white;
+    background-color: #232323;
+}
+
+/* ─────────────────────────── */
+/* 🔹 Tab Content Area */
+.profile-tab-content {
+    margin-top: 2rem;
+}
+
+/* Optional: Styling for empty sections or messages */
+.empty-message {
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+    padding: 2rem 0;
+}
+
+/* ─────────────────────────── */
+/* 🔹 Reusable post-style layout (for ideas, drafts, bookmarks) */
+.post-item {
+    border-bottom: 1px solid #eee;
+    padding: 1.2rem 0;
+}
+
+.post-item h3 {
+    font-size: 1.2rem;
+    color: #121212;
+    margin-bottom: 0.4rem;
+}
+
+.post-item p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Post actions (edit, delete, etc.) */
+.post-actions {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.6rem;
+}
+
+.post-actions button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.post-actions button:hover {
+    background-color: #e9e9e9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .profile-tabs {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .profile-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .edit-btn {
+        font-size: 0.85rem;
+    }
+}
+
+
+.about-section h3 {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.about-bio {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.about-tags .tag {
+  font-size: 12px;
+  padding: 0.35rem 0.8rem;
+  background-color: #f4f4f5;
+  border-radius: 12px;
+  color: #333;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.social-links li {
+  margin-bottom: 0.4rem;
+}
+
+.social-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #444;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.social-links a:hover {
+  color: #000;
 }

@@ -7,7 +7,7 @@ from users.models import CustomUser
 User = get_user_model()
 
 class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, unique=True, db_index=True)  # <- db_index added
 
     def __str__(self):
         return self.name
@@ -38,3 +38,16 @@ class Upvote(models.Model):
 
     class Meta:
         unique_together = ('user', 'post')
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'Comment by {self.user} on {self.post}'

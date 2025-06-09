@@ -85,6 +85,12 @@ html, body {
 
 /*------------------------------------------------------------------------------------------------------------------*/
 
+p{
+  color: #52525b;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  margin-top:20px;
+}
 .tag-scroll-container {
   position:relative;
   margin: 0 auto;
@@ -102,7 +108,7 @@ html, body {
   font-weight: 500;
   padding: 0.6rem 0.8rem;
   border-radius: 100px;
-  font-size: 13px;
+  font-size: 0.8rem;
   transition: background-color 0.2s;
   white-space: nowrap;
   cursor: pointer;
@@ -111,6 +117,20 @@ html, body {
 
 .tag-box:hover {
   color:black;
+}
+
+.tag-box.active {
+    background-color: #333;
+    color: white;
+}
+.tag-box.active:hover {
+    background-color: #414141;
+    color: white;
+}
+
+.selected-tag:hover {
+  background-color: #414141;
+  color: white;
 }
 
 .scroll-arrow {
@@ -202,7 +222,7 @@ color:black
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: #52525b;
   animation: bounce 2s infinite;
   transition: opacity 0.5s ease;

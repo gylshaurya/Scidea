@@ -2,22 +2,21 @@
 .post-card {
   display: flex;
   flex-direction: row;
-  gap: 0.8rem;
+  gap: 0.3rem;
   padding: 2rem 0;
-  width: 45%;
+  width: 40%;
   margin: 0rem auto;
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 1.5rem;
-  cursor: pointer;
 }
 
 /* Left profile image */
 .author-photo {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  margin-top: 0.2rem;
+  margin-top: 0rem;
   flex-shrink: 0;
 }
 
@@ -35,22 +34,32 @@
   justify-content: center;
   gap: 0.5rem;
   margin-top:-0.3rem;
+}
 
+.post-meta-2 {
+  display: flex;
+  flex-direction: column;
 }
 
 .author {
+  position: relative;
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: #333;
+  text-decoration: none;
+}
+
+.author:hover {
+    text-decoration: underline;
+    color: #000;
 }
 
 .date {
   font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 300;
   color: #666;
-  margin-left:0.3rem;
 }
 
 /* Post title */
@@ -60,16 +69,15 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   font-family: 'Inter', sans-serif;
-  color: #333;
+  color: #222;
   text-decoration: none;
-  margin-bottom: 0.7rem;
-  margin-top: 0.3rem;
+  margin-top: 1rem;
+  cursor: pointer;
 }
-
 
 /* Post excerpt */
 .post-excerpt {
@@ -84,6 +92,9 @@
   line-height: 1.5rem;
   letter-spacing: 0.005em;
   color: #333;
+  padding-top: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* Tag badges */
@@ -101,13 +112,11 @@
   background-color: #f4f4f5;
   border-radius: 12px;
   color: #333;
-
 }
 
 /* Top-right buttons (save, more) */
 .post-buttons {
   display: flex;
-
   margin-left: auto;
 }
 

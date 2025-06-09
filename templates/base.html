@@ -66,23 +66,21 @@
         <!--        <a href="#" class="notifications"><span class="material-symbols-outlined">notifications</span></a>-->
         <div class="profile-dropdown">
 
-            <a href="{% url 'profile_tab' %}" class="profile-link">
-                {% if user.profile_picture %}
-                <img src="{{ user.profile_picture }}" class="profile-pic" alt="Profile">
-                {% else %}
-                <img src="{% static 'images/default-avatar.svg' %}" class="profile-pic" alt="Profile">
-                {% endif %}
+            <a href="{% url 'profile_tab' username=request.user.username %}" class="profile-link">
+                <img src="{{ user.get_profile_picture }}" class="profile-pic" alt="Profile">
+
             </a>
             <ul class="profile-dropdown-content">
-                <li><a href="{% url 'profile_tab' %}" class="profile-btn"><i class="bi bi-person"></i>Profile</a></li>
-                <li><a href="{% url 'profile_tab' %}"><i class="bi bi-pen"></i>My Ideas</a></li>
-                <li><a href="{% url 'profile_tab' %}"><i class="bi bi-file-earmark-text"></i>Drafts</a></li>
+                <li><a href="{% url 'profile_tab' username=request.user.username %}" class="profile-btn"><i class="bi bi-person"></i>Profile</a></li>
+                <li><a href="#"><i class="bi bi-pen"></i>My Ideas</a></li>
+                <li><a href="#"><i class="bi bi-bookmark"></i>Bookmarks</a></li>
+                <li><a href="#"><i class="bi bi-file-earmark-text"></i>Drafts</a></li>
                 <hr class="profile-dropdown-divider">
-                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-gear"></i>Settings</a></li>
+                <li><a href="#"><i class="bi bi-gear"></i>Settings</a></li>
                 <hr class="profile-dropdown-divider">
-                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-journal-check"></i>Guidelines</a></li>
-                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-question-circle"></i>Support and feedback</a>
-                <li><a href="{% url 'settings_tab' %}"><i class="bi bi-bug"></i>Report Bugs</a>
+                <li><a href="#"><i class="bi bi-journal-check"></i>Guidelines</a></li>
+                <li><a href="#"><i class="bi bi-question-circle"></i>Support and feedback</a>
+                <li><a href="#"><i class="bi bi-bug"></i>Report Bugs</a>
                 </li>
                 <hr class="profile-dropdown-divider">
                 <li><a href="{% url 'logout' %} " class="logout-btn"><i class="bi bi-box-arrow-right"></i>Log Out</a>

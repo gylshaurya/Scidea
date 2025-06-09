@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-main">
+    <div class="profile-header">
+        <img src="{{ user_profile.get_profile_picture }}" class="profile-picture" alt="">
+
+        <div class="profile-text">
+
+            <h2>{{ user_profile.name}}</h2>
+            <h4>@{{ user_profile.username}}</h4>
+            <p class="profile-joined">Joined {{ user_profile.date_joined|date:"F j, Y" }}</p>
+            <div class="profile-stats">
+                <span><strong>{{ total_ideas }}</strong> Ideas</span>
+                <span><strong>{{ total_upvotes }}</strong> Upvotes</span>
+                <span><strong>{{ total_comments }}</strong> Comments</span>
+            </div>
+            {% if is_owner %}
+            <a href="#" class="edit-btn">Edit Profile</a>
+            {% else %}
+            <div class="profile-actions">
+                <button class="icon-btn" onclick="copyProfileLink(this, '{{ request.build_absolute_uri }}')">
+  <i class="bi bi-link-45deg"></i> <span class="copy-text">Copy Link</span>
+</button>
+
+            </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+
+    <div class="profile-tabs">
+        <a href="{% url 'profile_tab_specific' username=user_profile.username tab='about' %}" class="{% if active_tab == 'about' %}active{% endif %}">About</a>
+        <a href="{% url 'profile_tab_specific' username=user_profile.username tab='activity' %}" class="{% if active_tab == 'activity' %}active{% endif %}">Activity</a>
+        <a href="{% url 'profile_tab_specific' username=user_profile.username tab='ideas' %}" class="{% if active_tab == 'ideas' %}active{% endif %}">Ideas</a>
+        {% if is_owner %}
+        <a href="{% url 'profile_tab_specific' username=user_profile.username tab='bookmarks' %}" class="{% if active_tab == 'bookmarks' %}active{% endif %}" >Bookmarks</a>
+        <a href="{% url 'profile_tab_specific' username=user_profile.username tab='drafts' %}" class="{% if active_tab == 'drafts' %}active{% endif %}">Drafts</a>
+        {% endif %}
+    </div>
+
+    <div class="profile-tab-content">
+        {% include tab_template %}
+    </div>
+</div>
+
+<script>
+    function copyProfileLink(button, link) {
+  navigator.clipboard.writeText(link).then(() => {
+    const textSpan = button.querySelector(".copy-text");
+    const originalText = textSpan.textContent;
+    textSpan.textContent = "Copied!";
+    setTimeout(() => {
+      textSpan.textContent = originalText;
+    }, 5500);
+  });
+}
+</script>
+{% endblock %}

@@ -26,7 +26,14 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=30, unique=True, blank=True, null=True)
     profile_picture = cloudinary.models.CloudinaryField('image', blank=True, null=True)
+    date_joined = models.DateTimeField(auto_now_add=True)  # Already in AbstractUser
+
     bio = models.TextField(blank=True, null=True)
+    interest_tags = models.ManyToManyField("ideas.Tag", blank=True)
+    twitter = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
+
 
     objects = CustomUserManager()
 
@@ -35,14 +42,11 @@ class CustomUser(AbstractUser):
 
     def get_profile_picture(self):
         """Return profile picture URL or default Google picture or default avatar."""
-        if hasattr(self, 'socialaccount_set') and self.socialaccount_set.exists():
-            return self.socialaccount_set.first().extra_data.get("picture")  # ✅ Google image
         if self.profile_picture:
             return self.profile_picture.url  # ✅ Cloudinary image
+        if hasattr(self, 'socialaccount_set') and self.socialaccount_set.exists():
+            return self.socialaccount_set.first().extra_data.get("picture")  # ✅ Google image
         return "/static/default-avatar.svg"  # ✅ Default avatar
-
-    def __str__(self):
-        return self.email
 
     def __str__(self):
         return self.email

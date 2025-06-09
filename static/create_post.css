@@ -52,16 +52,17 @@ body {
 
 .tag {
   padding: 10px 20px;
-  background-color: #eee;
+  background-color: #f4f4f4;
   font-family: 'Inter', sans-serif;
   border-radius: 25px;
   cursor: pointer;
   font-size: 14px;
+  color: #414141;
   transition: background-color 0s ease;
 }
 
 .tag:hover {
-  background-color: #f4f4f5;
+  background-color: #eee;
 }
 
 .tag.selected {
@@ -106,8 +107,8 @@ body {
 }
 
 .save-draft {
-  background-color: #eee;
-  color: #333;
+  background-color: #f4f4f4;
+  color: #414141;
   margin-right: 10px;
 }
 
@@ -117,7 +118,7 @@ body {
 }
 
 .save-draft:hover {
-  background-color: #ddd;
+  background-color: #eee;
 }
 
 .post-submit:hover {

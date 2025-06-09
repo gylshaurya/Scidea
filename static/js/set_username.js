@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function disableSaveButton() {
         saveButton.disabled = true;
-        saveButton.style.backgroundColor = "#ccc"; // Gray out the button
+        saveButton.style.backgroundColor = "#f4f4f4"; // Gray out the button
         saveButton.style.cursor = "not-allowed";
     }
 

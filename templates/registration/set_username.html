@@ -6,11 +6,12 @@
     <title>Set Username</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'set_username.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <div class="logo"><a href="/" class="logo"><img src="/static/ScideaLogo.svg"/></a></div>
+    <div class="logo"><a href="/" class="logo"><img src="/static/images/ScideaLogo.svg"/></a></div>
 </header>
 
 <div class="container">
@@ -25,9 +26,11 @@
                 <img id="profile_preview"
                      src="{{ user.get_profile_picture }}"
                      data-google="{{ user.get_profile_picture }}" data-default="{% static 'images/default-avatar.svg' %}">  <!-- Stores default avatar -->
-                <div class="camera-icon">
-                    <img src="{% static 'images/camera-icon.svg' %}" alt="Select Image">
-                </div>
+
+                <div class="image-overlay">
+        <i class="bi bi-upload"></i>
+    </div>
+
             </div>
         </div>
 

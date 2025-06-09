@@ -37,3 +37,4 @@ window.addEventListener('scroll', function() {
       indicator.classList.add('hidden');
     }
   }, { once: true });
+
