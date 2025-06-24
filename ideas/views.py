@@ -8,7 +8,7 @@ from django.views.decorators.http import require_POST
 from django.core.cache import cache
 
 from users.models import CustomUser
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, EditProfileForm
 from .models import Post, Tag, Upvote, Comment
 
 
@@ -181,3 +181,17 @@ def profile_view(request, username, tab="about"):
         template = "profile/about_tab.html"
 
     return render(request, "profile/profile.html", {**context, 'tab_template': template})
+
+
+@login_required
+def edit_profile(request):
+    user = request.user
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', username=user.username)
+    else:
+        form = EditProfileForm(instance=user)
+
+    return render(request, 'profile/edit_profile.html', {'form': form})

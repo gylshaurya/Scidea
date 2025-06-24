@@ -11,7 +11,8 @@ urlpatterns = [
     path('post/<int:post_id>/upvote/', views.toggle_upvote, name='toggle_upvote'),
     path('profile/<str:username>/', views.profile_view, name='profile_tab'),
     path('profile/<str:username>/<str:tab>/', views.profile_view, name='profile_tab_specific'),
-
+    path('edit-profile/', views.edit_profile, name='edit_profile'),
+    
 ]
 
 if settings.DEBUG:

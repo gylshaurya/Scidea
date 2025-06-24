@@ -18,3 +18,18 @@ class CommentForm(forms.ModelForm):
                 'rows': 3,
             }),
         }
+
+from django import forms
+from .models import CustomUser
+from ideas.models import Tag
+
+class EditProfileForm(forms.ModelForm):
+    interest_tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    class Meta:
+        model = CustomUser
+        fields = ['name', 'bio', 'interest_tags', 'profile_picture', 'twitter', 'instagram', 'linkedin']

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile – {{ user.username }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'edit_profile.css'%}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="profile-picture-container" onclick="document.getElementById('profile_picture').click();">
+            <input type="file" name="profile_picture" id="profile_picture" accept="image/*" onchange="previewImage(event)">
+
+            <div class="image-preview">
+                <img id="profile_preview"
+                     src="{{ user.get_profile_picture }}"
+                     data-google="{{ user.get_profile_picture }}" data-default="{% static 'images/default-avatar.svg' %}">  <!-- Stores default avatar -->
+
+                <div class="image-overlay">
+        <i class="bi bi-upload"></i>
+    </div>
+
+            </div>
+        </div>
+
+        <!-- Remove Image Button (Initially Hidden) -->
+        <div id="remove-image-container" style="visibility:hidden;" class="remove-image-container">
+            <button type="button" id="remove-image-btn" class="remove-image-btn">✖ Remove</button>
+        </div>
+
+        <div class="input-group">
+            <label for="username">Username</label>
+            <div class="custom-input">
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+        </div>
+
+        <p id="username-status" class="username-status"></p>
+
+        <button type="submit" class="save">Save</button>
+    </form>
+</div>
+
+<script defer src="{% static 'js/edit_profile.js' %}"></script>
+{% endblock %}

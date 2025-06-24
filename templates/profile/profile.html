@@ -23,7 +23,7 @@
                 <span><strong>{{ total_comments }}</strong> Comments</span>
             </div>
             {% if is_owner %}
-            <a href="#" class="edit-btn">Edit Profile</a>
+            <a href="{% url 'edit_profile' %}" class="edit-btn">Edit Profile</a>
             {% else %}
             <div class="profile-actions">
                 <button class="icon-btn" onclick="copyProfileLink(this, '{{ request.build_absolute_uri }}')">

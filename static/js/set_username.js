@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
             statusElement.style.color = "red";
             disableSaveButton();
             return;
+
         }
 
         if (!regex.test(username)) {
