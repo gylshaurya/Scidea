@@ -1,205 +1,1614 @@
-/* Body Styles */
-body {
-    font-family: "Inter", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    color: black;
-}
+processor.process_all() aprate) 
+p.run(debug=True) __name__ == '__main__':= items: 
+0 rate):  
+=def calculate_total(items): = '__main__': - rateTrue ) def __init__(self, db): return price * (1 - rate) 
+if __name__ == '__main__': 
+db): 
+return total 
+= db 
+order = self.db.fetch(order_id) = db in items: def calculate_total(items): 
+class OrderProcessor: apply_discount(price, rate): rate): 
+self.db.update(order_id, status='processed') 
+return True self.db.fetch(order_idddef calculate_total(items): rate) ef apply_discount(price, rate): 
+def apply_discount(price, rate): 0 
+config = load_conTrue 
+figdef apply_discount(price, rate): 
+app.run(debug=True) 
+() item in items: total += item.prd0 
+b ice 
+) = OrderProcessor(config.db) processor.process_alprocessor = OrderProcessor(config.db) l(load_config() 
+process(self, order_id): load_config() ) 
 
-/* Logo */
-header .logo {
-    display: flex;
-    align-items: center;
-}
+self.db.update(order_id, status='processed') 
+order = self.db.fetch(order_id)process(self, order_id): 
+return True 
 
-header .logo img {
-    height: 70px;
-    width: 150px;
-    margin-left: 30px;
-    margin-top: 30px;
-}
+fprocessor.process_all() __name__ == '__main0 status='processed'not order: return False ) __': or += item.price 
+def calculate_total(items): 
+item in items: return price * (1 - rate) status='processed') return price * (def apply_discount(price, rate): 1- ratapp.run(debug=True) True 
+e)  - rate) item in app.run(debug=True) 
+def apply_discount(price, rate):self.db.update(order_id, status='processed')  
 
+processor = Ordclass OrderPrdb): ocessor: dbrate): 
+ _not order: return False 
+ _name__ == '__main__': 
+= 0 db): 
+processor = OrderProcessor(config.dconfig = load_config() processor.process_all() processor.process_all() 
+not order: return Falssitems: True 
+== '__main__': 
+- rate) dclass OrderProcessor: 
+ef apply_discount(price, rate): order_id): elf.dbprocessor.process_all() 
+processor.process_all() .update(order_id, status='processed') 
+order_id): 
+e config = loadef calculate_total(items): return total total = 0 def __init__(self, db): app.run(debug=True) item in items: processor.process_all()OrderProcessor(config.db) processor.process_all() load_config()  d_config() self.db.fetch(order_id) 
+class OrderProcessor: 
 
-/* Main Container */
-.container {
-    background: white;
-    padding: 20px;
-    max-width: 40%;
-    align-items:center;
-    margin: 20px auto;
-}
+process(self, order_id): total = 0total for item in items: processor.process_all() 
 
-/* Profile Picture Container */
-.profile-picture-container {
-    position: relative;
-    width: 170px;
-    height: 170px;
-    margin: 0px auto;
-}
+dsdef apply_discount(price, rate): eorder_id): lf.db.fetch(order_id) 
+ef __ireturn total n
+OrderProcessor: total += item.price b) app.r= db 0 un(debug=True) processor.process_all() 
 
-/* Hide Default File Input */
-#profile_picture {
-    display: none;
-}
+True rate) 
+order = self.db.fetch(order_id) config = load_config() 
+= load_config() 
+return total = db  = OrderProcessor(config.db) db self.db = db= db db 
+self.db.update(order_id, status='processed') total 
 
-/* Image Preview (Circular) */
-.image-preview {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-}
-
-/* Image itself */
-.image-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Overlay that appears on hover */
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.1s ease;
-    pointer-events: none; /* Prevent from blocking input click */
-    border-radius: 50%;
-}
-
-/* Icon style */
-.image-overlay i {
-    font-size: 2rem;
-    color: white;
-}
-
-/* Show overlay on hover */
-.image-preview:hover .image-overlay {
-    opacity: 1;
-    pointer-events: none;
-}
-
-/*-----------------------------------------------------------------------------------------------------*/
-
-/* General input group styling */
-.input-group {
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: left;
-    margin-bottom: 10px;
-    margin-left: 0px;
-    color: black;
-}
-
-.custom-input {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: transparent;
-    border: 2px solid #f4f4f4;
-    border-radius: 30px;
-    padding: 8px;
-    transition: border-color 0.2s ease;
-}
-
-/* The actual input field */
-.custom-input input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding: 15px 15px;
-    font-size: 14px;
-    font-family: "Montserrat", sans-serif;
-    background: transparent;
-    color: black;
-}
-
-.custom-input:hover {
-    border-color: black;
-}
-
-/*-----------------------------------------------------------------------------------------*/
-
-/* Save Button */
-button.save {
-    width:100%;
-    text-decoration: none;
-    color: white;
-    padding: 20px 30px;
-    margin-top:20px;
-    font-weight: 540;
-    font-family: "Montserrat", sans-serif;
-    border-radius: 25px;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
-    background-color: black;
-    border: none;
-    cursor: pointer;
-}
-
-.username-status {
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-.remove-image-container{
-  position: relative;
-  text-align:center;
-}
-
-button.remove-image-btn{
-    text-decoration: none;
-    color: black;
-    background-color: white;
-    border:none;
-    font-weight: 540;
-    font-size: 16px;
-    font-family: "Montserrat", sans-serif;
-    transition: color 0s ease;
-    cursor: pointer;
-    margin: 0px auto;
- }
-
-button.remove-image-btn:hover {
-    color:gray;
-}
-button.save:hover {
-    color:white;
-    background-color: gray;
-}
+items: def apply_discount(price, rate):True self.db.fetch(order_id) db 
 
 
-/* Autofill Styles */
-input:-webkit-autofill {
-    background: transparent !important;
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: black !important;
-}
+-item.price  rate)config = load_config() 
+rate): order = self.db.fetch(order_id) 
+class OrderProcessor: 
+processor.process_all() = load_config() 
 
-input:-webkit-autofill:focus {
-    border-color: black !important;
-    -webkit-text-fill-color: black !important;
-}
+config = load_config(db 
+self.db.update(order_inot order: return False 
+fordef apply_discount(price, rate): 
+= db  item in items: 
+OrderPr- rate) 
+total 
+not order: return False 
+processor.process_all() __ndef __init__(self, db): 
+self.db.update(order_id, status='processed') 
+status='processed') 
+= self.db.fetch(order_id) 
+processor.process_all() 
+a= db order_id): 
+me__ == '__main__': return totaitem.price 
+l 
 
-input:-webkit-autofill::placeholder {
-    color: gray !important;
-}
-/*-------------------------------------------------------------------------------------------*/
+item.price Tr= db 
+ue def apply_discount(price, rate): 
+
+processor.process_alif __name__ == '__main__': l() 
+= self.db.fetch(order_id) 
+= db 
+treitem.price for item in items: calculate_total(items): 
+item in items: 
+status='processed') turn price * (1 - rate) otal += item.price oc__init__(self, db): essor:class OrderProcessor: 
+
+__name__ == '__main__': 
+OrderProcessor(config.db) 
+d, status='processed')capro= load_config() 
+class OrderProcessor: cessor.pr__init__(self, db): 
+ocess_alapp.run(debug=True) l()order = self.db.fetch(order_id) 
+__name__ == '__main__': 
+
+'__main__': litem.pprocessor.process_all() rice if __nameself.db.update(order_id, status='processed') 
+apply_discount(price, rateconfig = load_config() 
+if not order: return False 
+app.run(debug=Tru= db 
+__name__ == '__main__'config = load_config() = self.db.fetch(order_id) 
+: e) 
+)return True processor =def calculate_total(ite+= item.price ms):  OrderProcessor(config.db)= load_config() total 
+
+apply_discount(price, rate): config = load_config() 
+total class OrderProcessodef calculate_total(items): 
+processor.process_all() r: selprocessor.process_all() 
+f.db = dbprocessor.process_all()  
+
+class OrderProcessor: 
+= lself.db.update(order_id, status='processed') 
+oad_config() __name__ == '__main__': processor = OrderPro0 
+cessor(config.db) 
+config = load_config() def process(self, order_id+= item.price rate) 
+if __name__ == '__main__': 
+)True 
+: 
+= self.db.fetch(order_id) 
+process(self, order_id): processor.process_all() pload_config() app.run(debug=True) = OrderProcessor(config.db) rocessor.process_all() 
+s= OrderProcessor(config.dTrue 
+for item in items: 
+app.run(debug=True) def calculate_total(items): 
+OrderProcessor: 
+_= self.db.fetch(order_id) _init__(self, db): bFalse rate): 
+= load_confcalculate_total(items): += item.price processor.process_all() ig() 
+) elreturn total app.run(debug=True) 
+
+total = 0 in items: 
+
+f.d= OrderProcessor(config.db) b.fetch(o__init__(self, db): 
+rder_id) 
+:0 app.run(debug=True) 
+status='processed') == '__main__': 
+processor = OrderProcessor(config.db) calculate_total(items): itorder: return False em in items: item in items: db): 
+def __init__(self, db): 
+processor = OrdeTrue 
+rProcessor(config.db) 
+item in items: if __name__ == '__main__OrderProcessor(config.db) 
+order = self.db.fetch(order_id) 
+': 
+status='processed') order: return Faldef apply_discount(price, rate): 
+se 
+process(self, order_id): 
+processor = OrderProcessor(config.db) total = 0 
+status='processed') 
+db): 
+def calculate_total(items): True self.db.update(order_id, status='processed') 
+return price * (1 - rate) status='processed') 
+= 0 
+= db+= item.price  def process(self, order_id): 
+def apply_discount(price, rate): 
+Tdb 
+rue total 
+
+= False 
+self.db.fetch(order_id) total += item.price += item.price status='processed') 
+app.run(debug=True) = Orrate): derProcessor(config.db) 0 
+item.price def calculate_total(items): 
+calculate_total(items): 
+order_idb): rate): 
+d): 
+True = OrderProcessor(config.db) app.run(debug=True) 
+
+'__main__': 
+
+
+apply_discount(price, rate): 0 
+= self.db.fetch(order_id) OrderProcessor: load_config() 
+processor = OrderProcessor(config.db)app.run(debug=Trapply_discount(price, rate): class OrderProcessor: for item in items: 
+return price * (1 - rate) uself.db.update(order_id, status='processed') 
+item.prself.db.update(order_id, status='processed') 
+config = load_config() 
+OrderProcessor(config.db) 
+True - rate) * (1 - rate)total 
+
+item.price total += item.price 
+total rate) 
+
+recalculate_total(items): 
+turn t__name__ == '__main__': self.db.fetch(order_id) 
+ot= load_config() 
+al 
+itdb): 
+OrderProcessor: ems: status='processed') 
+processor.process_all() 
+db): 
+nprocessor.process_all()processor.process_all() 
+process(self, order_id): 
+
+def calculate_total(items): 
+= status='processed') 
+order: return False def apply_discount(price, rate): def apply_discount(price, rate): 
+0= self.db.fetch(order_id)  
+otself.db = db 
+rate):  order: return False not order: return False db OrderProcessor: 
+self.db.update(order_id,'__main__': item in items: (1 - rate)  status='processed') 
+= db ice= db 
+
+e)  db): item in itemsseltotalrate): processor = OrderProcessor(config.db) 
+ f.item.price 
+ rate) 
+ db.self.db.update(order_id, status='processed') 
+ = self.db.fetch(order_id) == '__main__': fetch(order_id) 
+: return True item.price 
+
+return True return True 
+* (1 - rate) total 
+
+= db 
+config = load_config() 
+ritems: items: processor.process_all() 
+order: return False 
+ate):  __namapply_discount(price, rate): e__ == '__main__': processoreturn True r.process_all() 
+ if __name__processototal += item.price def apply_discount(price, rate): r.process_all() 
+  == '__main__': True = 0 
+= load_config() 
+
+__ == '__maistatus='processed') ordself.db.update(order_id, status='processed') 
+OrderProcessor: er: return False OrderProcesso0 r(1 - ratedef __init__(self, db): apply_discount(price, rate): ) 
+se(1 - rateTrue 
+) lself.db.update(order_id, status='processed')totaself.db.update(order_id, status='processed') = db l 
+item.price 
+f.db.update= load_config() (oself.db.update(order_id, status='processed') 
+processor.process_all() process(self, order_id): 
++= item.price 
+
+dfor item in items: = db 
+= d- rate) apply_discount(price, rate): b == '__main__': app.run(debug=True) Trureturn True 
+items: total 
+e== '__main__':  ef process(self, oitem in items: 
+rder_id): 
+self.db.update(oOrderProcessor: 
+return total 
+rdapp.run(debug=True) 
+return total item.price calculate_total(items): total += itemprocessor.process_all() .pdef process(self, order_id): processor.process_all() 
+processor.process_all() order: return False 
+rice er_id, status='processed'return total config = load_config() ) 
+rder_id, status=totain items: apply_discount(price, rate): True l = 0 return total = db 'processed') status='processed') 
+def calculate_total(items): processor.process_all() 
+def calculate_total(items): 
+status='processed') def process(self, order_id): for item in items: 
+return True OrderProcessor: 
+
+app.run(debugself.db.updatorder = self.db.fe= db 
+def apply_discount(price, rate): app.run(debug=True) 
+
+tch(order_id) 
+def calculate_total(items): e(order_id, status='processed') if not order: return False 
+def calculate_total(items): 
+
+rate) 
+(1 - rate) 
+=Tdb r= db return True app.run(debug=True)calculate_total(items): 
+ ue) def process(self, order_id): 
+r== '__main__': return total status='processed') 
+'__main__': eturn totconfig = load_config()'__main__': 
+ al return False 
+order = self.db.fetch(order_id) def calculate_total(items): return total status='processed') 
+processor = OrderProcessor(config.db) 
+0  load_config(item in items: ) 
+calculate_total(items= OrderProcessor(config.db) ): return False : n__': renot ordeitem in itemsfor item in items: 
+: r: reFalse True load_db): 
+cappprocess(self, order_id): = self.db.fetch(order_iddef calculate_total(items): ) 
+= self.db.fetch(order_id) rate): 
+self.db.update(order_id, staif __name__ == '__main__': 
+= load_config() __init__(self, db): tus='processed') 
+def process(self, order_id): app.run(debug=True) 
+lyself.db.fetch(order_id= self.db.fetch(order_id) 
+) self.db.update(order_id, status='processed'self.db.update(order_id, status='processed') 
+) rate): 
+
+_= self.db.fetch(order_id) 
+0 
+0 
+self.db.fetch(order_id) == '__main__': order: return False 
+'__main__': idb 
+'__main__': 
+f __name__ == '__main__': 
+processor.process_all() 0 OrderProcessor(config.db) processor = OrderProcessor(config.db) 
+s- ratetotal = 0 __name__ == '__main__':return True 
+ ) elf.db.update(order_id, status='processed') 
+total = 0 
+
+discount(price, rate): total = 0 onfig() self.db.update(orconfig = load_config() 
+total += item.price 
+processor = OrderProcessor(config.db)def process(self, order_id): = load_config() 
+calculate_total(items): 
+appin items: .run(debug=True+= item.price 
+)Falseproceself.db.update(order_id, status='processed') ss(app.run(debug=True) self, order_app.run(debug=True) self.db.update(order_id, status='processed') 
+iditem in items: process(self, order_id): 
+=in items:__init__(self, db): 
+0 (1 - rate) 
+processor = OrderProcessor(config.db) 
+
+ rprocessor.process_all() 
+ eturn totaapp.run(debug=Trueitem in items: 
+ process(self, order_id): self.db.fetch(order_id) 
+ ) = db False 
+
+ def __init__(self, db):return True 
+OrderProcessor(config.db)   db): 
+ l seload_config() self.db.fetchapply_discount(price, rate): status='processed') 
+ calculate_total(items): (order_id) lf.db.fself.db.update(order_id, status='processed') 
+ self.db = db rate): 
+ return True db): for item in items: 
+
+ etrate): 0 order: return False 
+ ch(order_id) self.db = db app.run(debug=True) self.db.update(order_id, status='processed') return True True 
+ calculate_total(items)total += item.price : 
+- rate) == '__main__': __processor.process_all() 
+name__ =app.run(debug=Truprocessoprocessor total += item.price 
+or= self.db.fetch(order_id) derself.db.fetch(order_iself.db = db 
+dself.db.fetch(order_id) self.db.update(order_id, status='processed'OrderProcessordef apply_discount(price, rate): : 
+) ) _id): 
+apply_discount(price, rate): 
+= Orderate): def calculate_total(items): 
+self.db = db 
+rin items: 
+order_id)def calculate_total(items):return price * (1 - rate) 
+db 
+class OrderProcessor: apply_discount(price, rate):total += item.price 
+
+
+lrate): 
+processor.process_all(= load_config() 
+self.db.fetch(order_id) 
+) process(self, order_id): 
+
+def calculate_total(items): 
+== '__main__': 
+otoapp.run(debug=True) items: tal order_id): process(self, order_id): 
+db): - rate) == '__main__': 
+load_confdef '__main__': 
+Trunot order: return False 
+__name__ == '__main__': def process(self, order_id): 
+e process(self, order_id)load_config() 
+processor = OrderProcessor(config.db) 
+if not order: return False 
+processor = OrderProcessor(config.db) db): process(self, order_id): 
+def __init__(self, db): = total 0 
+def apply_discountself.db.update(oapp.run(debug=True) 
+def process(self, order_id): 
+== '__main__': 
+order: return False 
+rdeOrderProcessor: r_iorder_id): 
+d* (1 - rateOrderProcessor: ) 
+, status='processed') (price, rate): 
+app.run(debuif not order: return False 
+total += item.price item in items:'__main__': 
+* (1 - rate) 
+
+
+ifself.db.update(order_id, status='processed') 
+rate)  __name__ == '__main__': 
+db g=Tru= db 
+processor.process_all()config = load_config()self.db.fetch(order_id) item.price 
+def calculate_total(items):item.priceprocessor = OrderProcessor(config.db) 
+
+app.run(debug=True) 
+
+
+e) == '__main__':== '__main__':True += item.price def process(self, order_id): app.run(debug=True) 
+= db self.db = db = OrderProcessor(config.db) 
+
+return True app.run(debug=True) 
+ app.run(debug=True) 
+ : self.db.fetch(order_id) return True 
+igif __name__ == '__main__': '__maif __name__ == '__main__': itotal n__': 
+
+True ()calculate_total(items): 
+status='processed') in items:for item in items: def calculate_total(items): total = 0  = 0 def calculatetotal 
+_tot= OrderPr+= item.price ocessor(config.db) total += item.pricFalse calculate_total(items): 
+e total = 0 
+Ordb 
+derPrprocessor.process_all() 
+ocessor: al(items): 
+= db total return total total = 0 
++= item.priceconfig = load_config()  
+OrderProcessor:db 
+ config = load_config() self.db def __init__(self, db): 
+= dconfig = load_config() 
+breturn True 
+calculate_total(items):  
+dbprocdb): def __init__(self, db): 
+ess(self, orddef apply_discount(price, rate): 0 
+ostatus='processed') rder_id): er_iapply_discounitem.price in items: 
+t(price, rate): 
+d):self.db.update(orde= self.db.fetch(order_id) r_id, status='processed') = db 
+for item in== '__main__':  items: 
+ return True self.db.update(order_id, status='processed') 
+processor.process_all(rate) 
+total = 0 
+return total total = 0 self.db.fetch(order_id)return total  ) return total ststatus='processed')process(self, order_id):  
+atus='processed') 
+db): self.db = db 
++= item.price 
+load_config() item.price 
+
++= item.priceprocessor = OrderProcessor(config.db) 
+item in items: = 0 
+processor.process_all() total processor.process_all() 
+ OrderProcessor:   
+
+ad_config() total 
+apply_discount(price, rate): 
+processor.process_all() 
+
+oself= self.db.fetch(order_id) 
+.db = dbitem.pricenot order: return False total 
+def apply_discount(price, rate): 
+
+
+not order: return False def procecalculate_total(items): total += item.price ss(self, order_id): item.price se= db config = load_config() 
+self.db.update(order_id, status='processed') lfload_config() 
+processor.process_all() 
+app.run(debug=True) def calculate_tOrderProcessor(config.db) __init__(self, db): 
+otal(items): 
+serate): status='processed') 
+'__main__'process(self, order_id): : lf.db.update(order_id, status='processed') processor = OrderProcessor(config.db) 
+.return total def calculate_total(items): db = db item in items: if __name__ == '__main__': 
+
+OrderProcessor(config.db) def apply_discount(price, rate): def process(self, order_id): 
+app.ru+= item.price n(debug=True) db): procclass OrderProcessor: 
+processor.process_all() 
+total db): 
+essor.process_all() processor.process_all() 
+class OrderProcessor: __init__(self, db): rdreturn total 
+retclass OrderProcessor: OrderProcessor(config.db) 
+urn total 
+__name__ == '__main__': order = self.db.fetch(order_id) er = self.db.fetch(order_id) 
+oself.db.update(order_id, status='processed') 
+def calculate_total(items): 
+total += item.price rself.db.fetch(order_id) return False der_id): 
+:OrderProcessor: not order: return False  return TruOrderProcessor(config.db) total += item.price 
+total = 0 e 
+= db 
+def __init__(self, db): items: True 
+proitdb): calculate_total(items): 
+processor.process_all() app.run(debug=True)- rate)if __name__ == '__main__': 
+processor.process_all() def __init__(self, db): 
+ __init__(self, db): 
+
+eTrue 
+m in it(1 - rate) self.db = db 
+calculate_total(items): 
+adef __iorder_id): 
+nit__(self, db): pp.run(debug=True) OrderProcessor(config.db) OrderProcessor: status='processed') 0 
+= OrderProcessor(config.db) 
+= total = 0 
+process(self, order_id): return False '__main_def apply_discount(price, rate): 
+_def calculate_total(items): __name__ == '__main__': 
+= OrderProcessor: rate) 
+rate)order_class OrderProcessor: id): def calculate_total(items): 
+processor = OrderProcessor(config.db) 
+load_config()  
+0 ': self.db.fetch(order_idprocessor.process_all() total )def process(self, order_id):  
+'def __init__(self, db): 
+__main__': 
+if not order: return False rateitem.price False self.db.fetch(order_id) 
+item in items: True 
+
+rate): def __init__(self, db): = self.db.fetch(order_id) 
+
+= self.db.feprice * (1 - rate) 
+procesdef apply_discount(price, rate): 
+sortotal = 0 
+total = 0 .process_all() tch(order_id)if not order: retuapp.run(debug=True) 
+apply_discount(price, rtotal = 0total += item.price def calculate_total(items): = 0 processor.process_all() * (1 - rate) 
+
+ate): reself.db.update(order_id, status='processed') __name__ == '__main__': 
+status='processed') 
+tprocessor.process_all() urn total rn item.price False  __name__ == '__main__': processor.process_all() 
+db): 
+processor.process_all() 
+total += item.prprocessor.process_all() apply_discount(price, rate): 
+re__name__ == '__main__': 
+return True turreturn total 
+self.db.update(order_id, status='processed') OrderProcessor(config.db) return True 
+n price * (1 - rate) price * (1 - rate) * (1 - rate)self.db.fetch(order_idreturn True 
+__init__(self, db): 
+)  
+ice appapreturn price * (1 - rate) 
+False p.run(debug=True) total = 0 
+= db .item.price 
+run(debug=True) returnif not order: return False  True 
+load_config() OrderProcself.db = db OrderProcessor: 
+essorprocess(self, order_id): if __name__ == '__main__': (config.dbclass OrderProcessor: ) retuif __name__ == '__main__': rn True def apply_discount(price, rate): 
+rate): status='processed') 
+
+'__not order: return False in items: __init__(self, db): 
+0 = db total 
+OrderProcessor: for item in items: 
+
+main__': items: class OrderProcessor: return total= 0 
+confitems: 
+__init__(self, db): 
+app.run(debug=+= item.price True) ig = load_confiprocessor.process_all() 
+order = self.db.fetch(order_id) total += item.price g() 
+stself.db.update(order_id, status='processed') total += item.price atus='processedtotal += item.price 
+')  
+items: rTrue 0 return total ate):OrderProcessordb): item.price def calculate_total(items): 
+def calculate_total(items): def apply_discount(price, rate): 
+for item in items: : 
+
+): 
+= 0 = load_config() == '__main__':self.db.update(order_id, status='processed') 
+total += item.price 
+total = 0 
+total = 0 total += item.price return total 
+ems: order = self.db.fetch(oin items: rderate): 
+r_id)=rate): 
+= '__main__':  processor = OrderProcessor(config.db) 
+_order_id): OrderProcessor: 
+_name__ ==def process(self, order_id):calculate_total(items): OrderProcessor: (1 - rate) 
+processor.process_all() def process(self, order_id):  
+status='processed')  '__main__'order_id): : self.db.fetch(order_id) 
+
+return True 0 cessor = OrderProcess- rate) orprocessor.proceapply_discount(price, rate): 
+ss_all()apply_discount(price, return False 
+item.price 
+load_config() 
+rate): 
+aporder = self.db.fetch(order_id) 
+__init__(self, db): p.run(debug=True) 
+= load_config()  
+load_config() class OrderProcessor: 
+__name__ == '__main__': OrderProcessor: 
+def calculate_total(items): prorder = self.db.fetch(order_processor = OrderProcessor(config.db) id)= db  rate): ocessor.process_all() 
+* (1 - rate) calculate_total(items): apply_discount(price, rate)total : 
+return True calculatcalculate_total(items): apply_discount(price, rate): etotal += item.price in ite= 0 
+mfor item in items: self.db.update(order_id, status='processed')0 OrderProcessor(config.db)= self.db.fetch(order_id) 
+
+
+total = 0 
+= load_config() return False 
+total 
+app.run(debug=True) app.run(debug=True) 
+== '__main__': 
+
+
+
+== '__main__': sdef __init__(self, db): 
+db): 
+= self.db.fetch(order_id) 
+total = 0 item in items: : += item.price 
+self.db.OrderProcessor: 
+OrderProcessor(config.db) 
+return price * (1 - rate) update(order_id, status='processed') 
+total = 0 
+
+_total(items): 
+item in items: total 
+
+= OrderProcessor(config.db) __name__ == '__main__': 
+load_config() 
+to= load_config() tal OrderProcessostatus=db 
+'processed') r: return True total = 0 
+calculate_total(items): 
+calculate_total0 
+(items): 
+f= load_config()calculate_total(items): 
+
+or item in items: apitem.price p.run(debug=True) - rate)totalrate):(1 - rate) 
+config = load_config() db): 
+return total rate) load_config() True 
+
+sitem.price elf.db.update(order_id, status='processed') 
+total += item= self.db.fetch(order_id) OrderProcessor(config.dbstatus='processed') ) 
+.price if __name__ == '__main__': db 
+deorder_id): f process(self, order_id): process(self, order_id): = self.db.fetch(order_id) prconfig = load_config() __init__(self, db): 
+calculate_total(items): rate): 
+app.run(debug=True) 
+= selfconfig = load_config() True apply_discount(price, rateprocess(self, order_id): ): 
+= OrderProcessor(config.db) def __init__(self, db): 
+.db.fetch(ordedef calculate_total(items): procapp.run(debug=True) essor.process_all() 
+not order: return False __init__(self, db): class OrderProcessor: 
+
+rpapp.run(debug=Truein items: apply_discount(price, rate): order = self.db.fetch(order_id) 
+class OrderProcessor: = 0 
+total ) rocessor = OrderProcessor(config.db) 
+_id)return True prdef calculate_total(items): ocessor.process_load_config() 
+'__main__': 
+all()  
+0 return True self.db.update(order_id, status='processed') processor.process_all() def calculate_total(items): class OrderProcessor: return False db): 
+sel* (if not order: return False 1apply_+= item.price 
+items: 
+discount(price, rate): 
+ - processor = OrderProcessor(config.db)if not order: return False total OrderProcessor(config.d+= item.price b) 
+
+ rate) def calculate_app.run(debug=True) total(items): += item.priself.db.fetch(order_id) 
+app.run(debug=True) 
+ app.run(debug=True) ce 
+apply_discount(price, rate): OrderProcessor:  apply_discount(price, rate): 
+  rate) def __init__(self, db): db): f.db = db app.run(debug=True) 
+__init__(self, db): ice * (1if __name__ == '__main__total = 0 
+processor.process_all() ':  - raitem.price class OrderProcessor: 
+te) rate) def __initreturn Fdef calculate_total(items): 
+= OrderProcessor(config.db) alse 
+return Truereturn price * (1 - rate) 
+ def calculate_total(items): def __init__(self, db): 
+ == '__main__': self.db = db = self.db.fetch(order_id) 
+
+return False 
+(1 - ratdef calculate_total(items):if not order: returnself.db = db price * (1 - rate)  False  e) 
+__(self, db): += item.price 
+d0 
+ef apply_discount(price, rateOrderProcessor(config.db) ): 
+apdef apply_discount(price, rate): 
+total p.run(debug=Truerate) ) apply_discount(price, rate): config = load_config() 
+= db 0 item.price order: return False 
+rate)in items: def calculate_total(items): : processor.process_all() 
+apply_discount(priceclass OrderProcessoritems: rate): : 
+iftotal += item.price 
+apif __name__ == '__main__': ply_discount(price, rateclass OrderProcessor: 
+)total += item.price 
+self.db.fetch(order_idself.db.update(order_id, status='processed') - rate) 
+) 
+price * (1 - rate) = db O= 0 '__main__': 
+if __name__ == '__main__'return total __name__ == '__main__': 
+items: def calculate_total(items): 
+iteFalse lstatus='processed') 
+= load_config() 
+oad_config() items: 
+OrderProcessor(config.db) 
+in items: 
+
+processor.process_all() 
+re- rate) turn total 
+m in items: : __name__ == '__main__': 
+processprocessor.process_all() 
+processor.process_all() return price * (1 - rate) 
+
+(self, order_id)= load_config() : dse'__main__': 
+prorder_id): OrderProcessor(config.db) 
+processor = OrderProcessor(config.db) 
+self.db = db 
+ocessor.process_all() 
+app.run(debug=True) 
+processor.process_all() OrderProcessor(config.db) 
+class OrderProcessorstatus='processed') 
+: 
+price * (1 - rateprocessor = OrderProcessor(config.db) 
+detotal 
+processor.process_allitem.price () f apply_discount(price, rate): 
+) == '__main__': processor = OrderProcessor(config.db) 
+lf.db = db process(self, order_id): 
+
+eprocessor = OrderProcessor= db 
+(config.db) app.return price * (1 - rate) status='processed') 
+total 
+True def process(self, order_id): 
+app.run(debug=True) 
+proreturn True load_config() = db cessor = OrderProcessor(config.db) app.run(debug=True) rate) run(debug=Truereturn total 
+) return True 
+order_id): 
+def process(self, order_id): 
+sereturn True 
+liTrue return totalreturn total 
+ tem.pristatus='processed') 
+load_config() db)self.db = db OrderProcessor: 
+: ce 
+order_id): frdb): 
+eturetuapply_discount(price, ratetotal price * (1 - rate) 
+
+): rself.db.fetch(order_id)False 
++= item.price 
+ n Trutotal = 0rate):  = OrderProcessor(config.db) self.db.fetch(order_id) 
+
+
+class OrderProcessor: 
+total = 0 False e rn total items: 
+config = load_config() order: return False 
+db): order = self.db.fetch(order_id) 
+item.pri__name__ == '__main__':processor.process_all() total  ce processor = OrderProcessor(config.db) db): .db.fetch(order_id) 
+statotal += item.pricoritems: der: return Falsedef apply_discount(price, rate):  e tus='pin items: apply_discount(price, rate): 
+price * (1 - rate)db  OrderProcessor: 
+rstatus='processed') 
+ocessed') f def calculate_totalapp.run(debug=True) (items): aself.db.fetch(order_id)= ddef calculate_total(items): b 
+db): 
+
+dsta== '__main__': 
+tus=load_config() rate): for item in items: 'processed') 
+db ef process(self, order_idfor item in items: 
+):appltotal y_dreturn FalseOrderProcessor: 
+
+i+= item.price sco= OrderProcessor(config.db) 
+processor.process_all() 
+utotal nt(price, rate): self.db.update(order_id, status='processed') 
+- rate) __name__ == '__main__'return True 
+: 
+total == self.db.fetch(order_id)  0 
+ ppcalc= dTrue b 
+ ulareturn True 
+ app.run(debug=True) for item in items: te_total(items): lrate): processor.process_all() 
+dconfig = load_config() 
+b):self.db = db 
+'__main_processor = OrderProcessor(config.db) = load_config() 
+conprocess(self, order_id= 0 rate): 
++= item.price 
+dcalcprocessor.process_all()calculate_total(items): 
+
+def calculate_total(items): 
+ulate_total(items): 
+b =0  OrderProcessor(config.db) app.run(debug=True) 
+): fig = load_config() def calculate_total(items): items: 
+0def calculate_total(items)- ratedef apply_discount(price, rate): 
+) 
+: 
+ item in items: if __name__ == '__main__': - rate) - processor = OrderProcessor(config.db) rate) if not order: return False 
+
+apply_discount(price, rate)app.run(debug=True) 
+process(self, order_id): 
+: 
+def calculate_total(items)- rate) : order_id): return total 
+app.run(debug=True) def process(self, order_id): total += item.price 
+apload_config() 
+for item in items: 
+p.run(debug=True) 0 
+re= db turreturnOrderProcessor(configd+= item.price 
+OrderProcessor(config.db) b 
+0 
+order = self.db.fetch(order_id) .= 0 item.priceTrue return total item.price  
+
+db) calculate_total(items): (1 - rate) 
+rate): 
+
+prOrderProcessor: 
+oorder_id): cess(self, order_id): self.db = db return True 
+ Trdef __init__(self, db): ue n totalclass OrderProcessor: 
+for item in items:  
+prstatus='processed') def process(self, order_id): 
+ocessor.prprocessoorder: return False 
+== '__main__': 
+r.process_all() ocess_all() 
+prOrderProcessor: total += item.price apply_discount(price, rate): = db 
+ocessor = OrderProcessor(config.db)processor.process_all() 
+True 
+
+load_config() retFalsedef __init__(self, db): def calculate_total(items):db processor.process_all(process(self, order_id): 
+)'__main__': processor.process_all(return False )calculate_total(items):  ret= self.db.fetch(order_id) calculate_total(items): ufor item in items: 
+True 
++= item.price 
+calculate_total(items): = db 
+conif not order: return False fig = load_config() db 
+
+rn total __init__(self, db): 
+def calculate_total(ittotal = 0 order = self.db.fetch(order_id) app.run(debug=True) not order: return False 
+rate) return True ems): += item.price 
+db  app.run(debug=True) OrderProcessor(config.db) 
+'_calculateprocessor.process_all() _item.price total(items): _maindef process(self, order_idclass OrderProcessor:if __name__ == '__main__': def apply_discount(price, rate): 
+ ): __': (1 - = load_config() processor.process_all() 
+ pr= 0 status='processed') 
+ oceOrderProcessor: ssor = OrderProcessor(config.db) class OrderProcessor: total += item.price 
+ in items: not order: return False 
+ order_id):OrderProcessor(capp.run(debug=True) onfig.db)  def calculate_total(items): item.price 
+ OrderProreturn True db 
+ cessor(config.db) app.run(debug=True) 
+item.price  if __name__ == '__main_app.run(debug=True) _': 
+
+ self.db.fetch(order_idforder_id): 
+ or item in items: ) 
+
+adb pp.run(debug=True) 
+OrderProcessor(config.db) item in itemsapp.run(debug=True)__init__(self, db): 
+if not order: return False 
+ class OrderProcessor: 
+OrderProcessor: 
+item in items: 
+iapp.run(debug=True) total f __name__ == '__main__': def calculate_total(items): 
+: True rate): total += item.price 
+
+processor = OrderProcessor(config.db) 
+total += item.pricreturn total = self.db.fetch(order_id) 
+e= load_config() 
+calculate_total(items)order_id): : 
+
+processor = OrderProcereturn Trself.db.fetch(order_id) 
+ue ssororder_id): calculate_total(items): 
+= dOrderProcessorload_config() : b0  app.rtotal += item.pricfor item in items: = OrderProcessor(config.db) 
+e 
+un(debug=True) for item in items: 
+
+__iin itemsself.db.update(order_id, status='processed') 
+: 
+appload_config() status='processed') 
+ly_discount(price, rate)class OrderProcessor: = OrderProcessor(config.db) rate): 
+: nit__(self, db): =__name__ == '__main__':  def __init__(self, db): 
+load_config() coapp.run(debug=True) return total 
+nficlass OrderProcessor: 
+g = load_config() (config.db) = 0 * (1 - rate) app.run(debug=True) 
+0 
+== '__main__': rate): True calculate_total(items): 
+= load_config() 
+def calculate_total(items): def process(self, order_id): OrderProcessor: 
+processor.process_all() 
+app.run(debug=True) 
+idef calculate_total(items): __name__ == '__main__': n items: 
+dreturn False not order: return Faltotal se 
+
+ef process(self, order_idself.db = db 
+config = load_config() order_id): ): rate) True 
+status='processed') 
+
+total = 0 apply_discount(price, rate): 
+return price * (1 - rate) 
+
+iprocessor.process_all() = load_config() 
+teOrderProcessor: msprocessor.process_all() 
+processor.process_all() OrderProcessor(config.db) : 
+app.run(debug=TOrderProcessor(config.db) processor.process_all() rue) 
+status='processed') order = self.db.fetch(order_id) ur0 n = OrderProcessor(config.db) 
+iapp.run(debug=True) 
+f __name__ == '__main__': True db): 
+'__main__process(self, order_id): 
+':r__init__(self, db): 
+ate) 
+ 0 
+
+rastatus='processed') 
+self.db.update(order_id, status='processed') 
+tfor item in items: 
+e): True return price * (1 - rate) 
+class OrderProcessor: processor.process_all() 
+= self.__init__(selforder_id): 
+, db): 
+status='processed') 
+class OrderProcessor: 
+db.fetprocess(self, order_id): ch(order_id) = OrderProcessor(config.db) order = self.db.fetch(order_idprocessor.process_all() ) if not order: return False 
+_def calculate_total(items): self.db = db 
+_name__ == '__main__': 
+order_id): 
+redef process(sself.db.update(order_id, status='processed') 
+app.run(debug=True) 
+item in items: 
+items: elf, order_id): t* (1 - rate) def cal__init__(self, db): 
+deTrue 
+freturn False 
+ process(self, order_id): __init__(self, db): culate_total(items): = load_config() 
+= self.db.fetch(order_id) - rate) defif __name__ == '__main__':  ap= self.db.fetch(order_id) 
+__init__(self, db):OrderProcessor(config.db) 
+config = load_config() 
+rate):app.run(debug=True) OrderProcessor:  
+item in items: 
+return True 
+
+OrFalse derProcessor: ply_discount(price, rate): 
+def pdef calculate_total(items):return True 
+ rocess(self, order_id): 
+total += item.pricetotal  
+if not order: return False return total 
++= item.prload_config() ice 0 
+processor.process_all() prreturn False ocessor.process_all() status='processed') 
+= load_config() order = self.db.fetch(order_id) 
+FTrue load_config() 
+item.price 
+self.db = db 
+processor.process_all() 
+= load_config() 
+load_config() total 
+alsif not order: return False 
+self.db.fetch(order_id) 
+if __name__ == '__main__': == '__main__': 
+e 
+ureturn totaprocessor.process_all() db True 
+l pitem.price roc= load_configprocessorprocessor = OrderProcessor(config.db) 
+def process(self, order_id)True 
+: ford= self.db.fetch(order_id) def calculate_total(items): 
+b  item in items: __name__ == '__main__': 
+.process_all()= OrderProcessor(config.db)  
+OrderProcessor: 
+True in items: return False = db apply_discount(price, rate): 
+
+() 
+OrderProorder_id): item in items: cessor: = self.db.fetch(order_id) item.price 
+in items: 
+
+self.db.fetch(orderself.db.update(order_id, status='processed')item in items: self.db = d= db b  
+processor.process_all() 
+_id) process(self, order_id): 
+
+== '__main__': return True 
+Ord= 0 processor.process_all() 
+erProcessor(config.dbdbTrue ): ) itemclass OrderProcessor: = load_config() 
+s: app.run(debug=True) 
+if not order: return FalsOrderProcessor(config.db) True 
+rstatus='processed') eturn True return total total = 0 
+= 0 
+
+order_id): 
+sorder: return False tatus='processed') 
+e 
+pdef __init__(self, db): rOrderProcessor: not order: return False '__main__': 
+ocess(self, order_id): OrderProcessor: 
+__self.db = db 
+name_== '__main__': self.db = db 
+de= self.db.fetch(order_id) += item.price 
+def apply_discount(price, rate): 
+f process(self, order_id): _ ==def __init__(self, db): 
+ '__main__': 
+return total = 0 False = db order_id): derate) f calculate_total(items): not order: return False 
+ordeprocessor.process_all() calculate_total(items): 
+OrderProcessor(config.db) rate): 
+r = self.db.fetch(order_id) status='processed') essor.process_all() 
+process(self, order_id): 
+rn prclass OrderProcessif not ototal += item.price rderitem in items: 
+if __name__ == '__main__': db): 
+config = load_config() 
+: reprocessor.process_all() 
+calculate_total(items): def calculate_total(items): 
+calculate_total(itemsTrureturn total items: 
+OrderProcessorrate): 
+not order: return False : e ): order: return False self.db.fetch(order_id) total += item.price 
+tforder_id)items: 
+: 
+or item in items: '__main__': urload_config() process(self, order_id): 
+if not order: return False 
+rate) 
+ndef apply_discount(price, rate): config = load_config() 
+ Fatotal lse or: order_id): == 'class OrderProcessor: 
+ calculate_total(items): return total __main__'OrderProcessor: self.db.update(order_id, status='processed') 
+:= dbprocessdef __init__(self, db): return True 
+for item in items: 
+app.run(debug=True) ortotal += item.price Ordorder = self.db.fetch(order_id) self.db.update(order_id, status='processed') 
+calculate_total(items): 
+erProcessor: 
+'__main__': total process(self, order_id): 0 
+process(self, order_order_id): 
+id): def process(self, order_id): = self.db.fetch(order_id) 
+def process(self, order_id): 
+app.run(debug=True) 
+
+app.run(debug=True) order_id): for item in items:  def apply_discount(price, rate):rate):  
+seclass OrderProcessor: 
+def calculate_total(items): = OrderProcessor(config.db) 
+= load_config() def __init__(self, db): self.db.update(order_id, status='processed') 
+def apply_discount(price, rate): lf.d* (1 - rate) 
+staorder = self.db.fetch(order_id) tus='processed') 
+b = db 
+load_configclass OrderProcessor: 
+()in iteorder: return False ms: def calculate_total(items): 
+
+return total price * (1 - rate) order = self.db.fetch(ordetotal 
+r_id)return True  
+item in items: self.db.fetch(order_id) self.db.update(order_id, status='processed') 
+- rate) confi= OrderProcessor(config.db) g = load_config() app.run(debug=True) return True def __init__(self, db): 
+* (1 - rate) - rate) Orostatunot order: return False 
+s='processed') 
+= 0 db)app.run(debug=True) 
+: 
+rder = self.db.fetch(order_id)* (1 - rate) 
+ self.db.update(order_id, status='processed') 
+derPdef process(self, ornot order: return Fals= OrderProcessor(config.db) 
+e 
+din items: order: return False er_id): rocessorfor item in items: += item.price 
+total = 0 += item.price 
+OrOrderProFalse cessor: 
+processor.process_all() sta= lin items: 
+oad_config() 
+processor.process_all() tu== '__main__': 
+processor.process_all() item.price 
+
+s='processed') def calculate_total(items): 
+apply_discount(price, rate): 
+config = load_config() p= db self.db.fetch(order_id) 
+total = 0 
+== '__main__': 0 
+ro= self.db.fetch(order_id) 
+cessor.process_all() total += item.price 
+iapp.run(debug=True) 
+tem.price self.db.update(orde= 0 
+r_id, status='config = load_config() 
+processed') not order: return False 
+def calculate_total(items= 0 ):return True 
+= 0 = OrderProcessor(config.db) total 
+derProcessor(config.price * (1 - rate) total = 0 
+item in items: = load_config() 
+__init__(self, db): calculate_total(items): (1 - rate) def calculate_total(itemself.db = dprocess(self, order_id): 
+b s): 
+dTnot order: return False 
+ruitems: e 
+b) = sedb 
+processor.process_all() 
+def process(self, order_id): 
+lf.load_config() app.run(debug=True) 
+OrderPprocessor.process_all() rocessor(config.db) 
+'__main__': db.0 
+fdef apply_discount(price, rate): 
+etcif __name__ == '__main__': h(order_id) 
+False def apply_def apply_discount(price, rate): 
+discount(price, rate): processortotal 
+.process_all() processor.process_all() item in items: total 
+
+: - rate)0 prdef apply_discount(price, rate): 
+def apply_discount(price, rate)processor.process_all() * (1 - rate) : 
+sedef process(self, order_id): lf.db = dOrderProcessor: process(self, orderate) return price * (1 - rate) r_iapp.run(debug=True) d): 
+b orTrue 
+eturn True class OrderProapp.run(de= self.db.fetch(ordertotal 
+0 _id) 
+b= OrderProcessor(config.db) OrderProcessor(config.ddef apply_discount(price, rate): if not order: return False 
+self.db.update(order_id, status='processed') b) 
+= OrderProcessor(config.d__name__ == '__main__': b) 
+dorder = self.db.fetch(order_id) 
+== '__main__': order = self.db.fetch(orde0 load_config() r_id) db order_id): 
+app.run(debug=True) 
+eftotal = 0 def apply_discount(price, rate): 
+ cclass OrderProcessor: def __init__(self, db): 
+ alculate_total(items): - rate)items: 
+def calculate_total(items): 
+db 
+= load_config() 
+app.run(debug=True)item.price = db OrderProcessor: 
+
+return False price * (1 - rate) 
+statotal return total 
+True 
+toapp.run(debug=True) 
+rder: return False 
+us='processed')True  return Fals+= item.price return True 
+
+order: return False 
+returtotal += item.price nitems:  total self.db.fetch(order_id= load_config() 
+item.price 
+config = load_config() total += item.prnot order: return False ice def calculate_total(items): 
+return total= self.db.fetch(order_id) 
+return total  
+
+)self.db.update(order_id, status='processed') calculate_total(items): 
+load_config()  e 
+item in items: 
+
+False 
+self.db.update(order_id, status='processed') deapp.run(debug=True) f processor.process_all() 
+__init__(self, db): ug=True) 
+calculate_totitem in items: al(items): total = 0 
+cesprocessoreturn True OrderProcessor: 
+process(self, order_id): 
+
+r.return price * (1 - rate) 
+True 
+prapply_discount(price, rate): 
+if __name__ == '__main__': 
+ocess_all()t+= item.price OrderProcessor: 
+= OrderProcessor(config.db) otal items: processor.process_all()  sreturn Trapp.run(debug=True) self.db = db 
+False calculate_total(items): 
+order_id): ue or: = load_config() def apply_discount(price, rate): def process(self, order_id): 
+
+item.pricreturn False return True 
+e 
+not order: return False 
+
+de= OrderProcessor(config.db) def apply_discount(price, rate): def calculate_total(items): f process(self, order_id): = self.db.fetch(order_id) item in items: cessor.process_all()  rate) load_configstatus='processed') () db): 
+total += item.prtotal ice 
+__init__(self, db)def calculate_total(itemsdef process(self, order_idconfig = load_config() 
+= db 
+app.run(debug=True) total += item.price process(self, order_id):= self.db.fetch(order_id)order_id): 
+processor.process_all() 
+
+ ): )return True : 
+= 0cprocessor.process_all() = 0 
+def calculate_total(items): 
+status='processed') 
+= load_config()= self.db.fetch(order_id)total = 0 
+
+processor.process_all() 
+
+
+ototal += item.price 
+nfig = load_co= db nfig()if not order: return False  
+ : app.run(debug=Truif __name__ == db True '__main__': e)status='processed')  
+cself.db = db 
+processor = OrderProcessor(config.db) 
+load_conif __name__ == '__main__': def calculate_total(items): apply_discount(price, rate): 
+fig() onfprocessor = OrderProcessor(config.db)self.db.fetch(order_id)  
+True ig = load_config()return prprocessor.process_all() 
+ice * (1 - rate)  
+s(1 db - rate) 
+tatusstatus='processed') item in items: ='processed') += item.price= 0 
+ sprocessor = OrderProcessor(config.db) 
+ elf.db.update(order_id, status='processed') 
+ processor.process_all() 
+ __init__(self, db): True 
+app.run(debug=True) items: == '0 calculate_total(items)def apply_discount(price, rate): app.run(debug=True) 
+db): 
+self.db.fetch(order_id) 
+return True 
+== item in items: 
+class OrderProcessor== '__main__': : items: 
+'__main__': processor = OrderProcessor(config.db) 
+:app.run(debug=True)  
+= load_confiprocesreturn False sordef calculate_total(items): db):  = OrderProcessor(config.db) g() total += item.price 
++= item.price * (1 - rate) order_id): 
+(1 - rate) 
+
+order: return False 
+total += item.price 
+app.run(debug=True)items: return total 
+
+return total 0 
+
+app.run(debug=True) 
+procprocessor.process_all() esdef calculate_total(items): sor = OrderProcessor(config.db) = app.run(debug=idef apply_discount(price, rate): processor = OrderProcessor(config.db) n items: load_config() += item.rate): price 
+processor = OrderProcessor(config.db) 
+= 0 __ini'__main__': t__(self, db): - rate) 
+
+prprocessor = OrderProcessor(config.db) 
+processor = OrderProcessor(config.db) processor.process_all()= OrderProcessor(config.db)apply_discount(price, rate): 
+
+self.db = db 
+app.run(debug=True) 
+OrderProcessor: def apply_discount(price, rate): 
+
+False 
+= load_config() ocself.db = db 
+etotal += item.price 
+ssTrue True 
+__name__ == '__main__': total += item.price or.process_all() Torder_id): 
+ru- rate) e)TrueFFalse True 
+return True 
+order: return False 
+
+return total 
+areturn total lse return False self.db.update(order_id, status='processed') 
++= item.pitem.price processor.process_all() 
+db): rice total return price * (1 - rate) 
+item in items: 
+= 0 - rate) 
+
+items: 
+total += item.price status='processed') 
+app.run(debug=True) __name__ == '__main__': rate): total += item.price = load_config() 
+order_id): status='processed') processor.process_all() 
+
+  OrderProcessor(configcitem in items: oOrderProcessor: nfig = load_config() .db)= 0 def __init__(self, db):  
+= db if not order: returrate): proself.db.update(ordeapply_diprocessor.process_all() app.run(debug=True) scount(price, rate): r_id, status='processed') 
+processor.proces__name__ == '__main__': return True OrderProcessor(config.db) processor.process_allclass OrderProcessor: 
+() 
+self.db.fetch(order_id) 
+self.db = db s_all() cessor.process_areturn price * (1 - rate) app.run(debug=True) ll() not order: return Falsdef apply_discount(price, rate): e 
+def calculatereturn False _total(items): app.run(debug=True) return True 
+
+dself.db.updateTrue = db self.db.update(order_id, status='processed') (order_id, status='processed') 
+class OrderProcessor: 
+status='processed') ef calcu__init__(self, db): 
+for item in items: late_total(items)self.db = db item in items: : app.run(debug=True)for item in itemsitems: statusreturn totaldef apply_discount(price, rate): apply_discount(price, rate): OrderProcessor:  ='def __init__(self, db): proceapp.run(debug=True) ssed') 
+='__madef __init__(self, db): in__': = '__main__': OrderProcessor: 
+OrderProcessor: * (1 - rate) 
+app.run(debug=True) 
+pstatus='processed') ro= self.db.fetch(order_id) 
+__name__ == '__main__': 
+cessor.process_all() processor.process_all() 
+: def __init__(self, db): OrderProcessor: 
+ = db 
+n False 
+__not order: return False 
+self.db.update(order_id, status='processed') '__main__return total 
+':for item in items: (1 - rate) 
+
+process(self, order_id):  ma== '__main__': calculate_total(items): in__': processor.process_all() deOrderProcessor: 
+= load_config() f apply_disTrue ctotal += item.price ount(price, rate): 
+
+dself.db.update(order_id, status='processed') return total process(self, order_id): b)processor.proreturn False 
+cess_all() total += item.price rate): 
+in items: order_id): 
+app.run(debug=True) 
+
+OrderProcessor: False load_configself.db.fetch(order_id) order_id): 
+()if not order: return False True 
+class OrderProcessor:  
+dbFTrue class OrderProcessorif not order: return False 
+processor = OrderProcessor(config.db) 
+: 
+db): return True class OrderProcessorif __name__ == '__main__': load_config() 
+: 
+
+alse 
+= load_config() config = loaprocessor.process_all() d_config() 
+)def apply_discount(price, rate): : 
+: 
+r= 0 calculate_total(items):return True 
+ etprocessor.process_all() 
+ processor.process_all()db):  
+ urtotal 
+process(self, order_id): order_id): Falsreturn tot= load_config() 
+adbload_config() process(self, order_id):  order_id): 
+l 
+e 
+n self.db.update(order_id, status='processed') 
+OrderProcessor(config.db) 
+total reapply_discount(price, rate): 
+def calculate_total(items): OrderProcesso(1 - ratapply_discount(price, rate): 
+process(self, order_id): 
+e) 
+= self.db.fetch(order_id) r: 
+totaorder: return False 
+orprocess(self, order_id): load_config() der = self.db.fetch(order_id) l 
+def calculate_total(items)process(self, order_id): order_id): : 
+(1 - rate) 
+if __name__ == order: return False class OrderProcessor: '__main__': turn True 
++=in items: if __name__ == '- ratotal += item.price 
+return total= load_config()  return True 
+te) __main__': total for item in items: 
+
+ item.price 
+= items: self.db = db app.run(debug=True) 
+
+OrderProcessor(config.db) 
+app.run(debug= load_config() 
+total = 0 
+__name__ == '__main__': 
+pitem in items: return total 
+rice * (1 - rate) =True) += item.price 
+
+load_config() calcreturn total process(self, order_id):app.run(debug=True) order = self.db.fetch(order_id) total += item.price = 0 
+ ula= 0 te_total(items): return price * (1 - rate) return False 
+self.db = dbif __name__ == '__main__':  
+
+dself.db.update(order_id, status='processed') calculate_total(items): == '__maFalse in__': b (1 - rate) iprocessor.process_all() f __name__ == '__main__': price * (1 - rate) 
+sproreturn total cessor.process_all() __name__ == '__main__': 
+db 
+def apply_discount(price, rate): 
+rate) True 
+processor = OrderProcesorder = self.db.fetch(order_id) sor(config.db) order_id)status='processed') return True : 
+def calculate_total(items+= item.price 
+): 
+return total db): 
+process(self, order_id): Tapp.run(debug=Trueclass OrderProcessor: 
+) 
+rue OrderProcessor(config.db) caconfig = load_config() lculate_total(items): in process(self, order_id): 
+def aself.db = db status='processed') 
+pply_discount(price, rate): 
+item in items: True 
+
+total += item.price = db process(self, order_id):return price * (1 - rate)  process(self, order_id):def __init__(self, db): 
+
+
+processor.process_all() 
+process(self, order_status='processed') total rate): 
++= item.price 
+id): 
+sreturn total 
+tatus='processed') def calculate_totaltotal 
+(itdef process(self, order_id): ems): for item in items: 
+for item in items: items: 
+class OrderProcessorstatus='processed') 
+0 : 
+for item in items: 
+deTrue f calculate_total(items)db): 
+: 
+prodb 
+cessoapp.run(debug=True) 
+return total 
+def calculate_total(items): r.self.db.fetch(order_id) process_all() tatu+= item.price s='processed') processor.process_all() price = db 
+* (1 - rate) 
+order = self.db.fetcapply_di= 0 
+scount(price, rate): 
+h(order_id) = OrderProcessor(config.d+= item.price 
+__init__(self, db): b)  self.db.fetch(order_id) 
+re+= item.price class OrderProcessor: 
+rate)not order: return False = load_config() 
+: 
+ditem.price 
+calculate_total(items): self.db.update(order_id, status='processed') 
+== '__main__': 
+0 ef def __init__(self, db): 
+__in items: init__(self, db): turn price * (1 - rate) 
+
+defOrderProcessor(config.db) status='processed') 
+ __init__(self, db): def calculate_total(items): 
+ic__init__(self, db): app.run(debug=True) == '__main__': 
+ein items: app.run(debug=True) processor.process_all() 
+
+
+ * (1 - apply_discount(price,capp.run(debug=True+= iteself.db.update(order_id, status='processed') app.run(debug=True) config = load_config() m.price ) lass OrderProcessor:  rate)process(self, orprocess(self, order_id): 
+dereturn totareturn total l 
+r_id)order_id): if __name__ == '__main__': 
+
+: 
+'__OrderProcessor(config.db) total return totaltotal += item.priprocessor.process_all() 
+ce 
+db 
+__name__ == '__main__': 
+config = load_config() 
+mitem in items: ain__': s- rate) elf.db.fetchprocess(self, order_id): def process(self, order_id): 
+(class OrderPrprocessor.process_all() order_id): oceprocess(self, order_id): 
+ssor: db proc'__main_apply_discount(price, rate): _class OrderProcessor: app.run(debug=True) ': essor.process_all() processor.process_all()def apply_discount(price, rate):  
+
+def corder: return False def __init__(self, db): return False = 0 return price * (1 - rate) process(self, order_id): 
+== '__main__': 
+def apply_discount(price, rate)order = self.db.fetch(order_id) = 0True  processor.process_all() = db db): 
+: = OrderProcessor(config.db) 
+
+alcstadb order: return False tu(1 - rate) s='processed') 
+ulate_total(items): dapp.run(debug=True) b 
+load_config() load_config() class OrderProcessor: 
+__init__(self, db): order = self.db.fetch(order_idtotal = 0 
+)= OrderProcessor(config.db) 
+if not order: return False status='processed') 
+
+True 
+status='processed') 
+= self.db.fetch(order_id) self.db.fetch(order_id) rate) = 0 
+order_id) processor.process_all() 
+total = load_config()self.db.update(order_for item in items: order = self.db.fetch(order_id) == '__main__':processor.process_all() 
+
+
+id, status='processed') db 
+ :__init__(self, db): 
+  rate)self.db.fetch(order_iddef process(self, order_id): * (1 - rate) 
+)  
+- rate) _': = 0 += iTrue 
+tem.price calculate_total(items): 
+return True 
+= load_config() 0 
+def apply_discount(price, rate): self.db = db 
+
+Tru0load_config() processor.process_all() self.db.update(order_id, status='processed') def process(self, order_idef __init__(self, db)total = 0 
+rate) 
+: 
+d): 
+
+== '__main__': 
+ e 
+total = 0 processor.process_all() order: return False 
+
+0 load_con== '__main__': def __init__(self, db): forder: return False igconfig = load_config() 
+= 0 retuapp.run(debug=True) db rn price * (1 - rate) 
+() 
+y_discclass OrderProcessorcalculate_total(items): : 
+self.db.fetch(order_id) s== '__total main__': return total edb def process(self, order_id): 
+rate) 
+processor.process_all() 
+lf.db.update(oprocessor.process_all() rapp.run(debug=True) derdef calculate_total(items): status='processed'db 
+db 
+self.db = db ) _id, status='processed') 
+oself.db.fetch(order_id) 
+unt(priOrderProcessor(config.db) ce, rateapply_discount(price, rate): itemsitem in items: in iteapply_discount(price, rate): ms: : 
+return True 
+
+db): ): rself.db.fetch(order_id) d= self.db.fetch(order_id) erProcprocess(self, order_id): total essor(config.db) 
+rin items: 
+ate) 
+=app.run(debug=True)  0 apply_disc= self.db.fetch(order_idprice * (1 - rate) )= self.db.fetch(order_id) OrderProcessor(config.db) 
+
+OrderProcessor(config.db) == '__main__': totaclass OrderProcessor: l += item.prorder = self.db.fetch(order_id) 
+iapp.run(debug=True) 
+ce ount(price, rate): 
+:status='processed') 
+apply_discount(price, rate): 
+
+d__init__(self, db): 
+rate): Trueapply_discount(price, rate):  
+eclaFalse ss OrderProcessor: apply_discount(price, rate): 
+return True f apply_discount(price, rate): return Fals- rate) 
+class OrderPtotal += item.price 
+rocessor:self.db = db  
+== '__main__'= self.db.fetch(order_id) 
+db total = 0 : db 0 def calculate_total(items): 
+e  not order: return Falapp.run(debug=True) 
+load_config() self.db = db 
+
+setotal self.db = db 
+ , rate): 
+__naitem in items: me__ == '_OrderProcessor(config.db) 
+total = 0self.db.update(order_id, status='processed') 
+0  
+_main__': 
+r__OrderProcessor(config.db) 
+status='processed') name__ == '__main__': itclass OrderProcessor: 
+self.db.update(ord- rate) er_id, status='processed') emstatus='processed') .price return total OrderProcessor: self.db = db 
+return True 
+
+app.run(debug=True) eturn price * (1 - rate) 
+status='processed') total = 0 
+stfor item in items: procesconfig = load_config() process(self, order_id): db def calculate_total(items): sor.OrderProcessor: db): 
+process_allTrue return total 
+
+it0 eprocessor.process_all() order = self.db.fetch(order_id) order_id): order: return Falsdef __init__(self, db): 
+e 
+
+db 
+False 
+m.price = self.db.fetch(order_id) () 
+db): 
+'items: __main__': rate): atreturn price * (1 - ratreturn False = load_config() def process(self, order_id): 
+def apply_discount(price, rate): 
+0 
+prload_config() 
+ice * (1 - rate) 
+defitem.price 
+ apply_discount(price, rate): 
+def calculate_total(items): 
+processor = OrderProcessor(config.db) 
+e)= db 
+ us='processed') 
+(process(self, order_id): config.dbTrue def calculate_total(itemsclass OrderProcessor: ): 
+= db def __init__(self, db): 
+prin items: processoorder_id): 
+self.db.update(order_id, status='processed'calculate_total(items): 
+) 
+r.process_all()def apply_discount(price, rate): = db = OrderProcecalculate_total(items): 
+def process(self, order_id): ssor(config.db)  
+ocess(self, order_id)= db load_conOrderProcessor: 
+figprocessor = OrderProcessor(config.db) total = 0 return False 
+total += item.pri* (1 - rate) 
+def cce 
+() 
+OrderProcessor(config.0
+app.run(debug=True) : 
+) return price * (1 - rate) 
+total 
+
+Processor(config.db) def calculate_total(items):self.db.update(order_id, status='processed')  = load_config() += item.price 
+= load_config() 
+(1 - rate) 
+db): 0 
+* (1 - rate) return price * (1 - rate) rate) 
+sself.db.fetch(order_id) 
+'__main__': price * (1 - rate) 
+True 
+etotal 
+lf.db.upddef calculate_total(items): 
+ate(order_id, status='processed') 
+rdef calculate_total(items): 
+db): 
+OrderProcessor(config.db) class OrderProcessor:total 
+rate): 
+True False  
+
+.process_all() 
+calculatitems: if not order: return False e_total(items): total = 0 e) total = 0processor.process_all() 
+= OrderProcesstprocessor.process_alltotal () otal += iterate): __init__(self, order: return False 
+OrderProcessor: processor.process_all() 
+dpreturn price * (1 - rate) 
+price * (1 - rate) order = self.db.fetch(order_itotal += item.price 
+def calculate_total(items): pcalculate_total(items): 
+rocessor.process_all() app.run(debug=True) 
+processor.process_altotal l() d) rocessor.process_all() b total = 0 db): 
+total = 0 return True True m.price 
+return True == '__main__': 
+'__main__': or(config.db) 
+calculate_total(items):  = '__main__': 
+
+):self.db = db    processor.process_all() 
+self.db.fetch(order= load_config() __name__ == '__main__': _id) 
+total += item.price 
+
+def process(self, order_id): 
+ decalculate_total(items): calculate_total(items): 
+OrderProcessor(config.dbdef process(self, order_id): 
+) 
+Ordstatus='pstatus='processed') rocessed') '__main__': self.db = db 
+
+return True erProcessor(config.db) 
+return price * (1 - rate) 
+if __name__ == '__main__': config = load_config() True 
+
+total 
+def calculate_total(items): 
+processor.prself.db.update(order_id, status='processed') ocess_all(class OrderProcessor: 
+processor.process_all() ) r_id, status='processed') - rate) apply_db 
+discount(price, rate): 
+OrderProcessor: self.db = db 
+self.db.update(order_id, status='processed') process(self, order_id): 
+titems: ototal += item.pif __name__ == '__main__': if __name__ == '__main__': ricprocessor = OrderProcessor(config.db) 
+e total tal total self.db.fetch(order_id) def __init__(self, db): OrderProcessor: '__main__': 
+turprocessor = OrderProcessor(conf__init__(self, db): igprocess(self, order_id): 
+.d* (1 - rate) 
+bTrue ) n False turn total += item.price 
+pprocessor.process_all() items: roceconfig = load_config() app.run(debug=True) 
+total = 0 app.run(debug=True) 
+ss(1 - rate) or.process_all() culate_total(items): __i= OrderProcessor(config.db)rate): 
+True 
+
+status='processed'def __init__(self, db): processor.process_all() 
+) nit__(self, db): processor = OrderProcessor(config.dbprocess(self, order_id): 
+) 
+'__mairate):processor.process_all() processor.process_all() 
+
+n__': 
+rate): 
+if not order: return False 
+item in items: )  apply_discount(price, ratTrue OrderProcessor(config.dbprocessor.process_all() 
+) e): 
+self.db.update(order_id, status='processed') def calculate_total(items): 
+
+
+total += item.price 
+= db 
+
+apTrue total * (1 - rate) 
+class OrderProcessor: processor.process_all() def __init__(self, db)def __init__(self, processor.process_all() processor.process_all() 
+'__main__': if __name__ == '__main__': 
+db): : 
+db): '__main__item in items:== '__main__':  
+cprorder = self.db.fetch(order_id) total = - rate) total += item.price 0 oorder: return False cessor = OrderProcessor(config.dbrate) 
+) 
+app.run(debug=True) 
+def calculate_total(items): 
+lass OrderProcessor: - rate) ': 
+=__init__(= db self, db): 
+ aapptotal += item.pricereturn total load_config() 
+  ly_discount(prif not order: return False 
+ ice, rate): rate): 
++= item.priceTrue 
+price * (1 - rate) def __init__(self, db): 
+ item.price 
+ for item in items: 
+ t0 order: return False app.run(debug=True) 
+ class OrderProcessor: order_id): class OrderProcessor: 
+ total += item.price 
+status='processeddef calculate_total(items): ') in items: 
+status='processed') 
+OrderProcessor(config.db) 
+pr+= item.price ocess(self, order_id)__name__ == '__main__': 
+processor = OrderProcessor(config.db) app.run(debug=True) 
+: 
+ otal += item.price 
+status='processed') 
+
+ p= 0 
+ ply_discount(price, rate):- rate) 
+
+'__main__': 
+cdb 
+aprice * (1 - rateorder: return False total += item.price load_config() 
+)0 return False 
+totaldb db): 
+ = 0  
+not order: return False 
+def calcula__name__ == '__main__': __init__(self, db): 
+return False 
+'__mainOrderProcessor: total += item.price __'processor = OrderProcessor(config.db) 
+: te_total(items): dself.db.fetch(order_id) b 
+db): 
+lself.db.fetch(order_id) c=db  0 app.run(debug=True) return total 
+
+== '__main__': apitems: p.run(debug=True) 
+- rate) load_config()stareturn total 
+== '__main__': 
+tus='processed') 
+ ul= OrderProcessor(config.db) 
+ return total 
+ ate_toapp.run(debug=True) 
+ tal(items): = self.db.fetch(order_id) 
+
+order_id): db def calculate_total(items): return total = 0 
+sreturn Falsstatus='processed') self.db.fetch(order_id) 
+e *= db  (1 - rate) 
+elf.db = dbOrderProcessor(config.db)  
+self.db = db 0 
+db): class OrderProcessor: 
+ratereturn price * (1 - rate) 
+for item in items: 
+) 
+
+p.return False 
+db): 
+__init__(self, db):return False 
+ order: return Falsprocessor.process_all() e self.db.update(order_id, status='processed') 
+
+ap__init__(self, db): 
+def calculate_total(items): 
+__name__ == '__main__': 
+return total = return True 
+db status='processed'not order: return False ) 
+p.run(debug=True) def apply_discount(price, rate): item in items: 
+ru= load_config()return total order = self.db.fetch(order_id) 0 
+
+ n(debug=Truapp.run(debug=True) 
+ config = load_config() processor = OrderProcessor(config.db) self.db = db 
+ e) 
+= 0 OrderProcessor: 
+False return total 
+item.price 
+
+= 0= load_config(def apply_discount(price, rate): '__main__': 
+def calculate_total(items): ) 
+ app.run(item.price 
+OrderProcessor: __init__(self, db): debdef __init__(self, db): 
+in items: 
+ug=True) 
+def calculate_total(items)app.run(debug=True) 
+: 
+OrderPdef __init__(self, db): 
+self.db = db 
+rocessor(config.db) 
+rate): 
+total = 0app.run(debug=True)  
+app.= OrderProcessor(config.db) 
+status='processed') 
+not order: return False db): 
+
+runorder: return Falsclass OrderProcessor: 
+def process(self, order_id): price * (1 - rate) e (debug=True) processor.process_all() 
+
+__init__(self, db): order_id): 
+load_config() 
+return True 
+return price * (1 - ratprocessor.process_all() apply_discount(price, rate): e) 
+a= db 
+ppapply_discount(price, rate): 
+= load_config() .run(debug=Trudb e)db 
+ order = self.db.fetch(order_id) 
+processor.process_all() 
+app.run(debug=Truenot* (1 - rate)  order: return False 
+status='processedOrderProcessor: if __name__ == '__main__': class OrderProcessor: def apply_discount(price, rate): app.run(debug=True) ') 
+def calculate_tdef apply_discount(price, rate): 
+True 
+otal(items): __init__(self, db): 
+def process(self, order_id): ) = self.db.fetch(order_id) = load_config() erProcessor(config.db) 
+iself.db.fetch(order_id) False tem in items: 
+== '__main__': 

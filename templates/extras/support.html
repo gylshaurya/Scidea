@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'support.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="help-support-container">
+    <div class="sidebar">
+        <ul>
+            <li class="tab-link active" data-tab="faq">FAQs</li>
+            <li class="tab-link" data-tab="contact">Contact Support</li>
+            <li class="tab-link" data-tab="links">Quick Links</li>
+        </ul>
+    </div>
+    <div class="tab-content-container">
+        <div id="faq" class="tab-content active">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-section">
+                <h3>💎 Getting Started</h3>
+                <div class="faq-item">
+                    <h4>How do I create an idea on Scidea?</h4>
+                    <p>Click on the “Write” button in the navbar. Fill in your title, your idea, and select relevant tags. Adding a title and selecting tags is optional. You can choose to publish it or save it as a draft.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I save an idea without publishing it?</h4>
+                    <p>Yes. Simply click “Save as Draft” in the write idea page. You can edit and publish it later from your Drafts tab in the profile dropdown.</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>✒️ Editing and Managing Content</h3>
+                <div class="faq-item">
+                    <h4>Can I edit my published ideas?</h4>
+                    <p>Yes. Go to your profile, select the idea, and click Edit. You can only edit your own ideas and drafts.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I delete a post?</h4>
+                    <p>Open your idea, click the three-dot menu, and choose Delete. Deletion is permanent and cannot be undone.</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>🌐 Comments and Community</h3>
+                <div class="faq-item">
+                    <h4>Can others comment on my ideas?</h4>
+                    <p>Yes, comments are open to the community. You can reply to feedback, ask questions, and foster discussion.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I turn off comments on my idea?</h4>
+                    <p>Currently, all public ideas have comments enabled to encourage open innovation. A future feature may allow disabling them.</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>🔖 Bookmarks and Drafts</h3>
+                <div class="faq-item">
+                    <h4>How do I bookmark an idea?</h4>
+                    <p>Click the bookmark icon on any idea. You can access your bookmarks from your profile under the Bookmarks tab.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Are bookmarks public?</h4>
+                    <p>Bookmarks are private by default, but you can make them public from your profile settings.</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>🏷️ Tags and Categories</h3>
+                <div class="faq-item">
+                    <h4>How do I choose tags for my idea?</h4>
+                    <p>While writing your idea, use the tag selector to search and select tags that describe your post best.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if the tag I want doesn’t exist?</h4>
+                    <p>If a relevant tag doesn’t exist, you can suggest one using the <a href="{% url 'feedback' %}">Feedback</a> page, under “Suggest a Feature.”</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>👤 Profiles and Settings</h3>
+                <div class="faq-item">
+                    <h4>What’s visible on my public profile?</h4>
+                    <p>Your profile shows your name, username, profile picture, bio, public posts, and optionally bookmarks and interest tags.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I change my username or profile picture?</h4>
+                    <p>Go to your profile and click “Edit Profile.” You can change your name, username, bio, social links, and more.</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>🚫 Safety and Reporting</h3>
+                <div class="faq-item">
+                    <h4>What do I do if I see inappropriate content?</h4>
+                    <p>Click the three-dot menu on any post or comment and select “Report”. Your report is confidential and reviewed by moderators.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I block users?</h4>
+                    <p>This feature is not currently available, but it's on our roadmap. Use the report feature for now.</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>🛠️ Technical & Miscellaneous</h3>
+                <div class="faq-item">
+                    <h4>I lost my draft. Can I recover it?</h4>
+                    <p>Drafts are saved only if you click “Save as Draft.” We recommend saving frequently. Autosave is planned for a future update.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What formats are supported in posts?</h4>
+                    <p>For now, post are limited to plain text, formatting (like headings and bullet points), uploading images or links are planned for future versions.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is Scidea free to use?</h4>
+                    <p>Yes. Scidea is free for all users.</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        
+        <div id="contact" class="tab-content">
+            <div class="contact-support">
+                <h2>Contact Support</h2>
+                <p>If you're facing an issue, have a question, or need help with anything related to Scidea, feel free to reach out to us directly.</p>
+                <p><strong>Email us at:</strong></p>
+                <a href="mailto:scidea.mail@gmail.com" class="email-link">scidea.mail@gmail.com</a>
+                
+                <button class="icon-btn" onclick="copyLink(this, 'scidea.mail@gmail.com')">
+                    <i class="bi bi-copy"></i> <span class="copy-text"></span>
+                    
+                </div>
+                
+            </div>
+            
+            <div id="links" class="tab-content">
+                <h2>Quick Links</h2>
+                <ul class="quick-links">
+                    <li><a  href="{% url 'guidelines' %}">Community Guidelines</a></li>
+                    <li><a href="{% url 'feedback' %}">Give Feedback</a></li>
+                    <li><a href="{% url 'profile_tab' username=request.user.username %}">My Profile</a></li>
+                    <li><a href="{% url 'create_post' %}">Write an Idea</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endblock %}
+        
+        {% block script %}
+        
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const tabs = document.querySelectorAll(".tab-link");
+                const contents = document.querySelectorAll(".tab-content");
+                
+                tabs.forEach(tab => {
+                    tab.addEventListener("click", () => {
+                        // Remove active class from all tabs and content
+                        tabs.forEach(t => t.classList.remove("active"));
+                        contents.forEach(c => c.classList.remove("active"));
+                        
+                        // Add active class to clicked tab and related content
+                        tab.classList.add("active");
+                        const content = document.getElementById(tab.dataset.tab);
+                        if (content) {
+                            content.classList.add("active");
+                        }
+                    });
+                });
+            });
+            
+            function copyLink(button, link) {
+                navigator.clipboard.writeText(link).then(() => {
+                    const textSpan = button.querySelector(".copy-text");
+                    const originalText = textSpan.textContent;
+                    textSpan.textContent = "Copied!!";
+                    setTimeout(() => {
+                        textSpan.textContent = originalText;
+                    }, 3000);
+                });
+            }
+            
+            
+        </script>
+        
+        {% endblock %}
+        

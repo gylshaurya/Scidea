@@ -397,7 +397,7 @@ nav .profile-dropdown-content a .bi {
     font-size: 18px;
     margin-right:8px;
     position:relative;
-    top:-0.1rem;
+    top: 0rem;
     vertical-align: middle;
     display: inline-flex;
     align-items: center;

@@ -199,7 +199,7 @@
     border: 1px solid #ccc;
     background-color: #f4f4f4;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .post-actions button:hover {

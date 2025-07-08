@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'feedback.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+<div class="toast-container">
+    {% for message in messages %}
+        <div class="toast-message {% if message.tags %}{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<div class="feedback-container">
+    <div class="sidebar">
+        <ul>
+            <li class="tab-link active" data-tab="feedback">Give Feedback</li>
+            <li class="tab-link" data-tab="bug">Report a Bug</li>
+            <li class="tab-link" data-tab="feature">Suggest a Feature</li>
+        </ul>
+    </div>
+    
+    <div class="tab-content-container">
+        <div id="feedback" class="tab-content active">
+            <h2>General Feedback</h2>
+            <form class="feedback-form" method="POST">
+                {% csrf_token %}
+                <label for="email">Your Email (Optional)</label>
+                <input type="email" name="email" placeholder="Enter your email if you'd like a reply">
+                
+                <label for="message">Your Feedback</label>
+                <textarea name="message" placeholder="Share your experience, ideas, or issues..." required></textarea>
+                
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+        
+        <div id="bug" class="tab-content">
+            <h2>Report a Bug</h2>
+            <form class="feedback-form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="email">Your Email (Optional)</label>
+                <input type="email" name="email" placeholder="Enter your email if you'd like updates">
+                
+                <label for="description">Bug Description</label>
+                <textarea name="description" placeholder="Describe the issue you encountered in detail..." required></textarea>
+                
+                <div class="file-upload-wrapper">
+                    <label for="attachments" class="file-upload-label">
+                        <i class="bi bi-paperclip"></i> Attach Files
+                    </label>
+                    <h5>*You can attach upto 3 images/videos (Optional)</h5>
+                    <input type="file" id="attachments" name="attachments" accept="image/*,video/*" multiple>
+                    
+                    <div class="file-info-wrapper">
+                        <ul id="file-list"></ul>
+                        <button type="button" id="clear-files" style="display: none;">Clear Files</button>
+                    </div>
+                </div>
+                
+                
+                <button type="submit">Report Bug</button>
+            </form>
+        </div>
+        
+        <div id="feature" class="tab-content">
+            <h2>Suggest a Feature</h2>
+            <form class="feedback-form" method="POST">
+                {% csrf_token %}
+                <label for="email">Your Email (Optional)</label>
+                <input type="email" name="email" placeholder="Enter your email if you'd like follow-up">
+                
+                <label for="idea">Feature Suggestion</label>
+                <textarea name="idea" placeholder="Describe the feature you'd like to see and how it would help..." required></textarea>
+                
+                <button type="submit">Submit Suggestion</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".tab-link");
+        const contents = document.querySelectorAll(".tab-content");
+        
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                contents.forEach(c => c.classList.remove("active"));
+                
+                tab.classList.add("active");
+                document.getElementById(tab.dataset.tab).classList.add("active");
+            });
+        });
+    });
+    
+    document.getElementById("attachments").addEventListener("change", function () {
+        const fileList = document.getElementById("file-list");
+        const clearBtn = document.getElementById("clear-files");
+        fileList.innerHTML = "";
+        
+        if (this.files.length > 3) {
+            alert("You can only upload up to 3 files.");
+            this.value = "";
+            clearBtn.style.display = "none";
+            return;
+        }
+        
+        Array.from(this.files).forEach(file => {
+            const li = document.createElement("li");
+            li.textContent = file.name;
+            fileList.appendChild(li);
+        });
+        
+        if (this.files.length > 0) {
+            clearBtn.style.display = "inline-block";
+        }
+    });
+    
+    document.getElementById("clear-files").addEventListener("click", function () {
+        const input = document.getElementById("attachments");
+        const fileList = document.getElementById("file-list");
+        input.value = "";
+        fileList.innerHTML = "";
+        this.style.display = "none";
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const toast = document.querySelector(".toast-message");
+        if (toast) {
+            setTimeout(() => {
+                toast.remove();
+            }, 15000); // 4 seconds
+        }
+    });
+</script>
+{% endblock %}

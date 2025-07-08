@@ -11,6 +11,10 @@ from users.models import CustomUser
 from .forms import PostForm, CommentForm, EditProfileForm
 from .models import Post, Tag, Upvote, Comment
 
+from django.core.mail import EmailMessage
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
 
 def home(request):
     tag_id = request.GET.get('tag')
@@ -47,6 +51,72 @@ def home(request):
 
 
 
+def guidelines(request):
+    return render(request, 'extras/guidelines.html', {})
+
+def support(request):
+    return render(request, 'extras/support.html', {})
+
+from django.core.mail import EmailMessage
+from django.contrib import messages
+from django.shortcuts import render, redirect
+
+def feedback(request):
+    if request.method == 'POST':
+        email = request.POST.get('email', 'No email provided')
+        form_type = None
+        subject = ''
+        message_body = ''
+
+        # Identify which form was submitted
+        if 'message' in request.POST and 'description' not in request.POST:
+            form_type = 'User General Feedback'
+            subject = f"{form_type}"
+            message_body = request.POST.get('message')
+
+        elif 'description' in request.POST:
+            form_type = 'Bug Report'
+            subject = f"User Bug Report"
+            message_body = request.POST.get('description')
+
+        elif 'idea' in request.POST:
+            form_type = 'Feature Suggestion'
+            subject = f"User Feature Suggestion"
+            message_body = request.POST.get('idea')
+
+        else:
+            messages.error(request, "Unknown form submitted.")
+            return redirect('feedback')
+
+        # Construct email content
+        email_content = f"{message_body}"
+
+        # Prepare email
+        email_obj = EmailMessage(
+            subject=subject,
+            body=email_content,
+            from_email='scidea.mail@gmail.com',
+            to=['scidea.mail@gmail.com'],
+            reply_to=[email] if email else None,
+        )
+
+        # Handle multiple attachments
+        files = request.FILES.getlist('attachments')
+        for f in files:
+            email_obj.attach(f.name, f.read(), f.content_type)
+
+        try:
+            email_obj.send()
+            messages.success(request, "Thank you! Your feedback has been sent.")
+        except Exception as e:
+            print("Email sending error:", e)
+            messages.error(request, "There was an error sending your feedback. Please try again later.")
+
+        return redirect('feedback')
+
+    return render(request, 'extras/feedback.html')
+
+
 
 @login_required
 def create_post(request):
@@ -59,11 +129,10 @@ def create_post(request):
             post.status = 'published' if 'publish' in request.POST else 'draft'
             post.save()
 
-            selected_tag_ids = request.POST.get('selected_tags', '')
+            selected_tag_ids = request.POST.getlist("selected_tags[]")
+
             if selected_tag_ids:
-                tag_id_list = [tag_id for tag_id in selected_tag_ids.split(',') if tag_id.isdigit()]
-                tag_objects = Tag.objects.filter(id__in=tag_id_list)
-                post.tags.set(tag_objects)
+                post.tags.set(selected_tag_ids)
             else:
                 post.tags.clear()  # Just to be safe
 
@@ -71,6 +140,7 @@ def create_post(request):
     else:
         form = PostForm()
     return render(request, 'ideas/create_post.html', {'form': form, 'tags': tags})
+
 
 
 @login_required

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'guidelines.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="guidelines-wrapper">
+    <h1>Scidea Community Guidelines</h1>
+    <p class="last-updated">Last updated: July 2025</p>
+
+    <section>
+        <h2>1. Welcome to Scidea</h2>
+        <p>Scidea is a platform for thinkers, builders, and innovators to share, explore, and grow groundbreaking ideas. To ensure a respectful, productive, and safe space for everyone, we've established these Community Guidelines. Your use of Scidea implies agreement to follow these principles.</p>
+    </section>
+
+    <section>
+        <h2>2. Our Core Values</h2>
+        <ul>
+            <li><strong>Respect:</strong> Treat everyone with dignity, regardless of their background or opinion.</li>
+            <li><strong>Integrity:</strong> Share only original content or credit your sources appropriately.</li>
+            <li><strong>Curiosity:</strong> Engage with new ideas thoughtfully and constructively.</li>
+            <li><strong>Transparency:</strong> Communicate honestly and avoid deceptive or misleading content.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Acceptable Content</h2>
+        <p>You may publish ideas, discussions, and comments that are thoughtful, well-reasoned, and align with our mission of promoting intellectual innovation. Content should be:</p>
+        <ul>
+            <li>Original and written by you.</li>
+            <li>Relevant to Science and related fields</li>
+            <li>Clear of hate speech, personal attacks, spam, or misinformation.</li>
+            <li>Free of illegal content or encouragement of harmful behavior.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Prohibited Behavior</h2>
+        <p>Users engaging in the following behaviors may face warnings, content removal, or account suspension:</p>
+        <ul>
+            <li>Harassment, bullying, or targeted abuse.</li>
+            <li>Impersonation of individuals or organizations.</li>
+            <li>Infringement of intellectual property rights.</li>
+            <li>Malicious reporting or manipulation of community tools (e.g., upvotes).</li>
+            <li>Use of bots, scripts, or automation to game visibility or stats.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Commenting Etiquette</h2>
+        <p>Comments are meant to foster discussion, not destruction. When replying to posts or participating in threads:</p>
+        <ul>
+            <li>Stay on topic and add value.</li>
+            <li>Critique ideas, not people.</li>
+            <li>Avoid inflammatory language or tone.</li>
+            <li>Use evidence or examples to support your thoughts.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Intellectual Property</h2>
+        <p>By posting on Scidea, you confirm that your content is yours or properly attributed. You retain ownership of your ideas, but grant us a license to display them on our platform. Report any copyright concerns to our support team.</p>
+    </section>
+
+    <section>
+        <h2>7. Moderation and Enforcement</h2>
+        <p>We reserve the right to remove content that violates these guidelines. Users may be warned or banned depending on the severity and frequency of violations. You can appeal decisions through our <a href="{% url 'support' %}">Help & Support</a> page.</p>
+    </section>
+
+    <section>
+        <h2>8. Reporting Violations</h2>
+        <p>If you see behavior or content that breaches our policies, please report it using the ⋯ icon present in posts. All reports are reviewed carefully and appropriate action will be taken.</p>
+    </section>
+
+    <section>
+        <h2>9. Updates to These Guidelines</h2>
+        <p>We may revise these guidelines from time to time. Continued use of Scidea after changes means you agree to the new terms. We’ll notify users of significant updates through our platform or email.</p>
+    </section>
+
+    <section>
+        <h2>10. Contact</h2>
+        <p>If you have questions or suggestions regarding these guidelines, reach out via our <a href="{% url 'support' %}">Help & Support</a> page.</p>
+    </section>
+</div>
+{% endblock %}

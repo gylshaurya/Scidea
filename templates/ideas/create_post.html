@@ -3,6 +3,8 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'base.css' %}">
 <link rel="stylesheet" href="{% static 'create_post.css' %}">
+<link rel="stylesheet" href="{% static 'tomselect_custom.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -12,32 +14,56 @@
     <form method="POST">
         {% csrf_token %}
         <input type="text" name="title" class="post-title"
-               placeholder="Title - e.g. “A new theory of gravity from string tension”"
-               value="{{ form.title.value|default_if_none:'' }}">
+            placeholder="Title - e.g. “A new theory of gravity from string tension”"
+            value="{{ form.title.value|default_if_none:'' }}">
+
         <textarea name="content" class="post-content"
-                  placeholder="Describe your idea in detail. Add evidence, reasoning, or experiments." required>{{ form.content.value|default_if_none:'' }}</textarea>
+            placeholder="Describe your idea in detail. Add evidence, reasoning, or experiments."
+            required>{{ form.content.value|default_if_none:'' }}</textarea>
 
         <!-- Tags Selection -->
-
-        <h3>Select Tags</h3>
+        <div class="tags-label-with-info">
+  <h3>Select Tags</h3>  
+  <div class="info-icon-container">
+    <span class="info-icon">𝒊</span>
+    <div class="info-tooltip">
+      Tags help others find and understand your idea. They categorize your post and make it easier to search.
+      <br><br>
+      They can either describe the topic of your idea (e.g. Physics, Biology) or the type of post (e.g. Hypothesis, Observation).
+    </div>
+  </div>
+</div>
 
         <div class="tags-container">
-            <div class="tags">
+            <select id="tag-selector" name="selected_tags[]" multiple placeholder="eg. Physics or Hypotheses">
                 {% for tag in tags %}
-                <div class="tag" data-id="{{ tag.id }}">{{ tag.name }}</div>
+                <option value="{{ tag.id }}">{{ tag.name }}</option>
                 {% endfor %}
-            </div>
+            </select>
+
         </div>
-        <input type="hidden" id="selectedTags" name="selected_tags">
 
         <div class="button-container">
             <button type="submit" name="save_draft" class="save-draft">Save As Draft</button>
-            <button type="submit" name="publish" class="post-submit">Publish Idea</button>
+            <button type="submit" name="publish" class="post-submit">Publish</button>
         </div>
     </form>
 </div>
 
 <script src="{% static 'js/create_post.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        new TomSelect("#tag-selector", {
+            plugins: ['remove_button'],
+            create: false,
+            // REMOVE maxItems if you want all tags
+            sortField: {
+                field: "text",
+                direction: "asc"
+            }
+        });
 
+    });
+</script>
 {% endblock %}
-
