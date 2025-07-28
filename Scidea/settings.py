@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 import environ
 
 load_dotenv()
+client_id = os.getenv("CLIENT_ID")
+client_secret = os.getenv("CLIENT_SECRET")
 
 import cloudinary.api
 import dj_database_url

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'settings.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="settings-container">
+    <h1>Settings</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="profile_picture">Profile Picture</label>
+            <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+            {% if user.profile.profile_picture %}
+            <img src="{{ user.profile.get_profile_picture }}" alt="Current Profile Picture" class="current-profile-pic">
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="{{ user.profile.name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required>
+        </div>
+        <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" rows="4">{{ user.profile.bio }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" value="{{ user.profile.location }}" required>
+        </div>
+        <div class="form-group">
+            <label for="website">Website</label>
+            <input type="url" id="website" name="website" value="{{ user.profile.website }}">
+        </div>
+        <div class="form-group">
+            <label for="social_links">Social Links</label>
+            <input type="text" id="social_links" name="social_links" value="{{ user.profile.social_links }}" placeholder="e.g., Twitter, LinkedIn">
+        </div>
+        <div class="form-group">
+            <label for="notifications">Notifications</label>
+            <select id="notifications" name="notifications">
+                <option value="all" {% if user.profile.notifications == 'all' %}selected{% endif %}>All</option>
+                <option value="mentions" {% if user.profile.notifications == 'mentions' %}selected{% endif %}>Mentions Only</option>
+                <option value="none" {% if user.profile.notifications == 'none' %}selected{% endif %}>None</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="privacy">Privacy Settings</label>
+            <select id="privacy" name="privacy">
+                <option value="public" {% if user.profile.privacy == 'public' %}selected{% endif %}>Public</option>
+                <option value="private" {% if user.profile.privacy == 'private' %}selected{% endif %}>Private</option>
+                <option value="friends" {% if user.profile.privacy == 'friends' %}selected{% endif %}>Friends Only</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="language">Language</label>
+            <select id="language" name="language">
+                <option value="en" {% if user.profile.language == 'en' %}selected{% endif %}>English</option>
+                <option value="es" {% if user.profile.language == 'es' %}selected{% endif %}>Spanish</option>
+                <option value="fr" {% if user.profile.language == 'fr' %}selected{% endif %}>French</option>
+                <option value="de" {% if user.profile.language == 'de' %}selected{% endif %}>German</option>
+                <option value="zh" {% if user.profile.language == 'zh' %}selected{% endif %}>Chinese</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="timezone">Timezone</label>
+            <select id="timezone" name="timezone">
+                <option value="UTC" {% if user.profile.timezone == 'UTC' %}selected{% endif %}>UTC</option>
+                <option value="America/New_York" {% if user.profile.timezone == 'America/New_York' %}selected{% endif %}>America/New York</option>
+                <option value="Europe/London" {% if user.profile.timezone == 'Europe/London' %}selected{% endif %}>Europe/London</option>
+                <option value="Asia/Tokyo" {% if user.profile.timezone == 'Asia/Tokyo' %}selected{% endif %}>Asia/Tokyo</option>
+                <option value="Australia/Sydney" {% if user.profile.timezone == 'Australia/Sydney' %}selected{% endif %}>Australia/Sydney</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="theme">Theme</label>
+            <select id="theme" name="theme">
+                <option value="light" {% if user.profile.theme == 'light' %}selected{% endif %}>Light</option>
+                <option value="dark" {% if user.profile.theme == 'dark' %}selected{% endif %}>Dark</option>
+                <option value="system" {% if user.profile.theme == 'system' %}selected{% endif %}>System Default</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="two_factor_auth">Two-Factor Authentication</label>
+            <input type="checkbox" id="two_factor_auth" name="two_factor_auth" {% if user.profile.two_factor_auth %}checked{% endif %}> Enable
+        </div>
+        <div class="form-group">
+            <label for="delete_account">Delete Account</label>
+            <button type="button" class="delete-account-btn" onclick="confirmDelete()">Delete Account</button>
+        </div>
+        <button type="submit" class="save-btn">Save Changes</button>
+    </form>
+</div>
+<script>
+
+</script>
+{% endblock %}

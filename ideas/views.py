@@ -54,8 +54,13 @@ def home(request):
 def guidelines(request):
     return render(request, 'extras/guidelines.html', {})
 
+
 def support(request):
     return render(request, 'extras/support.html', {})
+
+def settings(request):
+    return render(request, 'settings.html', {})
+
 
 from django.core.mail import EmailMessage
 from django.contrib import messages

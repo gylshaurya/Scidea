@@ -76,11 +76,11 @@
                 <li><a href="#"><i class="bi bi-bookmark"></i>Bookmarks</a></li>
                 <li><a href="#"><i class="bi bi-file-earmark-text"></i>Drafts</a></li>
                 <hr class="profile-dropdown-divider">
-                <li><a href="#"><i class="bi bi-gear"></i>Settings</a></li>
+                <li><a href="{% url 'settings' %}"><i class="bi bi-gear"></i>Settings</a></li>
                 <hr class="profile-dropdown-divider">
-                <li><a href="{% url 'feedback' %}"><i class="bi bi-chat-left-text"></i>Feedback</a>
-                <li><a href="{% url 'guidelines' %}"><i class="bi bi-journal-check"></i>Guidelines</a></li>
-                <li><a href="{% url 'support' %}"><i class="bi bi-question-circle"></i>Help and Support</a>
+                <li><a href="{% url 'feedback' %}"><i class="bi bi-activity"></i>Feedback</a>
+                <li><a href="{% url 'guidelines' %}"><i class="bi bi-signpost-split"></i>Guidelines</a></li>
+                <li><a href="{% url 'support' %}"><i class="bi bi-patch-question"></i>Help and Support</a>
                 </li>
                 <hr class="profile-dropdown-divider">
                 <li><a href="{% url 'logout' %} " class="logout-btn"><i class="bi bi-box-arrow-right"></i>Log Out</a>

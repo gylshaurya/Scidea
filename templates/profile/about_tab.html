@@ -4,27 +4,21 @@
     <p class="about-bio">{{ user_profile.bio }}</p>
   {% endif %}
 
-  {% if user_profile.interest_tags.exists %}
+  {% if user_profile.interests %}
     <h3>Interests</h3>
-    <div class="about-tags">
-      {% for tag in user_profile.interest_tags.all %}
-        <span class="tag">{{ tag.name }}</span>
+    <ul class="about-interests">
+      {% for interest in user_profile.interests %}
+        <li class="interest">{{ interest }}</li>
       {% endfor %}
-    </div>
+    </ul>
   {% endif %}
 
-  {% if user_profile.instagram or user_profile.linkedin or user_profile.twitter %}
-    <h3>Socials</h3>
+  {% if user_profile.social_links %}
+    <h3>Social Links</h3>
     <ul class="social-links">
-      {% if user_profile.twitter %}
-        <li><a href="{{ user_profile.twitter }}" target="_blank"><i class="bi bi-twitter-x"></i> Twitter/X</a></li>
-      {% endif %}
-      {% if user_profile.instagram %}
-        <li><a href="{{ user_profile.instagram }}" target="_blank"><i class="bi bi-instagram"></i> Instagram</a></li>
-      {% endif %}
-      {% if user_profile.linkedin %}
-        <li><a href="{{ user_profile.linkedin }}" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a></li>
-      {% endif %}
+      {% for platform, link in user_profile.social_links.items %}
+        <li><a href="{{ link }}" target="_blank">{{ platform }}</a></li>
+      {% endfor %}
     </ul>
   {% endif %}
 </div>
