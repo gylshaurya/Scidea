@@ -16,8 +16,9 @@ from dotenv import load_dotenv
 import environ
 
 load_dotenv()
-client_id = os.getenv("CLIENT_ID")
-client_secret = os.getenv("CLIENT_SECRET")
+email_host_password = os.getenv("EMAIL_HOST_PASSWORD")
+cloudinary_api_key = os.getenv("CLOUDINARY_API_KEY")
+cloudinary_api_secret = os.getenv("CLOUDINARY_API_SECRET")
 
 import cloudinary.api
 import dj_database_url
@@ -70,7 +71,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'scidea.mail@gmail.com'
-EMAIL_HOST_PASSWORD = 'awxi kmfk zikx rhfo'  # Use Gmail App Password, NOT your Gmail login
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Use Gmail App Password, NOT your Gmail login
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
@@ -114,8 +115,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 SOCIALACCOUNT_PROVIDERS['google']['APP'] = {
-    "client_id": "854951858535-5lca154045kjhlkoq0blhico55op4lun.apps.googleusercontent.com",
-    "secret": "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",
+    "client_id": os.getenv("GOOGLE_CLIENT_ID"),
+    "secret": os.getenv("GOOGLE_CLIENT_SECRET"),
     "key": ""
 }
 
@@ -153,8 +154,8 @@ CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
 # Cloudinary Configuration
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'drferwkzw',
-    'API_KEY': '611455434812374',
-    'API_SECRET': 'NWCsbvCoqcmwXjieES0lokou6X4',
+    'API_KEY': os.getenv("CLOUDINARY_API_KEY"),
+    'API_SECRET': os.getenv("CLOUDINARY_API_SECRET"),
 }
 
 cloudinary.config(
