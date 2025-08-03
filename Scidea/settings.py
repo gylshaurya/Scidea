@@ -115,8 +115,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 SOCIALACCOUNT_PROVIDERS['google']['APP'] = {
-    "client_id": os.getenv("GOOGLE_CLIENT_ID"),
-    "secret": os.getenv("GOOGLE_CLIENT_SECRET"),
+    "client_id": '854951858535-5lca154045kjhlkoq0blhico55op4lun.apps.googleusercontent.com',
+    "secret": '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',
     "key": ""
 }
 
