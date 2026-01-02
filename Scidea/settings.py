@@ -24,6 +24,8 @@ ALLOWED_HOSTS = [
     ".onrender.com",
 ]
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 SITE_ID = 1
 
 INSTALLED_APPS = [
@@ -82,19 +84,18 @@ AUTHENTICATION_BACKENDS = [
 
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
+        "APP": {
+            "client_id": os.getenv("GOOGLE_CLIENT_ID"),
+            "secret": os.getenv("GOOGLE_CLIENT_SECRET"),
+            "key": "",
+        },
         "SCOPE": ["profile", "email"],
         "AUTH_PARAMS": {"access_type": "online"},
-        "OAUTH_PKCE_ENABLED": True,
     }
 }
 
-SOCIALACCOUNT_PROVIDERS['google']['APP'] = {
-    "client_id": '854951858535-5lca154045kjhlkoq0blhico55op4lun.apps.googleusercontent.com',
-    "secret": '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',
-    "key": ""
-}
 
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000","https://*.onrender.com"]
 
 #-----------------------------------------------------------------------------------------------------------
 
