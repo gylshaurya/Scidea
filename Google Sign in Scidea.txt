@@ -1,5 +1,0 @@
-Google Sign in
-Secret Key:
-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
-Client Id:
-558786680504-b3mev0hn6lf9htdl6k9bkohlb279n910.apps.googleusercontent.com

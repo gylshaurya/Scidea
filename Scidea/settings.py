@@ -6,28 +6,13 @@ import environ
 import cloudinary.api
 
 load_dotenv()
-email_host_password = os.getenv("EMAIL_HOST_PASSWORD")
-cloudinary_api_key = os.getenv("CLOUDINARY_API_KEY")
-cloudinary_api_secret = os.getenv("CLOUDINARY_API_SECRET")
 
+#======================== SETUP ==========================
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-
 SECRET_KEY = os.getenv("SECRET_KEY")
-
-DEBUG = os.environ.get("DEBUG", "False") == "True"
-
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    ".onrender.com",
-]
-
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-
 SITE_ID = 1
-
 INSTALLED_APPS = [
     'ideas',
     'users',
@@ -54,16 +39,11 @@ INSTALLED_APPS = [
     'cloudinary'
 ]
 
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
 
-#----------------------------------------------------------------------------------------------------------
-#AUTH SETTINGS
-
-
-
-
+#=================== AUTHENTICATION ======================
 AUTH_USER_MODEL = 'users.CustomUser'
-
-# Allauth settings
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
@@ -74,8 +54,7 @@ SOCIALACCOUNT_SIGNUP_REDIRECT_URL = "/users/set-username/"
 LOGIN_REDIRECT_URL = "/"
 SOCIALACCOUNT_AUTO_SIGNUP = True 
 SOCIALACCOUNT_LOGIN_ON_GET = True
-
-
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000","https://*.onrender.com"]
 AUTHENTICATION_BACKENDS = [
     'users.backends.EmailAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -94,36 +73,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000","https://*.onrender.com"]
-
-#-----------------------------------------------------------------------------------------------------------
-
-
-
-# Cloudinary Configuration
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'drferwkzw',
-    'API_KEY': os.getenv("CLOUDINARY_API_KEY"),
-    'API_SECRET': os.getenv("CLOUDINARY_API_SECRET"),
-}
-
-cloudinary.config(
-    cloud_name=CLOUDINARY_STORAGE["CLOUD_NAME"],
-    api_key=CLOUDINARY_STORAGE["API_KEY"],
-    api_secret=CLOUDINARY_STORAGE["API_SECRET"],
-    secure=True,
-)
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-
-
-#------------------------------------------------------------------------------------------------------------
-
-
-env = environ.Env()
+#=================== DATABASE =======================
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if DATABASE_URL:
@@ -142,17 +92,29 @@ else:
         }
     }
 
+#================= Cloudinary ======================
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'drferwkzw',
+    'API_KEY': os.getenv("CLOUDINARY_API_KEY"),
+    'API_SECRET': os.getenv("CLOUDINARY_API_SECRET"),
+}
 
+cloudinary.config(
+    cloud_name=CLOUDINARY_STORAGE["CLOUD_NAME"],
+    api_key=CLOUDINARY_STORAGE["API_KEY"],
+    api_secret=CLOUDINARY_STORAGE["API_SECRET"],
+    secure=True,
+)
 
-#-------------------------------------------------------------------------------------------------------------
-#Less Frequent
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+#================== Less Frequent ===================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'scidea.mail@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Use Gmail App Password, NOT your Gmail login
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD") #Gmail App Password, NOT Gmail login
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
@@ -221,5 +183,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-#-----------------------------------------------------------------------------------------------------
+#=============================================================

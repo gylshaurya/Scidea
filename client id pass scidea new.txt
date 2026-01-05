@@ -1,5 +1,0 @@
-client id 
-854951858535-5lca154045kjhlkoq0blhico55op4lun.apps.googleusercontent.com
-
-client secret
-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

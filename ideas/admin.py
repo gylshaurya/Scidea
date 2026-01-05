@@ -1,9 +1,9 @@
 from django.contrib import admin
 from .models import Post, Tag, Upvote, Comment
 
-class CommentInline(admin.TabularInline):  # or admin.StackedInline if you want more space
+class CommentInline(admin.TabularInline):
     model = Comment
-    extra = 0  # don't show extra blank comment forms
+    extra = 0 
     readonly_fields = ('user', 'content', 'created_at')
     can_delete = False
 
@@ -28,5 +28,4 @@ class UpvoteAdmin(admin.ModelAdmin):
     list_filter = ('created_at',)
     search_fields = ('user__username', 'post__title')
 
-# Do NOT register Comment separately anymore
-# admin.site.register(Comment)  <- REMOVE this if it exists
+

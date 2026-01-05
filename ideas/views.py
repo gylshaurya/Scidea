@@ -126,25 +126,40 @@ def feedback(request):
 @login_required
 def create_post(request):
     tags = Tag.objects.all()
+
     if request.method == 'POST':
         form = PostForm(request.POST)
+
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.status = 'published' if 'publish' in request.POST else 'draft'
-            post.save()
 
-            selected_tag_ids = request.POST.getlist("selected_tags[]")
+            is_publish = 'publish' in request.POST
+            post.status = 'published' if is_publish else 'draft'
 
-            if selected_tag_ids:
-                post.tags.set(selected_tag_ids)
+            if is_publish and not post.content.strip():
+                form.add_error('content', 'Content is required to publish.')
             else:
-                post.tags.clear()  # Just to be safe
+                post.save()
 
-            return redirect('home')
+                selected_tag_ids = request.POST.getlist("selected_tags[]")
+                post.tags.set(selected_tag_ids)
+
+                if post.status == 'draft':
+                    return redirect('profile_tab_specific',
+                                    username=request.user.username,
+                                    tab='drafts')
+                else:
+                    return redirect('home')
+
     else:
         form = PostForm()
-    return render(request, 'ideas/create_post.html', {'form': form, 'tags': tags})
+
+    return render(request, 'ideas/create_post.html', {
+        'form': form,
+        'tags': tags
+    })
+
 
 
 
@@ -171,6 +186,10 @@ def post_detail(request, pk):
         'form': form,
         'upvoted': upvoted,
     })
+
+
+
+
 
 
 
