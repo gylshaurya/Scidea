@@ -2,8 +2,9 @@
 .post-card {
   display: flex;
   flex-direction: row;
-  gap: 1.2rem;
-  width: 100%;
+  gap: 0.3rem;
+  padding: 2rem 0;
+  width: 40%;
   margin: 0rem auto;
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 1.5rem;
@@ -11,11 +12,11 @@
 
 /* Left profile image */
 .author-photo {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  margin-top: 0.2rem;
+  margin-top: 0rem;
   flex-shrink: 0;
 }
 
@@ -26,64 +27,74 @@
   flex-direction: column;
 }
 
-.card-link {
-  display: inline-block;
-  width: 100%;
-  max-width: 45%;
-  margin: 0 auto;
-  text-decoration: none;
-  color: inherit;
-}
-
-
 /* Meta row: author and date */
 .post-meta {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  margin-top:-0.3rem;
+}
 
+.post-meta-2 {
+  display: flex;
+  flex-direction: column;
 }
 
 .author {
+  position: relative;
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: #333;
-  margin-top:0.3rem;
+  text-decoration: none;
+}
+
+.author:hover {
+    text-decoration: underline;
+    color: #000;
 }
 
 .date {
   font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 300;
   color: #666;
-  margin-top:0.3rem;
-  margin-left:0.3rem;
 }
 
 /* Post title */
 .post-title {
-  display: block;
-  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;       /* Show max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.1rem;
   font-weight: 800;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   font-family: 'Inter', sans-serif;
-  color: #333;
+  color: #222;
   text-decoration: none;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
 }
-
 
 /* Post excerpt */
 .post-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;       /* Show max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.9rem;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   line-height: 1.5rem;
   letter-spacing: 0.005em;
   color: #333;
+  padding-top: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* Tag badges */
@@ -91,13 +102,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 0.5rem 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .tag {
   font-size: 12px;
   padding: 0.35rem 0.8rem;
-  background-color: #f4f4f5;
+  background-color: #f4f4f4;
   border-radius: 12px;
   color: #333;
 }
@@ -105,7 +117,6 @@
 /* Top-right buttons (save, more) */
 .post-buttons {
   display: flex;
-  gap: 0.75rem;
   margin-left: auto;
 }
 
@@ -113,6 +124,8 @@
 .more-options {
   background: none;
   border: none;
+  padding: 10px;
+  border-radius: 100px;
   cursor: pointer;
   font-size: 0.9rem;
   color: #555;
@@ -121,18 +134,20 @@
 .post-buttons button:hover,
 .more-options:hover {
   color: #000;
+  background-color: #f4f4f5;
 }
 
 /* Bottom actions (like/comment) */
 .post-interactions {
   display: flex;
-  gap: 1rem;
   margin-top: 0.5rem;
 }
 
 .post-interactions button {
   background: none;
   border: none;
+  padding: 10px;
+  border-radius: 100px;
   font-size: 0.9rem;
   color: #555;
   cursor: pointer;
@@ -140,4 +155,5 @@
 
 .post-interactions button:hover {
   color: #000;
+  background-color: #f4f4f5;
 }

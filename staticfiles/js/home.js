@@ -32,8 +32,9 @@ const right = document.getElementById('scrollRight');
 
 
 window.addEventListener('scroll', function() {
-    const indicator = document.getElementById('scrollIndicator');
-    if (window.scrollY > 10 && indicator) {
+    const indicator = document.getElementById('scrollDown');
+    if (window.scrollY > 1 && indicator) {
       indicator.classList.add('hidden');
     }
   }, { once: true });
+
